@@ -1,0 +1,3 @@
+# Raw Shadow Inference Revision1
+
+状态：`task34_raw_shadow_inference_ready_for_evidence_dedup`。仅生成ShadowEventMention和文档账本，未生成EvidenceUnit或关系边。
