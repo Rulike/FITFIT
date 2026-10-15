@@ -1,0 +1,126 @@
+{
+  "contract_version": "v1",
+  "task": "task4_impact_decision",
+  "status": "draft",
+  "definitions": {
+    "Validity": "event-target pair is grounded by evidence and provenance",
+    "Direction": "positive / neutral / negative after event interpretation",
+    "Severity": "human gold risk_intensity on 1-5 scale",
+    "ImpactScore": "0.30*Severity + 0.25*Scope + 0.20*Urgency + 0.15*Novelty + 0.10*Evolution",
+    "AlertPriority": "route after credibility, impact, temporal and hard-rule checks"
+  },
+  "input_fields": {
+    "core": [
+      "sample_id",
+      "article_id",
+      "target_name",
+      "target_type",
+      "event_name",
+      "event_type",
+      "evidence_sentence",
+      "publish_time",
+      "provenance"
+    ],
+    "gold": [
+      "risk_intensity",
+      "severity_label"
+    ],
+    "credible_inputs": [
+      "credibility_score",
+      "source_entropy",
+      "member_count",
+      "cluster_cohesion_score"
+    ],
+    "csmar_inputs": [
+      "current_ratio",
+      "asset_liability_ratio",
+      "interest_coverage",
+      "operating_cashflow",
+      "roe",
+      "roa",
+      "revenue_growth",
+      "net_profit_growth",
+      "gross_margin",
+      "pe_ratio",
+      "industry_mean_pe"
+    ]
+  },
+  "axis_ranges": {
+    "Severity": [
+      1,
+      5
+    ],
+    "Scope": [
+      1,
+      5
+    ],
+    "Urgency": [
+      1,
+      5
+    ],
+    "Novelty": [
+      1,
+      5
+    ],
+    "Evolution": [
+      1,
+      5
+    ]
+  },
+  "axis_status": {
+    "Severity": "available",
+    "Scope": "missing_unlabeled",
+    "Urgency": "missing_unlabeled",
+    "Novelty": "missing_unlabeled",
+    "Evolution": "missing_unlabeled"
+  },
+  "impact_formula": "0.30*Severity + 0.25*Scope + 0.20*Urgency + 0.15*Novelty + 0.10*Evolution",
+  "impact_computable": false,
+  "credibility_impact_dual_axis": {
+    "credibility_gates_impact": true,
+    "low_credibility_abstain": true,
+    "missing_axis_abstain": true
+  },
+  "routes": {
+    "auto_alert": "validity=valid and impact_score>=4.0 and credibility_score>=0.75 and hard_rules=pass",
+    "key_review": "validity=valid and (3.0<=impact_score<4.0 or credibility_score<0.75 or hard_rules=conflict)",
+    "normal": "validity=valid and impact_score<3.0 and credibility_score>=0.75",
+    "suppress": "validity invalid, duplicate, or propagation noise",
+    "abstain": "missing axis, missing evidence, missing provenance, or unresolved rule conflict"
+  },
+  "evidence_trace": [
+    "target_name",
+    "event_name",
+    "evidence_sentence",
+    "publish_time",
+    "provenance",
+    "canonical_event_id",
+    "article_id"
+  ],
+  "decision_reason": [
+    "validity_failure",
+    "direction_conflict",
+    "hard_rule_conflict",
+    "missing_axis",
+    "low_credibility",
+    "duplicate_noise"
+  ],
+  "severity_gold_748": {
+    "count": 748,
+    "sample_id_unique": true,
+    "complete": true
+  },
+  "split_readiness": {
+    "cross_split_leak_total": 0,
+    "canonical_event_cross_split_leak": 0,
+    "final_test_available": false,
+    "model_selection_available": false,
+    "ready_for_formal_training": false
+  },
+  "financial_gate": {
+    "company_row_coverage_rate": 0.9985815602836879,
+    "overall_row_coverage_rate": 0.9411764705882353,
+    "candidate_lookup_violations": 0,
+    "future_leakage_blocked": true
+  }
+}

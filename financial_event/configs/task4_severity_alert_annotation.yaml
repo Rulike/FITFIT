@@ -1,0 +1,44 @@
+annotation_contract_version: task4_stage2_v0
+method_name: TRACE-Alert
+statement: 这是任务四新增人工合同，不是原始数据已有标签。
+severity_levels:
+  - id: S0
+    description: 无明确可交易或经营影响
+  - id: S1
+    description: 轻微或短期局部影响
+  - id: S2
+    description: 中等且可观察影响
+  - id: S3
+    description: 重大经营财务或监管影响
+  - id: S4
+    description: 极重大或系统性影响
+alert_levels:
+  - id: A0
+    description: 不推送
+  - id: A1
+    description: 摘要收录
+  - id: A2
+    description: 普通预警
+  - id: A3
+    description: 重点预警
+  - id: A4
+    description: 紧急预警
+empty_human_fields:
+  - human_severity_level
+  - human_alert_priority
+  - human_impact_scope
+  - human_urgency
+  - human_duration
+  - human_evidence
+  - annotator_id
+  - review_status
+sampling_policy:
+  target_size: 400
+  use_official_test: false
+  stratify_by:
+    - emotion_label
+    - target_type
+    - trust_bucket
+    - current_state_type
+    - event_name
+    - source_name

@@ -1,0 +1,33 @@
+# Task1 Step 5.7-K supervised structure extractor config
+seed: 2026
+status_scope: ai_assisted_human_confirmed_not_independent_manual_gold
+output_dir: outputs/task1_step5_7k_structure_extractor
+local_macbert_dir: outputs/task1_step5_4_dev_baseline_v1/pretrained/hfl_chinese_macbert_base
+inference_interface: predict_structure(content, event_name, title=None)
+allowed_inference_fields:
+  - content
+  - event_name
+  - title
+windowing:
+  max_length: 512
+  stride: 128
+  no_direct_truncation: true
+data:
+  structure_train: 400
+  structure_dev: 40
+  independent_frozen_test: 60
+  legacy80_use: historical_diagnostic_only
+schemes:
+  - A_macbert_multitask_token
+  - B_macbert_event_conditioned_qa
+  - C_macbert_hybrid_span_consistency
+training_backend:
+  primary: local_macbert_torch_transformers
+  python: /root/miniconda3/envs/dianjin-cu128/bin/python
+  fallback: sklearn_tfidf_logistic_candidate_ranker
+protection:
+  local_32b_calls: 0
+  external_llm_calls: 0
+  read_news_with_tags_test_xlsx: false
+  read_1029_gold_test_labels: false
+  modify_formal_task1_task2: false

@@ -1,0 +1,33 @@
+task_name: task3_kg_v3_evolution_audit
+random_seed: 42
+status_ready: task3_kg_v3_evolution_backbone_ready
+status_blocked_prefix: task3_kg_v3_evolution_audit_blocked_
+allowed_direct_relation_types:
+  - ANNOUNCEMENT_TO_PROGRESS
+  - PROGRESS_TO_COMPLETION
+  - INVESTIGATION_TO_PENALTY
+  - CLARIFIES_OR_REFUTES
+  - PLAN_TO_TERMINATION
+  - RUMOR_TO_CONFIRMATION
+allowed_state_pairs:
+  ANNOUNCEMENT_TO_PROGRESS:
+    - [announcement, progress]
+  PROGRESS_TO_COMPLETION:
+    - [progress, completion]
+  INVESTIGATION_TO_PENALTY:
+    - [investigation, penalty]
+  CLARIFIES_OR_REFUTES:
+    - [announcement, refutation]
+    - [progress, refutation]
+    - [announcement, clarification_proposal]
+    - [progress, clarification_proposal]
+  PLAN_TO_TERMINATION:
+    - [plan, termination_proposal]
+  RUMOR_TO_CONFIRMATION:
+    - [rumor, announcement]
+    - [rumor, progress]
+    - [rumor, completion]
+time_span_days_anomaly_threshold: 365
+minimum_direct_confidence: 0.35
+minimum_direct_trust: 0.35
+verification_status_for_deterministic: provisional_model_or_rule_supported

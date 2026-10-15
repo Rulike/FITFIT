@@ -1,0 +1,150 @@
+version: task3_kg_v2_schema_v0
+rule_version: task3_kg_v2_v0
+layering:
+  observation_evidence_layer:
+    description: 只读观测证据层，承载Document/Source/EventMention/Claim/EvidenceSentence/Task2Assessment/Entity/Company/Stock/Industry节点与可追溯边。
+    instance_policy: materialize
+  canonical_event_layer:
+    description: 规范事件层，仅定义Schema，不生成实例。
+    instance_policy: schema_only
+node_types:
+  Document:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Source:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  EventMention:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Claim:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  EvidenceSentence:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Task2Assessment:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Entity:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Company:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Stock:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  Industry:
+    graph_layer: observation_evidence
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  CanonicalEvent:
+    graph_layer: canonical_event
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  EventThread:
+    graph_layer: canonical_event
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+  EventState:
+    graph_layer: canonical_event
+    required_fields: [stable_id, node_type, graph_layer, provenance_source, source_record_id, confidence, confidence_scope, verification_status, evidence_scope, rule_version, created_at, valid_from, valid_to]
+edge_types:
+  PUBLISHED_BY:
+    graph_layer: observation_evidence
+    source_type: Document
+    target_type: Source
+  CONTAINS_MENTION:
+    graph_layer: observation_evidence
+    source_type: Document
+    target_type: EventMention
+  EXPRESSES_CLAIM:
+    graph_layer: observation_evidence
+    source_type: EventMention
+    target_type: Claim
+  SUPPORTED_BY_SENTENCE:
+    graph_layer: observation_evidence
+    source_type: Claim
+    target_type: EvidenceSentence
+  EXTRACTED_FROM:
+    graph_layer: observation_evidence
+    source_type: EvidenceSentence
+    target_type: Document
+  MENTIONS_ENTITY:
+    graph_layer: observation_evidence
+    source_type: [EventMention, Claim]
+    target_type: Entity
+  TARGETS_COMPANY:
+    graph_layer: observation_evidence
+    source_type: [EventMention, Claim]
+    target_type: Company
+  TARGETS_STOCK:
+    graph_layer: observation_evidence
+    source_type: [EventMention, Claim]
+    target_type: Stock
+  TARGETS_INDUSTRY:
+    graph_layer: observation_evidence
+    source_type: [EventMention, Claim]
+    target_type: Industry
+  ASSESSED_BY:
+    graph_layer: observation_evidence
+    source_type: [Document, EventMention]
+    target_type: Task2Assessment
+  EXACT_CONTENT_MATCH:
+    graph_layer: observation_evidence
+    source_type: Document
+    target_type: Document
+    constraint: only_when_clean_content_hash_matches_exactly
+  EVIDENCE_FOR:
+    graph_layer: observation_evidence
+    source_type: Document
+    target_type: [EventMention, Claim]
+    constraint: only_when_explicit_upstream_evidence_exists
+  INSTANCE_OF_EVENT:
+    graph_layer: canonical_event
+    source_type: EventMention
+    target_type: CanonicalEvent
+  RELATED_UPDATE:
+    graph_layer: canonical_event
+    source_type: CanonicalEvent
+    target_type: CanonicalEvent
+  PART_OF_THREAD:
+    graph_layer: canonical_event
+    source_type: CanonicalEvent
+    target_type: EventThread
+  PRECEDES:
+    graph_layer: canonical_event
+    source_type: CanonicalEvent
+    target_type: CanonicalEvent
+  SUPPORTS:
+    graph_layer: canonical_event
+    source_type: Claim
+    target_type: Claim
+  CONTRADICTS:
+    graph_layer: canonical_event
+    source_type: Claim
+    target_type: Claim
+  CLARIFIES:
+    graph_layer: canonical_event
+    source_type: Claim
+    target_type: Claim
+  REFUTES:
+    graph_layer: canonical_event
+    source_type: Claim
+    target_type: Claim
+  REVERSES:
+    graph_layer: canonical_event
+    source_type: [Claim, CanonicalEvent]
+    target_type: [Claim, CanonicalEvent]
+  AFFECTS:
+    graph_layer: canonical_event
+    source_type: CanonicalEvent
+    target_type: [Company, Stock, Industry]
+constraints:
+  canonical_event_instances_must_be_zero: true
+  event_thread_instances_must_be_zero: true
+  instance_of_event_edges_must_be_zero: true
+  no_task2_cluster_to_same_event_inference: true
+  ambiguous_task2_links_must_remain_ambiguous: true
+  auxiliary_documents_must_not_generate_core_event_mentions: true
+  exact_content_match_requires_clean_content_hash_equality: true
+  stable_id_deterministic: true
+  all_nodes_and_edges_require_provenance_and_temporal_fields: true

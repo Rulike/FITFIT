@@ -1,0 +1,83 @@
+version: task3_kg_v2_task1_contract_v0
+contract_type: task1_to_task3_event_extraction
+fields:
+  event_mention_id:
+    required: true
+    type: string
+    stable_key: true
+  document_id:
+    required: true
+    aliases: [article_id]
+    type: string
+    stable_key: true
+  article_id:
+    required: true
+    aliases: [document_id]
+    type: string
+    stable_key: true
+  subject:
+    required: true
+    type: string
+  target_type:
+    required: true
+    type: string
+    allowed_values: [company, stock, industry, unknown]
+  target_code:
+    required: true
+    type: string
+  event_type:
+    required: false
+    type: string
+    nullable: true
+    constraint: null_when_formal_event_type_missing
+  provisional_event_type:
+    required: true
+    type: string
+    constraint: must_not_impersonate_formal_event_type
+  core_elements:
+    required: true
+    type: array[string]
+  event_time:
+    required: false
+    type: string
+    nullable: true
+    constraint: null_when_missing_and_never_copy_publish_time
+  publish_time:
+    required: true
+    type: string
+    constraint: may_not_impersonate_event_time
+  evidence_sentences:
+    required: false
+    type: array[object]
+  field_provenance:
+    required: true
+    type: object
+  extraction_confidence:
+    required: true
+    type: number
+  evidence_scope:
+    required: true
+    type: string
+    allowed_values: [task1_structured, fulltext_structured, manual_review, ambiguous, provisional]
+  claim_status:
+    required: true
+    type: string
+    allowed_values: [provisional]
+  verification_status:
+    required: true
+    type: string
+  source_event_mention_id:
+    required: true
+    type: string
+  content_hash:
+    required: false
+    type: string
+contract_rules:
+  - provisional_event_type_must_be_preserved_as_provisional
+  - formal_event_type_missing_must_remain_null
+  - event_time_missing_must_remain_null
+  - publish_time_must_not_be_used_as_event_time
+  - no_llm_fact_completion
+  - no_title_based_value_inference
+  - do_not_merge_multiple_event_mentions_into_one_claim
+  - every_claim_is_provisional

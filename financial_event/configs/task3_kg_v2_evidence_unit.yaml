@@ -1,0 +1,30 @@
+version: task3_kg_v2_step3_evidence_unit_v0
+stage: fulltext_near_duplicate_propagation_evidence_unit
+inputs:
+  full_document_universe: outputs/task3_kg_v2/full_document_universe.parquet
+  observation_graph_v0_nodes: outputs/task3_kg_v2/observation_graph/nodes.jsonl
+  observation_graph_v0_edges: outputs/task3_kg_v2/observation_graph/edges.jsonl
+  normalized_event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+model:
+  qwen3_embedding_path: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Embedding-0.6B
+  preferred_environment: task3-qwen
+rules:
+  no_same_event_matching: true
+  no_canonical_event_or_thread: true
+  no_event_clustering_timeline_gnn_or_llm_reasoning: true
+  near_duplicate_not_same_event: true
+  uncertain_excluded_from_merge: true
+  auxiliary_documents_do_not_create_event_mentions_or_claims: true
+  task2_assessment_modeling_unchanged: true
+thresholds:
+  near_duplicate_embedding: 0.92
+  near_duplicate_minhash: 0.75
+  uncertain_embedding: 0.78
+  uncertain_minhash: 0.45
+  title_duplicate: 0.92
+minhash:
+  num_perm: 64
+  bands: 16
+  rows_per_band: 4
+  shingle_size: 5
+  max_bucket_size: 200

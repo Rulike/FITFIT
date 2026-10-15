@@ -1,0 +1,524 @@
+version: task1_step5_8hb_event_mapping_v1
+source_workbook: reports/财经新闻标注数据8.18.xlsx
+source_workbook_sha256: a58bec4b2125a5b7b68f11f303d0c4fbaded88964a6724178dce5d7af594ffb4
+official_label_space:
+  source: data/processed/event_schema.jsonl
+  official_event_name_count: 64
+policy:
+  preserve_original_event_name: true
+  mapped_event_name_field: mapped_event_name
+  do_not_extend_formal_label_space: true
+  high_confidence_min_records_for_training_gate: 850
+  stratified_auto_audit_min_consistency: 0.95
+  unresolved_max_records_for_training_gate: 50
+  llm_calls: 0
+status:
+  mapping_gate_passed: false
+mappings:
+  - source_event_name: IPO上市
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.58
+    candidate_official_event_names:
+      - 资本市场运作
+      - 新业务拓展
+  - source_event_name: 业绩下降
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.48
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 业务战略调整
+  - source_event_name: 业绩亏损
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.5
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+  - source_event_name: 业绩增长
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.5
+    candidate_official_event_names:
+      - 新业务拓展
+      - 业务拓展
+      - 重大业务拓展
+      - 公司战略调整
+      - 结构升级
+  - source_event_name: 中标项目
+    mapping_type: one_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.91
+    candidate_official_event_names:
+      - 签订重要合同
+      - 重大项目投资建设
+  - source_event_name: 产品发布
+    mapping_type: one_to_many_content_required
+    semantic_relation: source_narrower
+    confidence: 0.82
+    candidate_official_event_names:
+      - 产品技术创新
+      - 技术突破与创新
+      - 关键技术突破
+      - 技术研发进展
+      - 新产品升级发布
+      - 医药研发突破
+      - 动力电池产品迭代
+      - 储能电池产品迭代
+      - 新车发布定价
+  - source_event_name: 产品认证
+    mapping_type: one_to_many_content_required
+    semantic_relation: source_narrower
+    confidence: 0.86
+    candidate_official_event_names:
+      - 产品技术创新
+      - 技术突破与创新
+      - 关键技术突破
+      - 技术研发进展
+      - 新产品升级发布
+      - 医药研发突破
+  - source_event_name: 产能扩张
+    mapping_type: one_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.9
+    candidate_official_event_names:
+      - 产能布局调整
+      - 重大项目投资建设
+      - 海外产能进展
+  - source_event_name: 价格波动
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.72
+    candidate_official_event_names:
+      - 大宗商品景气与价格波动加剧
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 供需变化
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.7
+    candidate_official_event_names:
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 分红送配
+    mapping_type: one_to_one_safe
+    semantic_relation: partial_overlap
+    confidence: 0.72
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 创历史新低
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.35
+    candidate_official_event_names:
+      - 资本市场运作
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 创历史新高
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.35
+    candidate_official_event_names:
+      - 资本市场运作
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 合同签订
+    mapping_type: one_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.93
+    candidate_official_event_names:
+      - 签订重要合同
+      - 重大业务拓展
+  - source_event_name: 大股东减持
+    mapping_type: one_to_one_safe
+    semantic_relation: partial_overlap
+    confidence: 0.66
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 大股东增持
+    mapping_type: one_to_one_safe
+    semantic_relation: partial_overlap
+    confidence: 0.66
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 安全事故
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.3
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 公共卫生事件
+  - source_event_name: 定增募资
+    mapping_type: many_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.92
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 并购重组
+    mapping_type: many_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.91
+    candidate_official_event_names:
+      - 资本市场运作
+      - 公司战略变化及对外投资
+  - source_event_name: 战略合作
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.78
+    candidate_official_event_names:
+      - 签订重要合同
+      - 重大业务拓展
+      - 业务拓展
+      - 公司战略变化及对外投资
+  - source_event_name: 技术突破
+    mapping_type: one_to_many_content_required
+    semantic_relation: source_narrower
+    confidence: 0.88
+    candidate_official_event_names:
+      - 产品技术创新
+      - 技术突破与创新
+      - 关键技术突破
+      - 技术研发进展
+      - 新产品升级发布
+      - 医药研发突破
+      - 钢铁生产核心技术突破
+      - 光伏新技术迭代升级
+      - 光伏组件行业技术迭代
+  - source_event_name: 政策利好
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.74
+    candidate_official_event_names:
+      - 行业政策
+      - 行业政策推动
+      - 行业调控政策发布
+      - 金融政策支持
+      - 稳增长政策
+      - 绿色政策发布
+      - 电力投资政策
+      - 风电产业政策支持
+      - 国内创新药支持政策
+      - 教育行业政策调整
+      - 影视行业政策变动
+      - 农业政策变动
+      - 工业自动化政策支持变化
+      - 电力投资政策
+  - source_event_name: 政策监管
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.74
+    candidate_official_event_names:
+      - 行业政策
+      - 行业政策推动
+      - 行业调控政策发布
+      - 金融政策支持
+      - 稳增长政策
+      - 绿色政策发布
+      - 电力投资政策
+      - 风电产业政策支持
+      - 国内创新药支持政策
+      - 教育行业政策调整
+      - 影视行业政策变动
+      - 农业政策变动
+      - 工业自动化政策支持变化
+  - source_event_name: 涨停板
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.28
+    candidate_official_event_names:
+      - 资本市场运作
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 监管处罚
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.45
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 行业政策
+      - 行业政策推动
+      - 行业调控政策发布
+      - 金融政策支持
+      - 稳增长政策
+      - 绿色政策发布
+      - 电力投资政策
+      - 风电产业政策支持
+      - 国内创新药支持政策
+      - 教育行业政策调整
+      - 影视行业政策变动
+      - 农业政策变动
+      - 工业自动化政策支持变化
+  - source_event_name: 股东大会
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.32
+    candidate_official_event_names:
+      - 资本市场运作
+      - 公司战略调整
+      - 公司战略变化及对外投资
+      - 业务战略调整
+      - 企业转型催化
+  - source_event_name: 股价上涨
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.25
+    candidate_official_event_names:
+      - 资本市场运作
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 股价下跌
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.25
+    candidate_official_event_names:
+      - 资本市场运作
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 股价异动
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.25
+    candidate_official_event_names:
+      - 资本市场运作
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 股份质押
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.46
+    candidate_official_event_names:
+      - 资本市场运作
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+  - source_event_name: 股权变动
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.58
+    candidate_official_event_names:
+      - 资本市场运作
+      - 公司战略调整
+      - 公司战略变化及对外投资
+      - 业务战略调整
+      - 企业转型催化
+  - source_event_name: 股权激励
+    mapping_type: many_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.94
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 股票回购
+    mapping_type: many_to_one_safe
+    semantic_relation: partial_overlap
+    confidence: 0.76
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 融资融券
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.38
+    candidate_official_event_names:
+      - 资本市场运作
+      - 金融政策支持
+      - 行业政策
+  - source_event_name: 行业数据
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.3
+    candidate_official_event_names:
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+      - 行业政策
+      - 行业政策推动
+      - 行业调控政策发布
+      - 金融政策支持
+      - 稳增长政策
+      - 绿色政策发布
+      - 电力投资政策
+      - 风电产业政策支持
+      - 国内创新药支持政策
+      - 教育行业政策调整
+      - 影视行业政策变动
+      - 农业政策变动
+      - 工业自动化政策支持变化
+      - 新业务拓展
+      - 业务拓展
+      - 重大业务拓展
+      - 公司战略调整
+      - 结构升级
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+  - source_event_name: 诉讼纠纷
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.36
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 公司战略调整
+      - 公司战略变化及对外投资
+      - 业务战略调整
+      - 企业转型催化
+  - source_event_name: 资金流入
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.25
+    candidate_official_event_names:
+      - 资本市场运作
+      - 金融政策支持
+      - 行业政策
+  - source_event_name: 资金流出
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.25
+    candidate_official_event_names:
+      - 资本市场运作
+      - 金融政策支持
+      - 行业政策
+  - source_event_name: 跌停板
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.28
+    candidate_official_event_names:
+      - 资本市场运作
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 退市风险
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.44
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 资本市场运作
+  - source_event_name: 退市风险警示
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.44
+    candidate_official_event_names:
+      - 现金流风险
+      - 市场竞争加剧
+      - 公司战略调整
+      - 资本市场运作
+  - source_event_name: 配售股份
+    mapping_type: many_to_one_safe
+    semantic_relation: source_narrower
+    confidence: 0.9
+    candidate_official_event_names:
+      - 资本市场运作
+  - source_event_name: 销量增长
+    mapping_type: one_to_many_content_required
+    semantic_relation: partial_overlap
+    confidence: 0.54
+    candidate_official_event_names:
+      - 新业务拓展
+      - 业务拓展
+      - 重大业务拓展
+      - 公司战略调整
+      - 结构升级
+      - 水产品价格变动
+      - OPEC+产量政策变化
+      - 影视市场表现变化
+      - 行业下游的需求变化
+      - 市场竞争
+      - 市场竞争加剧
+      - 大宗商品景气与价格波动加剧
+      - 行业政策
+  - source_event_name: 高管变动
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.32
+    candidate_official_event_names:
+      - 公司战略调整
+      - 公司战略变化及对外投资
+      - 业务战略调整
+      - 企业转型催化
+  - source_event_name: 龙虎榜
+    mapping_type: no_official_equivalent
+    semantic_relation: partial_overlap
+    confidence: 0.2
+    candidate_official_event_names:
+      - 资本市场运作

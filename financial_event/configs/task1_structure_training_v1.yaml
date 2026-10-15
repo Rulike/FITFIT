@@ -1,0 +1,19 @@
+# Task1 Step 5.7-F limited structure extraction training config
+seed: 2026
+status_scope: ai_assisted_user_confirmed_not_independent_gold
+input_workbook: reports/task1_step5_7e_eventmention_human_confirmed.xlsx
+output_dir: outputs/task1_step5_7f_structure_training_v1
+local_macbert_dir: outputs/task1_step5_4_dev_baseline_v1/pretrained/hfl_chinese_macbert_base
+python_env_for_neural_training: /root/miniconda3/envs/dianjin-cu128/bin/python
+split_unit: article_id
+train_target_count: 160
+dev_target_count: 40
+schemes:
+  - rule_ai_adapter_baseline
+  - macbert_multitask_token
+  - macbert_weighted_token
+protection:
+  external_llm_calls: 0
+  local_32b_calls: 0
+  read_1029_gold_test_labels: false
+  modify_formal_task1_task2: false

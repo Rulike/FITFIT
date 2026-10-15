@@ -1,0 +1,50 @@
+model_name: DianJin-R1-32B
+api_base: http://127.0.0.1:8000/v1
+max_model_len: 8192
+workers: 4
+temperature: 0
+strict_json_validation: true
+format_correction_retries: 1
+checkpoint_enabled: true
+resume_enabled: true
+checkpoint_interval: 10
+retrieval_backend: sqlite_fts5_trigram
+dea_enabled: true
+safety_gate_enabled: false
+isr_enabled: false
+claim_contract_enabled: false
+score_fusion_enabled: false
+
+wire_api: chat_completions
+endpoint_style: openai_v1
+timeout_seconds: 180
+max_tokens: 512
+max_retries: 1
+
+dea:
+  initial_evidence_limit: 4
+  additional_evidence_limit: 4
+  confidence_threshold: 0.75
+  low_confidence_threshold: 0.65
+  max_rounds: 2
+  trigger_policy: v2
+  compact_prompt: true
+
+input:
+  default_path: data/processed/event_credibility/llm_review_queue.jsonl
+  required_count: 260
+  canary_seed: 20260809
+  canary_count: 5
+
+retrieval:
+  article_index: data/processed/event_credibility/fulltext_article_index.parquet
+  members: outputs/event_clustering/event_cluster_members.parquet
+  sqlite_index_dir: cache/event_credibility/dea_retrieval_index
+  sqlite_expected_rows_approx: 310088
+
+protection:
+  formal_outputs:
+    - outputs/event_credibility/llm_review_results.jsonl
+    - outputs/event_credibility/event_credibility_scores_fulltext.jsonl
+    - outputs/event_credibility/event_credibility_scores_fulltext.parquet
+    - outputs/event_credibility/event_credibility_scores_fulltext.xlsx

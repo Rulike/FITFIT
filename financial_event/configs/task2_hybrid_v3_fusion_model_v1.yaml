@@ -1,0 +1,45 @@
+version: task2_hybrid_v3_fusion_model_v1
+seed: 2026
+
+paths:
+  clean_evidence: outputs/event_credibility/task2_hybrid_v3/clean_evidence_v1/clean_evidence_1500.jsonl
+  clean_evidence_sha256: 6538549b53c74fc0518804b98e73d4ad3330be319a0a08c4d9a53c41ff0af9f0
+  silver_final: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_final_1500.jsonl
+  silver_training_eligible: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_training_eligible.jsonl
+  silver_needs_review: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_needs_review.jsonl
+  market_consistency_v2: outputs/event_credibility/task2_hybrid_v3/market_consistency_v2/market_consistency_1500.jsonl
+  market_consistency_v2_sha256: 7c26c86e1f3131d76e1f32b1847f4a4743ce1aabce2532cdc1152eb74e4ef6cd
+  rejected_market_claims_v2: outputs/event_credibility/task2_hybrid_v3/market_consistency_v2/rejected_market_claims.jsonl
+  fulltext_scores: outputs/event_credibility/event_credibility_scores_fulltext.jsonl
+  csmar_cache_dir: data/processed/event_credibility/csmar_financial_cache_v2
+  locked_ids: configs/task2_independent500_locked_ids.json
+  output_dir: outputs/event_credibility/task2_hybrid_v3/fusion_model_v1
+  market_quality_gate: outputs/event_credibility/task2_hybrid_v3/market_consistency_v2/quality_gate.json
+  market_quality_audit_xlsx: reports/task2_market_consistency_v2_quality_audit.xlsx
+  report_md: reports/task2_hybrid_v3_fusion_model_v1_report.md
+  details_xlsx: reports/task2_hybrid_v3_fusion_model_v1_details.xlsx
+
+training:
+  train_ratio: 0.70
+  dev_ratio: 0.15
+  internal_test_ratio: 0.15
+  max_text_features: 8000
+  char_ngram_min: 2
+  char_ngram_max: 4
+  logistic_regression_c_values: [0.25, 1.0, 4.0]
+  hist_gradient_boosting_max_iter: 80
+  hist_gradient_boosting_max_leaf_nodes: 15
+  hist_gradient_boosting_min_samples_leaf: 10
+  hist_gradient_boosting_l2_regularization: 0.0
+  class_weight: balanced
+
+labels:
+  order: [support, contradict, insufficient, unclear]
+
+safety:
+  read_locked500_gold: false
+  run_locked500_evaluation: false
+  use_locked500_predictions_as_features: false
+  use_needs_review_for_training: false
+  use_post_event_market_features: false
+  train_market_or_financial_rules: false

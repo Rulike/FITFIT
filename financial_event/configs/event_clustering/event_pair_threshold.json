@@ -1,0 +1,7 @@
+{
+  "threshold": 0.44,
+  "validation_precision": 1.0,
+  "validation_recall": 1.0,
+  "validation_f1": 1.0,
+  "validation_pair_count": 12259
+}

@@ -1,0 +1,57 @@
+version: task3_kg_v2_task2_contract_v0
+contract_type: task2_to_task3_credibility_linkage
+fields:
+  assessment_id:
+    required: true
+    type: string
+    stable_key: true
+  task2_cluster_id:
+    required: true
+    type: string
+    stable_key: true
+  assessed_object_id:
+    required: true
+    type: string
+  assessed_object_type:
+    required: true
+    type: string
+    allowed_values: [document, event_mention, cluster]
+  trust_score:
+    required: true
+    type: number
+  credibility_score:
+    required: true
+    type: number
+  score_scope:
+    required: true
+    type: string
+    allowed_values: [cluster]
+  verification_status:
+    required: true
+    type: string
+  fulltext_verification_status:
+    required: false
+    type: string
+    nullable: true
+  evidence_items:
+    required: true
+    type: array[object]
+  link_status:
+    required: true
+    type: string
+    allowed_values: [resolved, ambiguous, provisional, rejected]
+  provenance:
+    required: true
+    type: object
+  source_event_mention_id:
+    required: false
+    type: string
+    nullable: true
+contract_rules:
+  - score_scope_must_remain_cluster
+  - trust_score_and_credibility_score_are_cluster_level_only
+  - must_not_copy_to_document_or_event_mention_as_direct_truth_score
+  - resolved_links_may_connect_event_mentions_only_when_evidence_exists
+  - ambiguous_links_must_remain_ambiguous
+  - task2_cluster_id_must_not_be_used_as_same_event_or_must_link_signal
+  - evidence_items_must_not_be_promoted_to_confirmed_fact

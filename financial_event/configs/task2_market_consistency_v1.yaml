@@ -1,0 +1,51 @@
+version: task2_market_consistency_v1
+seed: 2026
+
+inputs:
+  clean_evidence: outputs/event_credibility/task2_hybrid_v3/clean_evidence_v1/clean_evidence_1500.jsonl
+  clean_evidence_sha256: 6538549b53c74fc0518804b98e73d4ad3330be319a0a08c4d9a53c41ff0af9f0
+  silver_final: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_final_1500.jsonl
+  silver_training_eligible: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_training_eligible.jsonl
+  locked_ids: configs/task2_independent500_locked_ids.json
+  resset_market_xlsx: data/external/market/RESSET_DRESSTK_2026__1.xlsx
+
+outputs:
+  output_dir: outputs/event_credibility/task2_hybrid_v3/market_consistency_v1
+  market_cache: outputs/event_credibility/task2_hybrid_v3/market_consistency_v1/resset_market_daily_cache.parquet
+
+market_data:
+  benchmark_type: market_cross_sectional_median_proxy
+  preserve_stock_code_leading_zero: true
+  source_excel_mutation_allowed: false
+  worksheet_dimension_recovery: stream_sheet_xml_ignore_dimension_ref
+  expected_rows: 299860
+  expected_unique_stocks: 5003
+  expected_date_min: "2026-04-01"
+  expected_date_max: "2026-06-30"
+
+time_alignment:
+  close_time: "15:00"
+  causal_no_future:
+    same_trading_day_before_close_uses_same_day_close: false
+    same_trading_day_after_close_uses_same_day_close: true
+    holiday_or_weekend_policy: previous_finished_trading_day
+  post_event_audit:
+    allowed: true
+    post_event_only: true
+    future_relative_to_publication: true
+    forbidden_in_closed_track: true
+
+thresholds:
+  direction_unclear_abs_return: 0.005
+  explicit_contradict_abs_return: 0.01
+  explicit_adjustment_cap: 0.10
+  sentiment_adjustment_cap: 0.03
+
+prohibitions:
+  training_performed: false
+  tuning_performed: false
+  locked500_gold_read: false
+  locked500_used_for_threshold_selection: false
+  modify_existing_silver: false
+  modify_formal_task2_outputs: false
+  market_signal_alone_overrides_label: false

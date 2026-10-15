@@ -1,0 +1,73 @@
+version: task2_financial_consistency_v2
+seed: 2026
+
+paths:
+  csmar_source_dir: data/external/csmar/财务指标
+  csmar_cache_dir: data/processed/event_credibility/csmar_financial_cache_v2
+  independent500_input: outputs/event_credibility/task2_independent500_v1/independent_samples.jsonl
+  output_dir: outputs/event_credibility/task2_financial_enhanced_cached_dea_v2
+
+score_rules:
+  base_score: 0.5
+  consistent_adjustment: 0.30
+  contradictory_adjustment: -0.20
+  valuation_consistent_adjustment: 0.20
+  valuation_contradictory_adjustment: -0.10
+  insufficient_data_adjustment: 0.0
+
+thresholds:
+  numeric_relative_error: 0.20
+  profitability_decline_relative: -0.20
+  cash_flow_decline_relative: -0.20
+  solvency_decline_relative: -0.15
+  revenue_high_growth: 0.20
+  gross_margin_improvement_pp_decimal: 0.03
+  rd_expense_ratio_relative_increase: 0.15
+  market_share_growth_gap_decimal: 0.05
+  pe_discount: 0.30
+
+csmar_tables:
+  FI_T1:
+    current_ratio: F010101A
+    quick_ratio: F010201A
+    debt_ratio: F011201A
+  FI_T5:
+    roa_ttm: F050204C
+    roe_ttm: F050504C
+    parent_roe_ttm: F053004C
+    gross_margin: F053301B
+    gross_margin_ttm: F053301C
+    rd_expense_ratio: F053401B
+  FI_T6:
+    note: FI_T6 is not used as raw operating cash-flow net amount; it only provides derived cash-flow indicators.
+  FI_T8:
+    revenue_growth: F081603B
+    revenue_growth_b: F081602C
+    revenue_growth_qoq: F081601B
+    operating_cash_flow_growth: F082302B
+    operating_cash_flow_growth_qoq: F082301B
+  FI_T10:
+    pe_ttm: F100103C
+    parent_pe_ttm: F100603C
+
+typrep_policy:
+  definition: "A：合并报表；B：母公司报表；在公司未公布合并报表时以单一报表数据添列。"
+  preferred_for_task2: A
+  yoy_comparison: same Typrep only
+  FI_T10: no Typrep column; merged by stock_code+Accper
+
+temporal_policy:
+  true_announcement_date_available: false
+  conservative_estimated_availability:
+    annual_report: next_year_04_30
+    q1: same_year_04_30
+    h1: same_year_08_31
+    q3: same_year_10_31
+  missing_publish_time: insufficient_data
+  mark_uncertain_when_using_estimated_date: true
+
+development_guardrails:
+  gold_used_for_development: false
+  tune_on_independent500: false
+  thresholds_frozen: true
+  formal_task2_outputs_modified: false

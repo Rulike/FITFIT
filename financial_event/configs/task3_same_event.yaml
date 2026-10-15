@@ -1,0 +1,76 @@
+random_seed: 2026
+evidence_scope: title_structured_only
+
+inputs:
+  event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  routing: outputs/task3/normalized/event_mention_routing.json
+  document_representative_mapping: outputs/task3/step2/document_representative_mapping.jsonl
+  duplicate_groups: outputs/task3/step2/duplicate_groups.jsonl
+  independent_evidence_units: outputs/task3/step2/independent_evidence_units.jsonl
+  same_event_labels: outputs/task3/step2/same_event_labels_for_step3.csv
+  event_mention_splits: outputs/task3/splits/event_mention_split_mapping.jsonl
+
+outputs:
+  step3_dir: outputs/task3/step3
+  evaluation_report: reports/task3_step3_evaluation.json
+  runtime_report: reports/task3_step3_runtime.json
+  method_doc: docs/task3_step3_same_event.md
+
+models:
+  device: cuda:0
+  dtype: fp16
+  local_files_only: true
+  embedding:
+    path: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Embedding-0.6B
+    batch_size: 32
+    primary_dim: 1024
+    compare_dims: [1024, 512]
+    instruction: "Represent this Chinese financial news title for determining whether it describes the same concrete event as another title. Preserve entities, dates, amounts, products, identifiers, and event stages."
+    cache_path: outputs/task3/step3/cache/qwen3_embedding_title_vectors.npz
+  reranker:
+    path: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Reranker-0.6B
+    batch_size: 16
+    instruction: "Determine whether two Chinese financial news titles describe the same concrete event. Distinguish exact same events, follow-up updates, and different events. Pay special attention to entities, dates, amounts, products, bond tranches, drug identifiers, and penalties."
+    cache_path: outputs/task3/step3/cache/qwen3_reranker_pair_scores.jsonl
+
+candidate_generation:
+  default_time_window_hours: 168
+  same_document_window_hours: 720
+  macro_window_hours: 72
+  max_neighbors_per_bucket: 80
+  include_same_document: true
+  include_macro_policy: true
+
+event_type_windows_hours:
+  default: 168
+  资本市场运作: 72
+  技术研发进展: 336
+  产品技术创新: 336
+  医药研发突破: 336
+  重大项目投资建设: 720
+  公司战略调整: 720
+  业务战略调整: 720
+  调改措施进展: 720
+  融资融券: 72
+
+compatible_event_keywords:
+  - [资本市场运作, 国际化布局]
+  - [公司战略调整, 业务战略调整]
+  - [产品技术创新, 技术研发进展]
+  - [医药研发突破, 产品技术创新]
+  - [重大项目投资建设, 产能布局调整]
+  - [调改措施进展, 零售业务策略调整]
+
+threshold_search:
+  folds: 5
+  embedding_same_candidates: [0.72, 0.76, 0.80, 0.84, 0.88, 0.90, 0.92, 0.94, 0.98, 0.995, 0.999]
+  embedding_different_candidates: [0.35, 0.45, 0.55, 0.65, 0.72, 0.76, 0.80, 0.84, 0.88, 0.90]
+  reranker_same_candidates: [-2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0]
+  reranker_different_candidates: [-6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0]
+  prefer_min_uncertain_count: 5
+
+decision:
+  related_update_min_hours: 1
+  related_update_fact_change_required: true
+  source_independence_same_source: 0.0
+  source_independence_cross_source: 1.0

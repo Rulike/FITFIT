@@ -1,0 +1,13 @@
+{
+  "task_name": "TRACE-Alert",
+  "stage": "task4_stage2_6_candidate_rescue",
+  "train_protocol_name": "group_partitioned_rule_inference",
+  "test_protocol_name": "full_train_hybrid_candidate_inference",
+  "forbidden_inputs": [
+    "emotion_label",
+    "impact_rationale_reference",
+    "gold_schema_id",
+    "gold_target_code",
+    "gold_event_name"
+  ]
+}

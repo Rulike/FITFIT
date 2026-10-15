@@ -1,0 +1,98 @@
+seed: 2026
+input_paths:
+  task1_events: outputs/final_task1/final_events_train.jsonl
+  task1_events_test: outputs/final_task1/final_events_test.jsonl
+  task1_events_with_sources: data/processed/event_clusters/all_final_events_with_sources.jsonl
+  task1_article_index: data/processed/event_clusters/article_metadata_index.jsonl
+  task1_cluster_members: outputs/event_clustering/event_cluster_members.jsonl
+  task1_clusters: outputs/event_clustering/event_clusters.jsonl
+  task2_credibility: outputs/event_credibility/event_credibility_scores.jsonl
+  task2_credibility_fulltext: outputs/event_credibility/event_credibility_scores_fulltext.jsonl
+  task2_timeline: outputs/event_credibility/event_timeline_for_task3.jsonl
+  task2_llm_review_queue: data/processed/event_credibility/llm_review_queue.jsonl
+  task2_llm_review_results: outputs/event_credibility/llm_review_results.jsonl
+output_paths:
+  near_duplicate_pairs: outputs/task3/near_duplicate_pairs.csv
+  same_event_pairs: outputs/task3/same_event_pairs.csv
+  cluster_annotation_seed: outputs/task3/cluster_annotation_seed.jsonl
+  timeline_annotation_seed: outputs/task3/timeline_annotation_seed.jsonl
+  audit_report: docs/task3_data_audit.md
+  annotation_guide: docs/task3_annotation_guide.md
+  time_split_report: reports/task3_time_split_report.json
+  normalized_documents: outputs/task3/normalized/normalized_documents.jsonl
+  normalized_event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  task2_evidence_links: outputs/task3/normalized/task2_evidence_links.jsonl
+  pending_records: outputs/task3/pending/pending_records.csv
+  pilot_near_duplicate: outputs/task3/annotation_pilot/near_duplicate_pilot.csv
+  pilot_same_event: outputs/task3/annotation_pilot/same_event_pilot.csv
+  pilot_cluster: outputs/task3/annotation_pilot/cluster_pilot.jsonl
+  pilot_timeline: outputs/task3/annotation_pilot/timeline_pilot.jsonl
+  pilot_field_dictionary: outputs/task3/annotation_pilot/field_dictionary.md
+  pilot_sampling_report: reports/task3_pilot_sampling_report.json
+  pending_analysis_report: reports/task3_pending_analysis.json
+  pending_analysis_doc: docs/task3_pending_analysis.md
+  event_mention_routing: outputs/task3/normalized/event_mention_routing.json
+  task2_link_audit_report: reports/task3_task2_link_audit.json
+  task2_ambiguous_links: outputs/task3/normalized/task2_ambiguous_links.jsonl
+  document_split_mapping: outputs/task3/splits/document_split_mapping.jsonl
+  event_mention_split_mapping: outputs/task3/splits/event_mention_split_mapping.jsonl
+  split_mapping_report: reports/task3_split_mapping_report.json
+random_seed: 2026
+candidate_limits:
+  near_duplicate_pairs: 1500
+  same_event_pairs: 1500
+  cluster_annotation_seed: 1200
+  timeline_annotation_seed: 400
+time_window_days:
+  near_duplicate_max_gap: 7
+  same_event_max_gap: 180
+  same_company_same_type_max_gap: 45
+  same_company_diff_type_max_gap: 120
+similarity_thresholds:
+  title_high: 0.82
+  title_medium: 0.62
+  body_high: 0.75
+  body_medium: 0.55
+  fingerprint_equal_boost: true
+include_low_trust_shadow_evidence: true
+sampling:
+  per_target_max_pairs: 40
+  per_article_max_pairs: 8
+  per_cluster_max_articles: 20
+  per_source_max_pairs: 20
+  hard_negative_ratio: 0.25
+  uncertain_ratio: 0.15
+  macro_event_ratio: 0.2
+  reversal_ratio: 0.1
+  same_source_ratio: 0.2
+processing_channels:
+  main:
+    description: 高/中可信且字段完整
+    trust_score_min: 60
+    preferred_for: [same_event_pairs, cluster_annotation_seed, timeline_annotation_seed]
+  repair:
+    description: 关键字段缺失但可能修复
+    preferred_for: [near_duplicate_pairs, same_event_pairs]
+  macro:
+    description: 宏观或行业事件
+    preferred_for: [same_event_pairs, timeline_annotation_seed]
+  shadow:
+    description: 低可信、不可信或证据不足
+    preferred_for: [near_duplicate_pairs, timeline_annotation_seed]
+  pending:
+    description: 当前无法可靠处理
+    preferred_for: []
+outputs:
+  write_csv_headers: true
+  preserve_empty_human_labels: true
+  deterministic_order: true
+quality_checks:
+  require_article_id_unique_in_source: false
+  require_pair_id_unique: true
+  prohibit_ab_ba_duplicate_pairs: true
+  require_parseable_publish_time: true
+  require_empty_human_labels: true
+  require_fixed_seed: true
+  require_no_cross_split_cluster_leakage: true
+  require_no_cross_split_near_duplicate_leakage: true
+  fail_on_missing_input_file: true

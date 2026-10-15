@@ -1,0 +1,19 @@
+version: task3_kg_v2_step5_canonicalization_v0
+rule_version: task3_kg_v2_step5_canonicalization_v0
+inputs:
+  observation_graph_v2: outputs/task3_kg_v2/observation_graph_v2
+  normalized_event_mentions: outputs/task3_fulltext_v2/normalized_event_mentions.jsonl
+  same_event_edges: outputs/task3_kg_v2/step4/same_event_edges.jsonl
+  cannot_link_edges: outputs/task3_kg_v2/step4/cannot_link_edges.jsonl
+  related_update_edges: outputs/task3_kg_v2/step4/related_update_edges.jsonl
+policies:
+  no_unconstrained_union_find: true
+  related_update_not_must_link: true
+  task2_cluster_not_assignment_key: true
+  canonical_event_verification_status: provisional_model_construct
+  event_thread_allowed: false
+  event_state_allowed: false
+thresholds:
+  high_conf_same_event: 0.90
+  attach_confidence: 0.88
+  max_time_span_days: 30

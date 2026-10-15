@@ -1,0 +1,19 @@
+version: task3_kg_v2_step4_revision3_v0
+inputs:
+  reviewed_package: outputs/task3_kg_v2/step4_revision/annotation_package_agent_reviewed.xlsx
+  candidate_table: outputs/task3_kg_v2/step4/same_event_candidates.parquet
+  normalized_mentions: outputs/task3_fulltext_v2/normalized_event_mentions.jsonl
+  revision2_event_cards: outputs/task3_kg_v2/step4_revision2/event_cards.jsonl
+  revision2_mapping: outputs/task3_kg_v2/step4_revision2/event_mention_canonical_mapping.jsonl
+  graph_features: outputs/task3_kg_v2/step4/graph_feature_explanations.jsonl
+policies:
+  use_event_family_key_for_recall_only: true
+  identity_key_never_direct_must_link: true
+  identity_conflict_as_hard_constraint: true
+  train_only_three_way_classifier: true
+  use_uncertain_only_for_reject_threshold: true
+  read_frozen_test_human_labels: false
+  create_event_thread: false
+  create_event_state: false
+  enter_phase5: false
+  overwrite_revision2: false

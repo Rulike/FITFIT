@@ -1,0 +1,14 @@
+{
+  "validation_file": "data/processed/model_data/event_match_validation.jsonl",
+  "validation_sample_count": 1271,
+  "positive_count": 565,
+  "negative_count": 706,
+  "baseline_model": "outputs/event_match_baseline/best_model",
+  "baseline_threshold": 0.38,
+  "join_key": "sample_id",
+  "negative_type_source": "validation_file",
+  "official_test_forbidden": true,
+  "probability_field": "probability_positive",
+  "canonical_same_target_fpr": 0.1739,
+  "note": "ALL metrics reported at threshold 0.38. Negative type classification from validation file negative_type field."
+}

@@ -1,0 +1,398 @@
+version: "1.2"
+valid_verdicts: [support, contradict, insufficient, unclear]
+valid_statuses: [ok, success, round2_failed]
+allowed_time_window_days: 7
+background_time_window_days: 45
+
+event_type_fields: [event_type, event_name, schema_id]
+subject_fields: [target_name, target_code, subject, company, entity, target]
+claim_time_fields: [event_time, event_date, earliest_publish_time, latest_publish_time, time, date]
+claim_text_fields:
+  - raw_claim_text
+  - event_claim
+  - claim_text
+  - event_type
+  - event_name
+  - schema_id
+  - action
+  - behavior
+  - product
+  - policy
+  - event_object
+  - object
+  - target_name
+  - target_code
+  - event_time
+  - earliest_publish_time
+  - latest_publish_time
+  - time
+
+evidence_time_fields: [publish_time, article_publish_time, event_time, event_date, time, date]
+evidence_text_fields:
+  - title
+  - article_title
+  - sentence
+  - text
+  - content
+  - source
+  - article_source
+  - source_name
+  - answer
+  - response
+  - reply
+  - publish_time
+  - article_publish_time
+evidence_body_text_fields:
+  - title
+  - article_title
+  - sentence
+  - text
+  - content
+  - answer
+  - response
+  - reply
+source_fields: [source, article_source, source_name, publisher, source_type]
+
+claim_code_patterns:
+  - '(?i)(?:^|[^A-Za-z0-9_])(?:company|industry)_\d+(?:_|$)'
+broad_claim_terms:
+  - 资本市场运作
+  - 业务战略调整
+  - 公司战略调整
+  - 新业务拓展
+  - 技术突破与创新
+  - 核心技术突破
+  - 技术突破
+  - 技术创新
+  - 技术研发进展
+  - 产品技术创新
+  - 产品迭代
+  - 数字化转型
+  - 数字化转型深化
+  - 产能布局调整
+  - 政策支持
+  - 政策变化
+  - 行业政策
+  - 下游需求变化
+  - 重大项目投资建设
+  - 重大事项
+  - 战略规划
+  - 业务发展
+  - 经营情况
+generic_event_terms: [事件, 事项, 情况, 相关信息]
+
+event_semantic_groups:
+  - group: product_tech_innovation
+    event_type_patterns: [产品技术创新, 技术研发进展, 技术突破与创新, 核心技术突破, 产品迭代, 技术突破]
+    action_terms: [研发, 发布, 推出, 首款, 首台, 下线, 量产, 试制, 应用, 获批, 专利, 技术突破, 技术升级, 产品升级]
+  - group: strategy_business
+    event_type_patterns: [公司战略调整, 业务战略调整, 新业务拓展, 战略规划, 战略合作, 品牌升级]
+    action_terms: [战略, 调整, 转型, 布局, 拓展, 合作, 投资, 新业务, 新市场, 海外市场, 品牌升级]
+  - group: capital_market
+    event_type_patterns: [资本市场运作, IPO, 上市, 债券, 发行, 回购, 增发, 并购, 收购, 重组, 保荐, 融资, 股权变动]
+    action_terms: [IPO, 上市, 债券, 发行, 回购, 增发, 并购, 收购, 重组, 保荐, 融资, 股权变动]
+  - group: digital_transformation
+    event_type_patterns: [数字化转型, 数字化转型深化, 数智化, 数据平台, 智能风控, 科技系统, 线上化, 数字系统, 数据模型, 智能化改造]
+    action_terms: [数字化, 数智化, 数据平台, 智能风控, 科技系统, 线上化, 数字系统, 数据模型, 智能化改造]
+  - group: capacity_layout
+    event_type_patterns: [产能布局调整, 扩产, 减产, 投产, 停产, 关停, 产线, 生产基地, 工厂, 产能, 搬迁]
+    action_terms: [扩产, 减产, 投产, 停产, 关停, 产线, 生产基地, 工厂, 产能, 搬迁]
+  - group: policy_change
+    event_type_patterns: [政策支持, 政策变化, 行业政策, 政策, 通知, 意见, 办法, 规定, 监管, 补贴, 支持措施, 国家标准, 行业标准]
+    action_terms: [政策, 通知, 意见, 办法, 规定, 监管, 补贴, 支持措施, 国家标准, 行业标准]
+  - group: downstream_demand
+    event_type_patterns: [下游需求变化, 需求, 订单, 销量, 客户, 景气, 供不应求, 采购, 合同]
+    action_terms: [需求, 订单, 销量, 客户, 景气, 供不应求, 采购, 合同]
+  - group: major_project
+    event_type_patterns: [重大项目投资建设, 项目建设, 拿地, 开工, 竣工, 中标, 土地, 投资金额, 投产]
+    action_terms: [项目, 建设, 开工, 竣工, 中标, 拿地, 土地, 投资金额, 投产]
+  - group: public_health
+    event_type_patterns: [公共卫生事件, 疫情, 疫病, 防控]
+    action_terms: [疫情, 病例, 感染, 防控, 预警, 突发公共卫生, 药品, 疫苗, 医疗]
+  - group: vehicle_product
+    event_type_patterns: [新车发布定价, 新车发布, 车型发布, 定价]
+    action_terms: [发布, 上市, 定价, 交付, 车型, 预售]
+
+event_action_terms:
+  - 研发
+  - 发布
+  - 推出
+  - 首款
+  - 首台
+  - 下线
+  - 量产
+  - 试制
+  - 应用
+  - 获批
+  - 专利
+  - 技术突破
+  - 技术升级
+  - 产品升级
+  - 战略
+  - 调整
+  - 转型
+  - 布局
+  - 拓展
+  - 合作
+  - 投资
+  - 新业务
+  - 新市场
+  - 海外市场
+  - 品牌升级
+  - IPO
+  - 上市
+  - 债券
+  - 发行
+  - 回购
+  - 增发
+  - 并购
+  - 收购
+  - 重组
+  - 保荐
+  - 融资
+  - 股权变动
+  - 数字化
+  - 数智化
+  - 数据平台
+  - 智能风控
+  - 科技系统
+  - 线上化
+  - 数字系统
+  - 数据模型
+  - 智能化改造
+  - 扩产
+  - 减产
+  - 投产
+  - 停产
+  - 关停
+  - 产线
+  - 生产基地
+  - 工厂
+  - 产能
+  - 搬迁
+  - 政策
+  - 通知
+  - 意见
+  - 办法
+  - 规定
+  - 监管
+  - 补贴
+  - 支持措施
+  - 国家标准
+  - 行业标准
+  - 需求
+  - 订单
+  - 销量
+  - 客户
+  - 景气
+  - 供不应求
+  - 采购
+  - 合同
+  - 项目
+  - 建设
+  - 开工
+  - 竣工
+  - 中标
+  - 拿地
+  - 土地
+  - 投资金额
+  - 签署
+  - 批准
+  - 设立
+  - 交付
+  - 终止
+  - 撤回
+event_state_terms:
+  - 完成
+  - 启动
+  - 取得
+  - 形成
+  - 落地
+  - 已
+  - 将
+  - 正式
+  - 明确
+  - 显示
+  - 披露
+  - 公告
+  - 回复
+  - 答复
+  - 回应
+
+concrete_fact_patterns:
+  - 签署
+  - 中标
+  - 获批
+  - 批准
+  - 发布
+  - 上线
+  - 投产
+  - 交付
+  - 收购
+  - 增资
+  - 融资
+  - 设立
+  - 合作
+  - 产品
+  - 药品
+  - 政策
+  - 订单
+  - 采购
+  - 处罚
+  - 备案
+  - 终止
+  - 撤回
+  - 开工
+  - 竣工
+  - 拿地
+  - 发行
+  - 上市
+  - 回购
+  - 扩产
+  - 减产
+  - 量产
+  - 首款
+  - 首台
+  - 专利
+  - 研发
+  - 试制
+  - 智能
+  - 数智
+concrete_fact_regex_patterns:
+  - '\d+(?:\.\d+)?%'
+  - '\d+(?:\.\d+)?(万|亿|亿元|万元|股|台|套|件|辆|吨|公里|平方米|m2|MW|GW|kW)'
+  - '20\d{2}[-/年.]\d{1,2}[-/月.]\d{1,2}'
+declarative_fact_patterns:
+  - 公告
+  - 发布公告
+  - 披露
+  - 显示
+  - 资料显示
+  - 回复
+  - 答复
+  - 回应
+  - 正式
+  - 明确
+  - 完成
+non_market_fact_patterns:
+  - 公告
+  - 回复
+  - 答复
+  - 披露
+  - 签署
+  - 获批
+  - 发布
+  - 投产
+  - 中标
+  - 收购
+  - 项目
+
+official_action_patterns:
+  - 公告
+  - 回复
+  - 回应
+  - 答复
+  - 澄清
+  - 发布
+  - 披露
+  - 签署
+  - 获批
+  - 批准
+  - 投产
+  - 上市
+  - 发行
+  - 中标
+  - 收购
+  - 增资
+  - 设立
+  - 撤回
+  - 终止
+  - 开工
+  - 竣工
+
+investor_question_sources: [互动易, 上证e互动, 深交所互动易, e互动, 投资者关系互动平台]
+investor_question_patterns: [提问, 请问, 是否, 能否, 如何看待, 为什么, 为何, 希望]
+official_response_patterns: [公司回复, 公司答复, 公司回应, 回复称, 答复称, 感谢您的关注, 公司表示, 回复]
+question_or_opinion_patterns: [请问, 是否, 能否, 如何看待, 为什么, 为何, 希望, 预计, 可能, 或许, 猜测, 传闻, 市场认为]
+
+market_signal_patterns:
+  - 股价
+  - 涨跌
+  - 主力资金
+  - 资金流入
+  - 资金流出
+  - 融资买入
+  - 融资偿还
+  - 融资余额
+  - 板块指数
+  - 券商推荐
+  - 大宗交易
+  - 成交额
+  - 成交量
+  - 换手率
+  - 龙虎榜
+  - 技术指标
+  - 市场情绪
+
+official_source_patterns:
+  - 公司公告
+  - 公司官网
+  - 官方
+  - 交易所
+  - 证监会
+  - 监管
+  - 政府
+  - 人民政府
+  - 巨潮资讯
+  - 公告
+  - 药监局
+mainstream_source_patterns:
+  - 财经
+  - 证券
+  - 时报
+  - 日报
+  - 新闻
+  - 报道
+  - 资讯
+  - 媒体
+
+contradiction_patterns:
+  - 澄清
+  - 否认
+  - 辟谣
+  - 不属实
+  - 失实
+  - 传闻不实
+  - 消息不实
+  - 监管认定
+  - 监管结论
+  - 公告撤回
+  - 撤回
+  - 终止合作
+  - 取消
+  - 未发生
+  - 事实不符
+  - 更正
+contradiction_exclusion_patterns: [尚未商业化, 仍在研究, 研究阶段, 存在不确定性]
+
+parse_failure_fields: [parse_failure, parse_failed, json_parse_failed, format_validation_failed]
+format_correction_fields: [format_retry_count, format_corrected, format_correction_used, corrected_format]
+
+direct_subject_score_threshold: 1.0
+direct_event_semantic_score_threshold: 1.0
+direct_concrete_fact_score_threshold: 1.0
+direct_time_score_threshold: 0.6
+direct_traceability_score_threshold: 1.0
+direct_evidence_total_threshold: 0.72
+min_event_semantic_hits: 1
+min_concrete_fact_hits: 1
+direct_evidence_score_weights:
+  subject: 0.25
+  event_semantic: 0.25
+  concrete_fact: 0.2
+  time: 0.12
+  source: 0.08
+  traceability: 0.1
+  question_penalty: 0.4
+  market_signal_penalty: 0.4
+  duplicate_penalty: 0.1

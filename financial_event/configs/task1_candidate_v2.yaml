@@ -1,0 +1,57 @@
+{
+  "seed": 2026,
+  "step5_4_dir": "outputs/task1_step5_4_dev_baseline_v1",
+  "output_dir": "outputs/task1_step5_5_candidate_v2_dev",
+  "report_json": "reports/task1_step5_5_candidate_v2_report.json",
+  "report_md": "reports/task1_step5_5_candidate_v2_report.md",
+  "report_xlsx": "reports/task1_step5_5_candidate_v2_details.xlsx",
+  "schema_path": "data/processed/event_schema.jsonl",
+  "company_mapping_path": "data/raw/事件类型_标的.json",
+  "industry_mapping_path": "data/raw/事件类型_行业.json",
+  "target_alias_path": "configs/target_aliases.json",
+  "news_train_path": "data/processed/labeled/news_train.jsonl",
+  "event_pairs_train_path": "data/processed/labeled/event_pairs_train.jsonl",
+  "frozen_pair_model_dir": "outputs/task1_step5_4_dev_baseline_v1/best_model",
+  "protected_before_path": "outputs/task1_step5_5_candidate_v2_dev/protected_sha256_before_full.txt",
+  "candidate_top_ks": [10, 20, 32],
+  "candidate_recall_ks": [1, 3, 5, 10, 20, 32, 64],
+  "candidate_acceptance": {
+    "candidate_recall_at_20": 0.9,
+    "candidate_recall_at_32": 0.95,
+    "candidate_missing_at_32_max": 42,
+    "all64_recall": 1.0
+  },
+  "default_threshold": 0.38,
+  "threshold_grid": {
+    "start": 0.05,
+    "end": 0.95,
+    "step": 0.01
+  },
+  "candidate_generator": {
+    "profile_body_chars": 3000,
+    "body_semantic_chars": 5000,
+    "target_content_chars": 8000,
+    "profile_max_terms": 300,
+    "event_keyword_count": 40,
+    "support_prior_weight": 0.03,
+    "long_tail_support_threshold": 15,
+    "event_aliases": {}
+  },
+  "pair_inference": {
+    "batch_size": 64,
+    "max_length": 512
+  },
+  "training": {
+    "enabled": true,
+    "model_name_or_path": "outputs/task1_step5_4_dev_baseline_v1/best_model",
+    "max_length": 512,
+    "epochs": 2,
+    "batch_size": 8,
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "losses": ["bce", "class_balanced_bce", "focal"],
+    "class_threshold_min_support": 5,
+    "selection_primary_metric": "macro_f1_fixed_64",
+    "selection_tie_metric": "micro_f1"
+  }
+}

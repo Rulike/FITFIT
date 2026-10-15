@@ -1,0 +1,62 @@
+version: "1.0"
+task: task3_human_validation
+label_policy:
+  same_event_label:
+    values:
+      - same_event
+      - different_event
+      - related_update
+      - clarification_or_refutation
+      - uncertain
+    definitions:
+      same_event: "两篇报道指向同一具体事实，核心主体、对象/动作和关键时间或数值一致。"
+      different_event: "主体可能相同，但具体事实、项目、交易、公告或日期不同。"
+      related_update: "不是同一事实，但明确属于同一事件的发展阶段或后续进展。"
+      clarification_or_refutation: "对已有说法进行澄清、否定、纠正或方向反转。"
+      uncertain: "现有报道和证据不足以作出稳定判断。"
+  event_stage:
+    values: [initial_report, confirmation, clarification, refutation, reversal, ongoing, uncertain]
+  contradiction_status:
+    values: [none, partial, direct, unresolved]
+  evidence_relation:
+    values: [supports, contradicts, clarifies, duplicates, unrelated, uncertain]
+  impact_relation:
+    values: [causes, enables, constrains, benefits, harms, transmits_to_industry, transmits_to_company, none, uncertain]
+annotation_rules:
+  - "先比较具体事实，再比较事件类型；相同公司和相同event_name不能单独判定same_event。"
+  - "同一事件的后续公告、结果、澄清应标related_update或clarification_or_refutation，不强行标same_event。"
+  - "报道中出现传闻、据传、网传、或消息人士称，事实状态保留uncertain，不能因多篇转载升级为credible。"
+  - "公司公告、交易所互动易/问询回复、监管或政府文件可作为高优先级证据，但仍要核对公告对应的具体事实。"
+  - "缺少关键时间、对象、项目名称或金额时，不补猜；标uncertain并写明缺失证据。"
+  - "正例和反例都必须来自真实记录；只允许脱敏展示article_id、标题和必要字段。"
+export_columns:
+  - pair_id
+  - event_record_id_a
+  - event_record_id_b
+  - article_id_a
+  - article_id_b
+  - title_a
+  - title_b
+  - source_a
+  - source_b
+  - publish_time_a
+  - publish_time_b
+  - target_code
+  - schema_id_a
+  - schema_id_b
+  - task1_event_probability_a
+  - task1_event_probability_b
+  - task2_score_a
+  - task2_score_b
+  - candidate_reason
+  - split
+  - same_event_label
+  - event_stage_a
+  - event_stage_b
+  - contradiction_status
+  - evidence_relation
+  - impact_relation
+  - confidence
+  - annotator_id
+  - annotation_comment
+  - annotation_status

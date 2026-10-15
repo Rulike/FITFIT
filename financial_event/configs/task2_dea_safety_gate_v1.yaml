@@ -1,0 +1,130 @@
+version: task2_dea_safety_gate_v1
+support_confidence_threshold: 0.75
+allowed_time_window_days: 7
+valid_verdicts: [support, contradict, insufficient, unclear]
+valid_statuses: [ok, success, round2_failed]
+event_type_fields: [event_type, event_name, schema_id]
+claim_text_fields:
+  - event_claim
+  - claim_text
+  - event_type
+  - event_name
+  - schema_id
+  - action
+  - behavior
+  - product
+  - policy
+  - event_object
+  - object
+  - target_name
+  - target_code
+  - event_time
+  - earliest_publish_time
+  - latest_publish_time
+  - time
+subject_fields: [target_name, target_code, subject, company, entity, target]
+claim_time_fields: [event_time, event_date, earliest_publish_time, latest_publish_time, time, date]
+evidence_time_fields: [publish_time, article_publish_time, event_time, event_date, time, date]
+evidence_text_fields:
+  - title
+  - article_title
+  - sentence
+  - content
+  - source
+  - article_source
+  - source_name
+  - answer
+  - response
+  - reply
+  - publish_time
+  - article_publish_time
+source_fields: [source, article_source, source_name, publisher, source_type]
+claim_code_patterns:
+  - '(?i)(?:^|[^A-Za-z0-9_])(?:company|industry)_\d+(?:_|$)'
+broad_claim_terms:
+  - 资本市场运作
+  - 业务战略调整
+  - 新业务拓展
+  - 技术突破与创新
+  - 技术突破
+  - 技术创新
+  - 市场竞争加剧
+  - 经营情况
+  - 业务发展
+  - 重大事项
+  - 战略规划
+  - 产品进展
+  - 政策支持
+  - 研发进展
+generic_event_terms: [事件, 事项, 情况, 相关信息]
+concrete_fact_patterns:
+  - 签署
+  - 中标
+  - 获批
+  - 批准
+  - 发布
+  - 上线
+  - 投产
+  - 交付
+  - 收购
+  - 增资
+  - 融资
+  - 设立
+  - 合作
+  - 产品
+  - 药品
+  - 政策
+  - 订单
+  - 采购
+  - 处罚
+  - 备案
+  - 终止
+  - 撤回
+investor_question_sources: [互动易, 上证e互动, 深交所互动易, e互动, 投资者关系互动平台]
+investor_question_patterns: [提问, 请问, 是否, 能否, 如何看待, 为什么, 为何, 希望]
+official_response_patterns: [公司回复, 公司答复, 公司回应, 回复称, 答复称, 感谢您的关注, 公司表示]
+market_signal_patterns:
+  - 股价
+  - 涨跌
+  - 主力资金
+  - 资金流入
+  - 资金流出
+  - 融资买入
+  - 融资偿还
+  - 融资余额
+  - 板块指数
+  - 券商推荐
+  - 大宗交易
+  - 成交额
+  - 换手率
+  - 龙虎榜
+official_source_patterns:
+  - 公司公告
+  - 公司官网
+  - 官方
+  - 交易所
+  - 证监会
+  - 监管
+  - 政府
+  - 人民政府
+  - 巨潮资讯
+  - 公告
+  - 药监局
+contradiction_patterns:
+  - 澄清
+  - 否认
+  - 辟谣
+  - 不属实
+  - 失实
+  - 传闻不实
+  - 消息不实
+  - 监管认定
+  - 监管结论
+  - 公告撤回
+  - 撤回
+  - 终止合作
+  - 事实不符
+  - 更正
+contradiction_exclusion_patterns: [尚未商业化, 仍在研究, 研究阶段, 存在不确定性]
+parse_failure_fields: [parse_failure, parse_failed, json_parse_failed, format_validation_failed]
+format_correction_fields: [format_retry_count, format_corrected, format_correction_used, corrected_format]

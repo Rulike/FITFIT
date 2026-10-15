@@ -1,0 +1,37 @@
+run_name: task1_step5_7m_gpt55_structure
+model_provider: OpenAI
+model: gpt-5.5
+wire_api: responses
+base_url: https://mdkj.lol
+responses_url: https://mdkj.lol/responses
+model_identity_policy: configured_model_trusted_by_user
+store: false
+reasoning_effort: xhigh
+prompt_variants:
+  - strict_quote_extraction
+  - strict_quote_extraction_with_self_check
+few_shot_count: 3
+technical_precheck_count: 8
+dev_count: 40
+workers: 1
+dev_gate:
+  trigger_relaxed_f1: 0.45
+  event_span_character_overlap_f1: 0.55
+  subject_normalized_accuracy: 0.55
+  event_time_normalized_date_accuracy: 0.35
+  object_normalized_accuracy: 0.45
+  direction_accuracy: 0.60
+  argument_role_end_to_end_f1: 0.30
+  article_exact_match_accuracy_gt_zero: true
+  success_rate: 0.95
+  illegal_event_name: 0
+  cross_article_reference: 0
+  offset_illegal_count: 0
+  illegal_direction_count: 0
+  illegal_role_count: 0
+  json_final_failure_max: 1
+data:
+  train_400: outputs/task1_step5_7k_structure_extractor/structure_train_400_for_training.jsonl
+  dev_40: outputs/task1_step5_7k_structure_extractor/structure_dev_40_for_dev_selection.jsonl
+  frozen_60: outputs/task1_step5_7j_structure_confirmation/independent_frozen_test_confirmed.jsonl
+  frozen_60_expected_sha256: 76efd5a27057dd177ee8688f4769bfb6e57e8539795cad1727ea29418f7c3579

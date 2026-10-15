@@ -1,0 +1,42 @@
+{
+  "dataset_id": "task2_human_gold_development_v1",
+  "previous_dataset_id": "task2_independent500_v1",
+  "new_status": "retired_independent_test",
+  "effective_time": "2026-08-26T21:34:16+08:00",
+  "source_path": "outputs/event_credibility/task2_independent500_v1/independent_samples.jsonl",
+  "source_sha256": "80a3666317a23e5a3c79539a6c000a11293d08fa24efdf41af06dfffc2a5472c",
+  "row_count": 500,
+  "label_distribution": {
+    "support": 269,
+    "contradict": 221,
+    "insufficient": 10
+  },
+  "retired_reason": "The old locked500 gold has been read multiple times and used for retrospective error analysis, so it no longer satisfies the independence requirements for a blind test set.",
+  "historical_usage": [
+    "Built as task2_independent500_v1 blind audit package.",
+    "Auto-assisted human-confirmed gold was created after the blind package.",
+    "Gold was read in later locked500 evaluations.",
+    "Gold was read again for retrospective locked500 error diagnosis and market-contradictory audit."
+  ],
+  "allowed_uses": [
+    "training after explicit inclusion in a development protocol",
+    "development-set error analysis",
+    "rule debugging on development data",
+    "documentation of previous system behavior"
+  ],
+  "forbidden_uses": [
+    "official independent testing",
+    "claims of blind or leakage-free independent performance",
+    "threshold/model/weight selection reported as independent-test tuning",
+    "comparison baselines presented as final independent results"
+  ],
+  "constraints": {
+    "original_file_preserved": true,
+    "original_sha256_preserved": true,
+    "training_performed_by_this_script": false,
+    "tuning_performed_by_this_script": false,
+    "evaluation_run_by_this_script": false,
+    "predictions_generated_by_this_script": false,
+    "old_gold_label_values_used_for_new_sampling": false
+  }
+}

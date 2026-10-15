@@ -1,0 +1,14 @@
+# Task1 Step 5.7-H candidate constrained structure baseline
+input_scope: gold_free_eventmention
+allowed_input_fields: ['event_mention_id', 'article_id', 'title', 'content', 'publish_time', 'event_name']
+candidate_limits: {'sentence': 8, 'span': 8, 'trigger': 12, 'subject': 10, 'time': 8, 'object': 12}
+candidate_rules: outputs/task1_step5_7h_candidate_constrained_structure/candidate_rules_v1.json
+split_manifest: outputs/task1_step5_7h_candidate_constrained_structure/split_manifest.json
+candidate_train_count: 128
+prompt_dev_count: 32
+frozen_dev_count: 40
+model: DianJin-R1-32B
+api_base: http://127.0.0.1:8000/v1
+external_llm_calls: 0
+read_1029_gold_test_labels: false
+modify_formal_task1_task2: false

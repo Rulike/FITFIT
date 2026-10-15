@@ -1,0 +1,27 @@
+random_seed: 2026
+evidence_scope: title_structured_only
+inputs:
+  event_clusters: outputs/task3/step4/event_clusters.jsonl
+  event_cluster_members: outputs/task3/step4/event_cluster_members.jsonl
+  event_threads: outputs/task3/step4/event_threads.jsonl
+  related_update_edges: outputs/task3/step4/related_update_edges.jsonl
+  event_mention_cluster_mapping: outputs/task3/step4/event_mention_cluster_mapping.jsonl
+  event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  routing: outputs/task3/normalized/event_mention_routing.json
+  task2_evidence_links: outputs/task3/normalized/task2_evidence_links.jsonl
+  document_mapping: outputs/task3/step2/document_representative_mapping.jsonl
+  independent_evidence_units: outputs/task3/step2/independent_evidence_units.jsonl
+  duplicate_groups: outputs/task3/step2/duplicate_groups.jsonl
+outputs:
+  step5_dir: outputs/task3/step5
+  evaluation: reports/task3_step5_evaluation.json
+  runtime: reports/task3_step5_runtime.json
+  documentation: docs/task3_step5_timeline.md
+stage_keywords:
+  denial_refutation: [否认, 辟谣, 不属实, 纯属谣言, 澄清不实]
+  clarification: [澄清, 说明, 回应, 解释, 以公告为准]
+  reversal_cancellation: [终止, 取消, 撤回, 终止合作, 不再推进, 恢复, 重启, 重新]
+  official_confirmation: [公告, 官方, 公司确认, 证实, 获批, 已获批]
+  rumor: [传闻, 网传, 市场消息, 据传, 或将]
+  completion: [完成, 竣工, 投产, 上线, 交付, 并网投运, 落地]
+  progress_update: [进展, 推进, 签约, 增资, 投资, 拟, 计划, 建设]

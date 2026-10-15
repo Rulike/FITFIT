@@ -1,0 +1,16 @@
+version: "1.0"
+model:
+  base_url: "http://127.0.0.1:8000/v1"
+  name: "DianJin-R1-32B"
+  temperature: 0.0
+  max_tokens: 512
+  timeout_seconds: 180
+  format_retries: 1
+experiment:
+  workers: 1
+  max_rounds: 3
+  candidate_count: 6
+  diagnostic_only: true
+  use_gold_for_model_input: false
+  save_hidden_reasoning: false
+  allow_cross_cluster_evidence: false

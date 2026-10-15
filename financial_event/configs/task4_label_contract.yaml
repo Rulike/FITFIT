@@ -1,0 +1,42 @@
+label_contract_version: task4_stage1_v0
+formal_method_name: TRACE-Alert
+tasks:
+  event_credibility:
+    source: task3_kg_v3_release canonical_event_trust_scores
+    supervision_status: upstream_structural_score_not_task4_gold
+    notes:
+      - credibility_score_is_available
+      - credibility_is_not_same_as_impact_or_alert
+  impact_direction:
+    raw_field: labels.emotion
+    label_space:
+      - 正面
+      - 中性
+      - 负面
+    label_type: categorical_manual_like_dataset_label
+    nullable: false
+    supervision_status: usable_for_supervised_training_after_leakage_control
+  impact_severity:
+    raw_field: labels.impact_analysis
+    label_type: unresolved_free_text_rationale
+    ordered_mapping_available: false
+    supervision_status: not_available_for_direct_supervised_classification_stage1
+  alert_priority:
+    raw_field: null
+    label_type: not_available
+    supervision_status: unavailable
+  impact_target:
+    raw_fields:
+      - labels.target_type
+      - labels.target_code
+      - labels.target_name
+    label_type: structured_target_reference
+    supervision_status: usable_for_target_linking_or_retrieval_after_leakage_control
+missing_value_policy:
+  unknown_or_unconfirmed_fields: null
+  unresolved_semantics: unresolved
+  illegal_values: send_to_unresolved_queue
+provenance_requirements:
+  preserve_original_field_names: true
+  distinguish_manual_like_labels_from_weak_labels: true
+  agent_review_is_not_formal_human_gold: true

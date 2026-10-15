@@ -1,0 +1,84 @@
+version: "claim_contract_v1"
+model:
+  base_url: "http://127.0.0.1:8000/v1"
+  name: "DianJin-R1-32B"
+  temperature: 0.0
+  max_tokens: 512
+  timeout_seconds: 180
+  format_retries: 1
+dea:
+  initial_evidence_limit: 4
+  additional_evidence_limit: 4
+  confidence_threshold: 0.75
+  low_confidence_threshold: 0.65
+  max_rounds: 2
+  trigger_policy: "v2"
+  compact_prompt: true
+  workers: 1
+event_type_semantics:
+  product_tech_innovation:
+    canonical_name: "产品技术创新"
+    aliases: ["技术研发进展", "技术突破与创新", "核心技术突破", "产品迭代", "技术突破", "产品技术创新"]
+    positive_action_terms: ["研发", "发布", "推出", "首款", "首台", "下线", "量产", "试制", "应用", "获批", "专利", "技术突破", "技术升级", "产品升级"]
+    weak_signal_terms: ["计划", "拟", "考虑", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入", "成交量", "机构持仓"]
+  capital_market:
+    canonical_name: "资本市场运作"
+    aliases: ["IPO", "上市", "债券", "发行", "回购", "增发", "并购", "收购", "重组", "保荐", "融资", "股权变动"]
+    positive_action_terms: ["IPO", "上市", "发行", "回购", "增发", "并购", "收购", "重组", "保荐", "融资", "股权变动"]
+    weak_signal_terms: ["计划", "拟", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入", "成交量"]
+  major_project:
+    canonical_name: "重大项目投资建设"
+    aliases: ["重大项目建设", "项目建设", "项目投资", "拿地", "开工", "竣工", "中标"]
+    positive_action_terms: ["项目", "建设", "开工", "竣工", "中标", "拿地", "土地", "投资金额", "投产"]
+    weak_signal_terms: ["计划", "拟", "考虑", "传闻"]
+    excluded_signal_terms: ["股价上涨", "资金流入", "机构持仓"]
+  strategy_business:
+    canonical_name: "公司战略调整"
+    aliases: ["业务战略调整", "新业务拓展", "公司战略变化", "战略规划", "业务拓展"]
+    positive_action_terms: ["战略", "调整", "转型", "布局", "拓展", "合作", "投资", "新业务", "新市场", "海外市场", "品牌升级"]
+    weak_signal_terms: ["计划", "拟", "考虑", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入", "成交量"]
+  policy_change:
+    canonical_name: "电力投资政策"
+    aliases: ["政策支持", "政策变化", "行业政策", "通知", "意见", "办法", "规定", "监管", "补贴"]
+    positive_action_terms: ["政策", "通知", "意见", "办法", "规定", "监管", "补贴", "支持措施", "国家标准", "行业标准"]
+    weak_signal_terms: ["可能", "计划", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入", "成交量"]
+  equity_change:
+    canonical_name: "股权变动"
+    aliases: ["股权转让", "股份变动", "股东变化"]
+    positive_action_terms: ["股权", "股份", "转让", "增持", "减持", "受让", "过户"]
+    weak_signal_terms: ["拟", "计划", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "成交量"]
+  performance_change:
+    canonical_name: "业绩变化"
+    aliases: ["经营情况", "业绩增长", "利润变化"]
+    positive_action_terms: ["营收", "收入", "利润", "净利", "亏损", "增长", "下降", "预增", "预亏"]
+    weak_signal_terms: ["预期", "预测", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入"]
+  financing_bonds:
+    canonical_name: "融资与债券发行"
+    aliases: ["融资", "债券发行", "公司债", "可转债"]
+    positive_action_terms: ["融资", "发行", "债券", "募集", "承销", "票面利率"]
+    weak_signal_terms: ["拟", "计划", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入", "成交量"]
+  merger_restructuring:
+    canonical_name: "并购重组"
+    aliases: ["吸收合并", "重大资产重组", "收购"]
+    positive_action_terms: ["并购", "收购", "合并", "重组", "换股", "交易完成"]
+    weak_signal_terms: ["拟", "计划", "传闻"]
+    excluded_signal_terms: ["股价上涨", "资金流入"]
+  contract_signing:
+    canonical_name: "合同签订"
+    aliases: ["合作协议", "合同签订", "协议签署"]
+    positive_action_terms: ["签署", "签订", "协议", "合同", "中标", "订单"]
+    weak_signal_terms: ["拟", "计划", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入"]
+  litigation_penalty:
+    canonical_name: "诉讼处罚"
+    aliases: ["诉讼", "处罚", "监管措施", "行政处罚"]
+    positive_action_terms: ["起诉", "受理", "判决", "处罚", "立案", "监管措施", "罚款"]
+    weak_signal_terms: ["可能", "传闻", "投资者提问"]
+    excluded_signal_terms: ["股价上涨", "资金流入"]

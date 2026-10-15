@@ -1,0 +1,53 @@
+version: task2_hybrid_v3_market_enhanced_v1
+seed: 2026
+
+paths:
+  clean_evidence: outputs/event_credibility/task2_hybrid_v3/clean_evidence_v1/clean_evidence_1500.jsonl
+  clean_evidence_sha256: 6538549b53c74fc0518804b98e73d4ad3330be319a0a08c4d9a53c41ff0af9f0
+  silver_final: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_final_1500.jsonl
+  silver_training_eligible: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_training_eligible.jsonl
+  silver_needs_review: outputs/event_credibility/task2_hybrid_v3/heterogeneous_silver_v2/silver_needs_review.jsonl
+  locked500_samples: outputs/event_credibility/task2_independent500_v1/independent_samples.jsonl
+  locked500_sha256: 80a3666317a23e5a3c79539a6c000a11293d08fa24efdf41af06dfffc2a5472c
+  locked_ids: configs/task2_independent500_locked_ids.json
+  fulltext_scores: outputs/event_credibility/event_credibility_scores_fulltext.jsonl
+  market_cache: outputs/event_credibility/task2_hybrid_v3/market_consistency_v1/resset_market_daily_cache.parquet
+  market_consistency_1500: outputs/event_credibility/task2_hybrid_v3/market_consistency_v1/market_consistency_1500.jsonl
+  market_candidates: outputs/event_credibility/task2_hybrid_v3/market_consistency_v1/market_consistency_candidates.jsonl
+  csmar_cache_dir: data/processed/event_credibility/csmar_financial_cache_v2
+  cluster_members: outputs/event_clustering/event_cluster_members.parquet
+  article_index: data/processed/event_credibility/fulltext_article_index.parquet
+  locked500_gold: reports/task2_independent500_auto_assisted_human_confirmed_gold.xlsx
+  output_dir: outputs/event_credibility/task2_hybrid_v3/market_enhanced_training_v1
+  report_md: reports/task2_hybrid_v3_market_enhanced_report.md
+  details_xlsx: reports/task2_hybrid_v3_market_enhanced_details.xlsx
+
+training:
+  validation_ratio: 0.2
+  max_text_features: 20000
+  char_ngram_min: 2
+  char_ngram_max: 4
+  logistic_regression_c_values: [0.25, 0.5, 1.0, 2.0]
+  model_family: sklearn_logistic_regression
+  class_weight: balanced
+  leakage_near_duplicate_threshold: 0.985
+
+market:
+  close_time: "15:00"
+  direction_unclear_abs_return: 0.005
+  explicit_contradict_abs_return: 0.01
+  explicit_adjustment_cap: 0.10
+  sentiment_adjustment_cap: 0.03
+  non_market_policy: neutralize_all_market_directional_features
+  benchmark_type: market_cross_sectional_median_proxy
+  post_event_audit_forbidden_in_closed_track: true
+
+labels:
+  order: [support, contradict, insufficient, unclear]
+
+safety:
+  use_locked500_gold_for_training_or_tuning: false
+  use_needs_review_for_training: false
+  use_post_event_market_features: false
+  use_old_retired_silver: false
+  use_old_locked500_predictions_as_training_features: false

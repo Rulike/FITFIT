@@ -1,0 +1,40 @@
+version: task3_kg_v2_step3_evidence_units_v0
+rule_version: task3_kg_v2_step3_evidence_units_v0
+inputs:
+  full_document_universe: outputs/task3_kg_v2/full_document_universe.parquet
+  observation_graph_v0_nodes: outputs/task3_kg_v2/observation_graph/nodes.jsonl
+  observation_graph_v0_edges: outputs/task3_kg_v2/observation_graph/edges.jsonl
+outputs:
+  output_dir: outputs/task3_kg_v2/observation_graph_v1
+  nodes: outputs/task3_kg_v2/observation_graph_v1/nodes.jsonl
+  edges: outputs/task3_kg_v2/observation_graph_v1/edges.jsonl
+  minhash_index: outputs/task3_kg_v2/observation_graph_v1/minhash_index.parquet
+  near_duplicate_candidates: outputs/task3_kg_v2/observation_graph_v1/near_duplicate_candidates.parquet
+  near_duplicate_pairs: outputs/task3_kg_v2/observation_graph_v1/near_duplicate_pairs.parquet
+  uncertain_review: outputs/task3_kg_v2/observation_graph_v1/uncertain_review.jsonl
+  human_review_pack: outputs/task3_kg_v2/observation_graph_v1/human_review_pack.jsonl
+  evidence_unit_mapping: outputs/task3_kg_v2/observation_graph_v1/evidence_unit_mapping.parquet
+  manifest: outputs/task3_kg_v2/observation_graph_v1/materialization_manifest.json
+  report: reports/task3_kg_v2_step3_evidence_units_report.json
+minhash:
+  shingle_size: 5
+  num_perm: 64
+  band_count: 16
+  rows_per_band: 4
+  max_candidates_per_anchor: 80
+embedding_rerank:
+  model_preference: Qwen3-Embedding
+  execution_policy: candidate_only
+  fallback_when_qwen_unavailable: sklearn_char_tfidf_cosine
+  near_duplicate_threshold: 0.92
+  uncertain_low: 0.84
+  uncertain_high: 0.92
+policies:
+  instantiate_evidence_unit: true
+  canonical_event_instances_allowed: false
+  event_thread_instances_allowed: false
+  event_state_instances_allowed: false
+  instance_of_event_edges_allowed: false
+  no_same_event_or_must_link_semantics: true
+  do_not_overwrite_observation_graph_v0: true
+  human_fields_empty: true

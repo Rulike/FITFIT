@@ -1,0 +1,36 @@
+task_name: TRACE-Alert
+stage: task4_stage3_revision1
+project_root: /opt/data/private/JinRong/kechuang/financial_event_project
+inputs:
+  end_to_end_event_features: outputs/task4/stage2_6/end_to_end_event_features.parquet
+  end_to_end_event_labels: outputs/task4/stage2_6/end_to_end_event_labels.parquet
+  oracle_event_features: outputs/task4/stage2_6/oracle_event_features.parquet
+  oracle_event_labels: outputs/task4/stage2_6/oracle_event_labels.parquet
+  event_level_split_mapping: outputs/task4/stage2_6/event_level_split_mapping.parquet
+  graph_nodes: outputs/task3_kg_v3_release/graph_nodes.jsonl
+  graph_edges: outputs/task3_kg_v3_release/graph_edges.jsonl
+models:
+  qwen_embedding: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Embedding-0.6B
+  qwen_reranker: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Reranker-0.6B
+runtime:
+  conda_env: task3-qwen
+  device: cuda:0
+  embedding_batch_size: 4
+  reranker_batch_size: 8
+  reranker_max_call_rate: 0.10
+protocol:
+  train_split_only: official train
+  oof_folds: 5
+  group_keys:
+    - article_id
+    - duplication_id
+    - clean_content_hash
+  disallow_features:
+    - emotion
+    - impact_analysis
+    - gold_alignment
+    - old_model_final_label
+    - test_statistics
+outputs:
+  root: outputs/task4/stage3_revision1
+  docs: docs/task4_stage3_revision1.md

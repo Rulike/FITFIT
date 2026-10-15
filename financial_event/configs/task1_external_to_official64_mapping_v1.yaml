@@ -1,0 +1,216 @@
+version: task1_external_to_official64_mapping_v1
+policy:
+  exact_equivalent_min_confidence: 0.90
+  source_narrower_min_confidence: 0.90
+  source_narrower_max_classification_loss_weight: 0.5
+  partial_overlap_classification_loss_weight: 0.0
+  external_test_used_for_training: false
+mappings:
+  - source_dataset: docfee
+    source_event_type: 破产清算
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.62
+        mapping_reason: "Both are severe corporate risk events, but official 现金流风险 is defined around public debt repayment pressure; bankruptcy liquidation is a legal liquidation state and is not fully covered."
+  - source_dataset: docfee
+    source_event_type: 股东减持
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.48
+        mapping_reason: "Shareholder reduction is a capital-market related transaction, but official 资本市场运作 focuses on the target company's own capital operations such as restructuring/refinancing/equity incentives."
+  - source_dataset: docfee
+    source_event_type: 股东增持
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.48
+        mapping_reason: "Shareholder increase is related to equity market actions but is not listed in official examples and may concern shareholders rather than the target company's own operation."
+  - source_dataset: docfee
+    source_event_type: 股权冻结
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.42
+        mapping_reason: "Equity freeze may signal legal/financial risk, but official 现金流风险 requires debt repayment stress."
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.32
+        mapping_reason: "Equity legal status is not a company capital operation in the official definition."
+  - source_dataset: docfee
+    source_event_type: 股权质押
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.4
+        mapping_reason: "Equity pledge can correlate with liquidity risk but does not itself satisfy debt payment default/extension conditions."
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.34
+        mapping_reason: "Pledge is a shareholder financing/collateral action, not a listed company capital operation as defined."
+  - source_dataset: docfee
+    source_event_type: 重大安全事故
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: none
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      []
+  - source_dataset: docfee
+    source_event_type: 重大对外赔付
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.28
+        mapping_reason: "Large compensation can affect cash flow, but official event condition is specific debt repayment difficulty."
+  - source_dataset: docfee
+    source_event_type: 重大资产损失
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.3
+        mapping_reason: "Asset loss may affect solvency but is broader than official debt repayment risk."
+  - source_dataset: docfee
+    source_event_type: 高层死亡
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: none
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      []
+  - source_dataset: chfinann
+    source_event_type: EquityOverweight
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.45
+        mapping_reason: "Shareholder increase overlaps capital-market behavior but is not the official target company's own restructuring/refinancing/incentive action."
+  - source_dataset: chfinann
+    source_event_type: EquityUnderweight
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.45
+        mapping_reason: "Shareholder reduction overlaps capital-market behavior but official definition is different in subject and event condition."
+  - source_dataset: chfinann
+    source_event_type: EquityFreeze
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.42
+        mapping_reason: "Equity freeze can indicate risk but not necessarily official debt repayment stress."
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.32
+        mapping_reason: "Legal freeze is not an official capital operation action."
+  - source_dataset: chfinann
+    source_event_type: EquityPledge
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000002_现金流风险
+        event_name: 现金流风险
+        relation: partial_overlap
+        confidence: 0.4
+        mapping_reason: "Equity pledge can indicate liquidity pressure but does not entail official debt repayment difficulty."
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.34
+        mapping_reason: "Pledge is collateral financing, not a listed company capital operation per official definition."
+  - source_dataset: chfinann
+    source_event_type: EquityRepurchase
+    selected_schema_id: null
+    selected_event_name: null
+    mapping_relation: partial_overlap
+    usable_for_official_classification: false
+    usable_for_shared_extraction_pretraining: true
+    classification_loss_weight: 0.0
+    candidate_official_events:
+      - schema_id: company_000166_资本市场运作
+        event_name: 资本市场运作
+        relation: partial_overlap
+        confidence: 0.58
+        mapping_reason: "Share repurchase is a company capital market action, but official definition/examples do not explicitly include repurchase and target-specific schema is for securities company capital operations."

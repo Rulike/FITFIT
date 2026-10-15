@@ -1,0 +1,51 @@
+metric_contract_version: task4_stage1_v0
+formal_method_name: TRACE-Alert
+metrics:
+  impact_direction:
+    available: true
+    metrics:
+      - macro_f1
+      - pr_auc
+      - per_class_precision
+      - per_class_recall
+      - per_class_f1
+  impact_severity:
+    available: false
+    reason: no_verified_ordered_or_categorical_severity_label
+    metrics:
+      - unavailable
+  impact_target_ranking:
+    available: partially_available
+    metrics:
+      - recall_at_k
+      - ndcg_at_k
+      - micro_macro_f1
+    conditions:
+      - requires_target_candidate_set_definition
+  alert_priority:
+    available: false
+    reason: no_real_alert_label_in_stage1_audit
+  calibration_and_rejection:
+    available: partially_available
+    metrics:
+      - ece
+      - brier_score
+      - selective_accuracy
+      - automatic_coverage
+      - rejection_rate
+    conditions:
+      - only_after_real_probabilistic_models_exist
+  explanation_and_efficiency:
+    available: true
+    metrics:
+      - evidence_traceability
+      - unsupported_claim_rate
+      - p50_latency
+      - p95_latency
+      - throughput
+      - cpu_peak
+      - gpu_peak
+      - llm_call_rate
+unavailable_policy:
+  no_fake_metric_values: true
+  no_supervised_metric_without_real_label: true

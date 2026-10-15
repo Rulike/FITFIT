@@ -1,0 +1,57 @@
+random_seed: 2026
+evidence_scope: title_structured_only
+final_step3_proposed: structure_plus_qwen3_embedding
+
+inputs:
+  event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  routing: outputs/task3/normalized/event_mention_routing.json
+  event_mention_splits: outputs/task3/splits/event_mention_split_mapping.jsonl
+  step3_candidates: outputs/task3/step3/same_event_candidates.jsonl
+  step3_predictions: outputs/task3/step3/same_event_pair_predictions.jsonl
+  step3_same_edges: outputs/task3/step3/high_confidence_event_edges.jsonl
+  step3_related_edges: outputs/task3/step3/related_update_edges.jsonl
+  step3_embedding_cache: outputs/task3/step3/cache/qwen3_embedding_title_vectors.npz
+  step2_document_mapping: outputs/task3/step2/document_representative_mapping.jsonl
+  step2_duplicate_groups: outputs/task3/step2/duplicate_groups.jsonl
+  step2_independent_evidence_units: outputs/task3/step2/independent_evidence_units.jsonl
+  step2_propagation_edges: outputs/task3/step2/propagation_edges.jsonl
+  pilot_labels: outputs/task3/step2/same_event_labels_for_step3.csv
+
+outputs:
+  step4_dir: outputs/task3/step4
+  evaluation_report: reports/task3_step4_evaluation.json
+  runtime_report: reports/task3_step4_runtime.json
+  method_doc: docs/task3_step4_incremental_clustering.md
+
+clustering:
+  merge_threshold: 0.82
+  new_cluster_threshold: 0.55
+  same_edge_bonus: 0.12
+  representative_weight: 0.35
+  center_weight: 0.35
+  topk_weight: 0.30
+  topk_members: 3
+  max_candidate_clusters: 24
+  max_time_span_hours: 720
+  abnormal_time_span_hours: 2160
+  min_internal_similarity_after_attach: 0.45
+  embedding_neighbor_threshold: 0.72
+  jaccard_fallback_weight: 0.55
+
+event_type_windows_hours:
+  default: 168
+  资本市场运作: 72
+  技术研发进展: 336
+  产品技术创新: 336
+  医药研发突破: 336
+  重大项目投资建设: 720
+  公司战略调整: 720
+  业务战略调整: 720
+  调改措施进展: 720
+  融资融券: 72
+
+channel_rules:
+  core_channels: [main, macro]
+  macro_channels: [macro]
+  shadow_channels: [shadow]
+  excluded_channels: [repair, pending]

@@ -1,0 +1,7 @@
+{
+  "model": "DianJin-R1-32B",
+  "output_policy": "strict JSON, no direct four-class label",
+  "prompt_id": "task2_sixdim_prompt_v1",
+  "prompt_template": "你是金融事件六维可信度评分员。请只依据主张发布时间之前可见的 closed-track evidence 打分。\n不要输出最终四分类标签，不要提及任何训练标签、人工标签、路由、权重或预测答案。\n只输出一个严格 JSON 对象。\n六个维度分别是 S、C、M、H、O、F。\n每个维度必须输出 status, strength, available, reason, evidence_ids。\nstatus 只能是 support、contradict、neutral、unavailable 之一。\nstrength 必须是 0 到 4 的整数。\navailable 必须是 true 或 false。\n同时输出 evidence_coverage(0到1之间的小数), independent_source_count(非负整数), entity_alignment, event_alignment, time_alignment, support_evidence_ids, contradict_evidence_ids, ambiguity_reason。\nentity_alignment / event_alignment / time_alignment 只能是 aligned、partial、conflict、unknown。\n\nsample_id: {sample_id}\ntarget: \nevent_name: \nclaim_title: \nclaim_text: \npublish_time: \nfinancial_context: \nmarket_context: \n\nclosed_track_evidence:\n（无 closed-track evidence）",
+  "temperature": 0
+}

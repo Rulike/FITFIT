@@ -1,0 +1,19 @@
+rule_version: task3_step6_v1
+inputs:
+  mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  mapping: outputs/task3/step4/event_mention_cluster_mapping.jsonl
+  clusters: outputs/task3/step4/event_clusters.jsonl
+  threads: outputs/task3/step4/event_threads.jsonl
+  document_mapping: outputs/task3/step2/document_representative_mapping.jsonl
+  units: outputs/task3/step2/independent_evidence_units.jsonl
+  nodes: outputs/task3/step5/timeline_nodes.jsonl
+  claims: outputs/task3/step5/event_claims.jsonl
+  relations: outputs/task3/step5/claim_relations.jsonl
+  conflicts: outputs/task3/step5/conflict_events.jsonl
+  clarification: outputs/task3/step5/clarification_refutation_events.jsonl
+  reversals: outputs/task3/step5/reversal_events.jsonl
+outputs:
+  dir: outputs/task3/step6
+  evaluation: reports/task3_step6_evaluation.json
+  runtime: reports/task3_step6_runtime.json
+  doc: docs/task3_step6_knowledge_graph.md

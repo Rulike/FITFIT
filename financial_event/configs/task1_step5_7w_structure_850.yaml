@@ -1,0 +1,49 @@
+step: task1_step5_7w_structure_850
+data:
+  train: outputs/task1_step5_7n_chatgpt500_confirmation/merged_structure_train_850.jsonl
+  dev: outputs/task1_step5_7n_chatgpt500_confirmation/merged_structure_dev_90.jsonl
+  independent_frozen60: outputs/task1_step5_7j_structure_confirmation/independent_frozen_test_confirmed.jsonl
+  independent_frozen60_expected_sha256: 76efd5a27057dd177ee8688f4769bfb6e57e8539795cad1727ea29418f7c3579
+model:
+  base_ppuie05b: /opt/data/private/JinRong/models/PP-UIE-0.5B
+  old_short_field_checkpoint: outputs/task1_step5_7u_event_span_hybrid/checkpoints/U_original_joint_8800
+  initialize_850_from_base: true
+training:
+  seed: 2026
+  short_fields:
+    - trigger
+    - subject_company
+    - event_time
+    - object_target
+  shifted_causal_labels: true
+  prompt_tokens_ignore_index: true
+  eos_supervised: true
+  pad_ignore_index: true
+  use_cache_train: false
+  gradient_clip: 1.0
+  learning_rate: 0.00003
+  batch_size: 1
+  micro_batch_size: 1
+  grad_accum_steps: 4
+  epochs: 3
+  max_length: 512
+  target_updates_per_pair: 38
+  max_learning_rates_compared: 1
+inference:
+  event_span_generation: disabled
+  event_sentence_selector: step5_7v_rule_ranking
+  event_span_boundary_trim: true
+  direction_classifier: sklearn_tfidf_logistic_regression
+  forbidden_inference_fields:
+    - human_*
+    - ai_*
+    - reference_raw_text
+    - reviewer_*
+    - quality_grade
+    - gold labels
+protection:
+  read_independent_frozen60_labels: false
+  read_1029_gold_labels: false
+  modify_formal_task1_task2: false
+  local_32b_calls: 0
+  external_llm_calls: 0

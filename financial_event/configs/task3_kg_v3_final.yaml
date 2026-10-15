@@ -1,0 +1,11 @@
+task_name: task3_kg_v3_hybrid_finalization
+selected_canonical_event_version: step5_6_repaired_v2
+mode: hybrid_final
+random_seed: 42
+limits:
+  reranker_rate_max: 0.05
+  avg_seconds_per_mention_max: 0.02
+  total_seconds_max: 120
+rule_version: task3_kg_v3_final_v0
+method_statement: |
+  本文构建可信证据图，并以结构化事件身份和图硬约束完成事件归并；在事件身份冻结后，通过独立证据单元和任务二评估进行动态可信传播，再利用带证据的状态观测推理事件演化链，最终物化为可查询、可追溯、可增量更新的动态事件知识图谱。

@@ -1,0 +1,12 @@
+base_model_dir: outputs/task1_step5_4_dev_baseline_v1/pretrained/hfl_chinese_macbert_base
+max_length: 320
+epochs: 2.0
+learning_rate: 2e-5
+weight_decay: 0.01
+warmup_ratio: 0.06
+train_batch_size: 8
+eval_batch_size: 16
+grad_accum_steps: 1
+freeze_last_n_layers: 4
+loss_type: ce
+disable_class_weight: false

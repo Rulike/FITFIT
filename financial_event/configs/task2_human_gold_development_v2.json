@@ -1,0 +1,54 @@
+{
+  "dataset_id": "human_gold_development_v2",
+  "previous_dataset_id": "task2_independent500_v2",
+  "status": "human_gold_development_set",
+  "effective_time": "2026-08-28T02:51:46+08:00",
+  "source_paths": {
+    "adjudicated_workbook": "reports/task2_independent500_v2_double_blind_adjudicated.xlsx",
+    "unlabeled_input": "outputs/event_credibility/task2_independent500_v2/independent_samples.jsonl"
+  },
+  "source_sha256": {
+    "adjudicated_workbook": "699f2e9bedb3a9b925f33be752166db6cf02e984c9444c85d29eee4284b27052",
+    "unlabeled_input": "0ea6679aeb3fc9c3d5d7dd311832d1e652ded2d92adb428e2481e39f6c11e18b"
+  },
+  "row_count": 500,
+  "label_distribution": {
+    "support": 110,
+    "contradict": 1,
+    "insufficient": 376,
+    "unclear": 13
+  },
+  "human_process": {
+    "annotation_mode": "double_blind",
+    "adjudication": "adjudicated_v2_workbook",
+    "trusted_task2_human_four_class_gold": true,
+    "other_gold_human_annotation_assets_auto_trusted": false
+  },
+  "historical_evaluation_usage": [
+    "Independent500-v2 was previously used as a first blind human evaluation package.",
+    "Round1 and DianJin post-hoc reports remain historical records and are not modified by this run.",
+    "The historical 85.6% result must not be re-used as a new independent score after development tuning."
+  ],
+  "development_reason": "The labels are now known and have been used for retrospective analysis; the set is therefore registered as development data for six-dimensional rubric and calibration work, not as future unseen test data.",
+  "allowed_uses": [
+    "six-dimensional scoring rubric development",
+    "six-dimensional weight training",
+    "tuning and calibration",
+    "error analysis",
+    "ablation experiments"
+  ],
+  "forbidden_uses": [
+    "calling the set unseen independent test data again",
+    "calling the set a first blind test again",
+    "using it as a future model's final official test set",
+    "citing the historical 85.6% result as a new independent score after tuning"
+  ],
+  "constraints": {
+    "original_files_preserved": true,
+    "historical_evaluation_outputs_preserved": true,
+    "training_performed_by_this_run": false,
+    "weight_fitting_performed_by_this_run": false,
+    "threshold_tuning_performed_by_this_run": false,
+    "new_formal_test_result_generated_by_this_run": false
+  }
+}

@@ -1,0 +1,211 @@
+fields:
+  article_id:
+    type: string
+    required: true
+    source_task: 1
+    missing_handling: keep_empty_and_route_to_pending
+    mapping:
+      task1.final_events: article_id
+      task1.all_final_events_with_sources: article_id
+      task1.article_metadata_index: article_id
+      task2.event_credibility_scores: cluster_id_to_article_via_event_cluster_members
+      task2.event_timeline_for_task3: cluster_id_to_article_via_event_cluster_members
+    sample: "NEWS_MULTISOURCE_D-1186417779421"
+  title:
+    type: string
+    required: true
+    source_task: 1
+    missing_handling: keep_empty_and_route_to_pending
+    mapping:
+      task1.final_events: title
+      task1.all_final_events_with_sources: title
+      task1.article_metadata_index: article_title
+      task2.llm_review_results: title_from_evidence_items_or_queue
+    sample: "股市必读：多氟多（002407）5月25日收盘跌停，主力净流出12.65亿元"
+  content:
+    type: string
+    required: false
+    source_task: 1
+    missing_handling: keep_empty_and_route_to_repair
+    mapping:
+      task1.final_events: null
+      task1.all_final_events_with_sources: null
+      task1.article_metadata_index: null
+      task2.llm_review_queue: evidence_items[].sentence
+    sample: ""
+  source_name:
+    type: string
+    required: true
+    source_task: 1
+    missing_handling: use_source_or_empty
+    mapping:
+      task1.final_events: source
+      task1.all_final_events_with_sources: source_name|source|source_raw|source_normalized
+      task1.article_metadata_index: article_source
+      task2.llm_review_queue: evidence_items[].source
+    sample: "证券之星"
+  source_level:
+    type: string
+    required: false
+    source_task: 2
+    missing_handling: default_unknown_or_heuristic_from_source_name
+    mapping:
+      task2.event_credibility_scores: source_type_distribution
+      task2.event_credibility_scores_fulltext: source_type_distribution
+      task2.llm_review_queue: evidence_items[].source_type
+      task3.annotation_builder: heuristic_from_source_name_and_cluster_support
+    sample: "portal"
+  publish_time:
+    type: string
+    required: true
+    source_task: 1
+    missing_handling: parse_if_possible_else_pending
+    mapping:
+      task1.final_events: publish_time
+      task1.all_final_events_with_sources: publish_time
+      task1.article_metadata_index: article_publish_time
+      task2.event_timeline_for_task3: earliest_publish_time
+    sample: "2026-05-26 00:02:23"
+  linked_stocks:
+    type: array[string]
+    required: false
+    source_task: 1
+    missing_handling: keep_empty_and_route_to_repair
+    mapping:
+      task1.final_events: derive_from_target_type_company_and_target_code
+      task1.all_final_events_with_sources: derive_from_target_type_company_and_target_code
+      task1.article_metadata_index: null
+    sample:
+      - "002407"
+  linked_industries:
+    type: array[string]
+    required: false
+    source_task: 1
+    missing_handling: keep_empty_and_route_to_repair
+    mapping:
+      task1.final_events: derive_from_target_type_industry_and_target_code
+      task1.all_final_events_with_sources: derive_from_target_type_industry_and_target_code
+      task1.article_metadata_index: null
+    sample:
+      - "630700"
+  event_type:
+    type: string
+    required: true
+    source_task: 1
+    missing_handling: use_schema_id_or_event_name_or_pending
+    mapping:
+      task1.final_events: schema_id
+      task1.all_final_events_with_sources: schema_id
+      task1.article_metadata_index: null
+      task2.event_timeline_for_task3: event_stage (auxiliary only)
+    sample: "company_002407_化学制品科技创新"
+  event_fingerprint:
+    type: string
+    required: false
+    source_task: 1
+    missing_handling: keep_empty_and_route_to_pending
+    mapping:
+      task1.final_events: null
+      task1.all_final_events_with_sources: null
+      task1.article_metadata_index: null
+      task3.candidate_generation: provisional_fingerprint_only (internal)
+    sample: ""
+  elements:
+    type: object
+    required: false
+    source_task: 1
+    missing_handling: keep_empty_object
+    mapping:
+      task1.final_events: null
+      task1.all_final_events_with_sources: null
+      task2.llm_review_queue: evidence_items
+      task3.annotation_builder: derived_aggregate_entities_only
+    sample:
+      core_entities:
+        - "万科A"
+      claims:
+        - "现金流风险"
+  impact_direction:
+    type: string
+    required: false
+    source_task: 1
+    missing_handling: keep_empty_or_use_task1_field_if_present
+    mapping:
+      task1.final_events: impact_direction
+      task1.all_final_events_with_sources: null
+    sample: ""
+  trust_score:
+    type: number
+    required: true
+    source_task: 2
+    missing_handling: use_credibility_score_or_pending
+    mapping:
+      task2.event_credibility_scores: credibility_score
+      task2.event_credibility_scores_fulltext: fulltext_credibility_score
+      task2.event_timeline_for_task3: credibility_score
+      task2.llm_review_results: confidence (auxiliary only)
+    sample: 91.19
+  verdict:
+    type: string
+    required: false
+    source_task: 2
+    missing_handling: keep_empty_or_map_from_credibility_status
+    mapping:
+      task2.llm_review_results: verdict
+      task2.event_credibility_scores: verification_status (mapped)
+      task2.event_credibility_scores_fulltext: fulltext_verification_status (mapped)
+    sample: "support"
+  conflicting_reports:
+    type: array[string]
+    required: false
+    source_task: 2
+    missing_handling: keep_empty_list
+    mapping:
+      task2.event_credibility_scores: risk_reasons|reversal_signal_count|contradiction_score
+      task2.event_credibility_scores_fulltext: fulltext_contradiction_score|fulltext_verification_status
+      task2.llm_review_results: contradicting_evidence_ids
+    sample:
+      - "存在澄清/否认/反转信号"
+  verification_hints:
+    type: array[string]
+    required: false
+    source_task: 2
+    missing_handling: keep_empty_list
+    mapping:
+      task2.event_credibility_scores: supporting_reasons|risk_reasons
+      task2.event_credibility_scores_fulltext: fulltext_reason|supporting_reasons
+      task2.event_timeline_for_task3: timeline_reason
+      task2.llm_review_results: reason
+    sample:
+      - "多独立来源交叉验证"
+
+processing_channel:
+  main:
+    description: 高/中可信且字段完整
+    rules:
+      - trust_score >= 60
+      - publish_time_parseable: true
+      - required_fields_present: true
+      - no_obvious_conflict: true
+  repair:
+    description: 关键字段缺失但可能修复
+    rules:
+      - article_id_present: true
+      - publish_time_parseable: true
+      - any_of_missing: [content, linked_stocks, linked_industries, event_fingerprint]
+  macro:
+    description: 宏观或行业事件
+    rules:
+      - target_scope: industry
+      - or_event_type_contains: ["政策", "行业", "宏观", "监管"]
+  shadow:
+    description: 低可信、不可信或证据不足
+    rules:
+      - trust_score < 60
+      - or_verdict_in: ["insufficient", "needs_manual_review", "reversed_or_contradicted"]
+  pending:
+    description: 当前无法可靠处理
+    rules:
+      - article_id_missing: true
+      - or_publish_time_unparseable: true
+      - or_required_mapping_ambiguous: true

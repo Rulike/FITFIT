@@ -1,0 +1,52 @@
+random_seed: 2026
+evidence_scope: title_structured_only
+
+inputs:
+  documents: outputs/task3/normalized/normalized_documents.jsonl
+  event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  routing: outputs/task3/normalized/event_mention_routing.json
+  annotated_pilot: outputs/task3/task3_pilot_v2_annotated.xlsx
+
+outputs:
+  step2_dir: outputs/task3/step2
+  evaluation_report: reports/task3_step2_evaluation.json
+  runtime_report: reports/task3_step2_runtime.json
+  method_doc: docs/task3_step2_near_duplicate.md
+
+minhash:
+  signature_size: 128
+  bands: 32
+  rows_per_band: 4
+  ngrams: [2, 3]
+  max_bucket_size: 80
+
+threshold_search:
+  folds: 5
+  high_min_precision: 0.90
+  low_min_negative_precision: 0.90
+  candidate_thresholds: [0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90]
+
+confirmation:
+  high_fallback: 0.78
+  low_fallback: 0.45
+  max_group_span_hours: 168
+  exact_title_score: 1.0
+  weights:
+    title_jaccard: 0.42
+    edit_similarity: 0.28
+    entity_match: 0.16
+    event_type_match: 0.08
+    time_closeness: 0.06
+
+source_ranking:
+  official_sources: ["公司公告", "上证e互动", "深交所", "上交所", "港交所"]
+  source_tiers:
+    公司公告: 1
+    上证e互动: 1
+    证券时报: 2
+    证券时报网: 2
+    东方财富网: 3
+    新浪财经: 3
+    腾讯网: 3
+    证券之星: 4
+    金融界: 4

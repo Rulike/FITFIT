@@ -1,0 +1,17 @@
+version: task3_kg_v2_step4_revision2_v0
+inputs:
+  reviewed_package: outputs/task3_kg_v2/step4_revision/annotation_package_agent_reviewed.xlsx
+  uncertain_package: outputs/task3_kg_v2/step4_revision/update_annotation_package.xlsx
+  candidate_table: outputs/task3_kg_v2/step4/same_event_candidates.parquet
+models:
+  lightweight_calibrator: sklearn_logistic_regression
+thresholding:
+  same_event_threshold: auto
+  different_event_threshold: auto
+  uncertain_threshold: auto
+policies:
+  create_event_thread: false
+  train_stage_migration_classifier: false
+  enter_phase5: false
+  instantiate_canonical_event: true
+  overwrite_old_step4: false

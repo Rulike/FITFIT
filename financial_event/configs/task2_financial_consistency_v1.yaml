@@ -1,0 +1,71 @@
+version: task2_financial_consistency_v1
+
+score_rules:
+  base_score: 0.5
+  numeric_consistent: 0.3
+  numeric_partial: 0.1
+  numeric_contradict: -0.2
+  numeric_suspected_false: -0.35
+  valuation_consistent: 0.2
+  valuation_contradict: -0.1
+  anomaly_profit_cashflow_divergence: -0.10
+  anomaly_revenue_ar_mismatch: -0.10
+  anomaly_inventory_growth_unusually_fast: -0.05
+  anomaly_non_recurring_profit_high: -0.10
+
+thresholds:
+  relative_error: 0.2
+  percent_point: 3.0
+  profitability_decline: -20.0
+  cash_flow_negative_decline: -20.0
+  solvency_decline: -15.0
+  revenue_high_growth: 20.0
+  gross_margin_improvement: 3.0
+  rd_expense_ratio_increase: 15.0
+  market_share_margin: 5.0
+  pe_discount: 0.3
+
+expected_tables:
+  - FI_T1
+  - FI_T5
+  - FI_T6
+  - FI_T8
+  - FI_T10
+
+field_mapping_template:
+  table_name: [table_name, table, sheet, source_table]
+  record_id: [record_id, source_record_id, row_id, id, fid]
+  company_name: [company_name, comp_name, corp_name, S_INFO_COMPNAME, 证券简称, 公司名称]
+  stock_code: [stock_code, stkcd, code, S_INFO_WINDCODE, 证券代码, 股票代码]
+  industry_name: [industry_name, industry, ind_name, 行业名称]
+  industry_code: [industry_code, ind_code, 行业代码]
+  report_period: [report_period, report_date, rpt_date, end_date, period, 报告期]
+  publish_date: [publish_date, ann_date, publish_time, 公告日期, 发布日期]
+  year: [year, fiscal_year, report_year, 年度]
+  quarter: [quarter, fiscal_quarter, report_quarter, 季度]
+  roe: [roe, ROE, return_on_equity, 净资产收益率]
+  roa: [roa, ROA, return_on_assets, 总资产收益率]
+  revenue: [revenue, operating_revenue, 营业收入, 营收]
+  revenue_yoy: [revenue_yoy, revenue_growth, 营业收入同比, 营收同比, 收入同比]
+  net_profit: [net_profit, np, profit, 归母净利润, 净利润]
+  net_profit_yoy: [net_profit_yoy, net_profit_growth, 净利润同比, 归母净利润同比]
+  ocf: [ocf, operating_cash_flow, 经营活动现金流净额, 经营现金流净额]
+  gross_margin: [gross_margin, gross_profit_margin, 毛利率]
+  current_ratio: [current_ratio, 流动比率]
+  quick_ratio: [quick_ratio, 速动比率]
+  debt_ratio: [debt_ratio, asset_liability_ratio, 资产负债率]
+  rd_expense: [rd_expense, research_and_development_expense, 研发费用, 研发投入]
+  rd_expense_ratio: [rd_expense_ratio, rd_ratio, 研发费用率, 研发投入占比]
+  accounts_receivable: [accounts_receivable, ar, 应收账款]
+  inventory: [inventory, 存货]
+  non_recurring_profit: [non_recurring_profit, non_recurring_gains, non_recurring_loss, 非经常性损益]
+  non_recurring_profit_ratio: [non_recurring_profit_ratio, non_recurring_profit_share, 非经常性损益占比]
+  pe_ratio: [pe_ratio, PE, pe, 市盈率]
+  industry_mean_pe: [industry_mean_pe, industry_pe, 行业均值PE, 行业平均PE]
+  industry_revenue_growth_mean: [industry_revenue_growth_mean, industry_mean_revenue_growth, 行业均值营收增速]
+
+prompt_policy:
+  include_when_has_csmar_matches: true
+  include_when_missing_data: false
+  quote_news_text_with_json: true
+

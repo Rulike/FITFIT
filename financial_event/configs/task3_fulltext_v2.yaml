@@ -1,0 +1,36 @@
+version: fulltext_v2
+content_source: data/processed/event_credibility/fulltext_article_index.parquet
+inputs:
+  normalized_documents: outputs/task3/normalized/normalized_documents.jsonl
+  normalized_event_mentions: outputs/task3/normalized/normalized_event_mentions.jsonl
+  document_split_mapping: outputs/task3/splits/document_split_mapping.jsonl
+  event_mention_split_mapping: outputs/task3/splits/event_mention_split_mapping.jsonl
+outputs:
+  output_dir: outputs/task3_fulltext_v2
+  normalized_documents: outputs/task3_fulltext_v2/normalized_documents.jsonl
+  normalized_event_mentions: outputs/task3_fulltext_v2/normalized_event_mentions.jsonl
+  evidence_sentences: outputs/task3_fulltext_v2/event_mention_evidence_sentences.jsonl
+  ambiguity_queue: outputs/task3_fulltext_v2/content_ambiguity_queue.jsonl
+  report: reports/task3_fulltext_v2_report.json
+  documentation: docs/task3_fulltext_v2.md
+join_policy:
+  key: article_id
+  exact_only: true
+  no_title_fallback: true
+  no_fuzzy_title_join: true
+  ambiguous_content_policy: quarantine
+normalization:
+  preserve_raw_content_hash: true
+  preserve_clean_content_hash: true
+  html_cleanup: minimal
+  whitespace_normalization: true
+event_local_text:
+  top_k_sentences: 5
+  max_sentence_chars: 320
+  scope: fulltext_structured
+leakage_policy:
+  content_join_all_splits: true
+  threshold_and_model_fit_splits:
+    - development
+    - validation
+  test_usage: final_inference_only

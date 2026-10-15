@@ -1,0 +1,23 @@
+task_name: TRACE-Alert
+stage: task4_stage1_data_audit_and_protocol
+project_root: /opt/data/private/JinRong/kechuang/financial_event_project
+frozen_task3_release_dir: outputs/task3_kg_v3_release
+frozen_task3_interface_file: outputs/task3_kg_v3_final/task4_event_interface.jsonl
+principles:
+  - task3_read_only
+  - no_model_training
+  - no_32b_calls
+  - no_hgt_training
+  - no_prediction_scores
+  - no_fabricated_propagation_edges
+impact_card_policy:
+  unknown_prediction_fields_must_be_null: true
+  credibility_scope_must_preserve_upstream_scope: true
+  review_data_cannot_be_promoted_to_core_fact: true
+split_policy:
+  enforce_time_order: true
+  no_canonical_event_cross_split: true
+  no_event_thread_cross_split: true
+  no_evidence_unit_cross_split: true
+  no_clean_content_hash_cross_split: true
+  no_future_state_observation_visibility: true

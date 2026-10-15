@@ -1,0 +1,467 @@
+{
+  "contract_version": "task4_trace_impact_annotation_contract_v2",
+  "task_name": "Task4 TRACE-Impact Annotation Contract v2 + Round1 Adjudication",
+  "created_at": "2026-08-27T00:00:00+08:00",
+  "status": "train_only_annotation_contract",
+  "annotation_source": "ai_double_review_adjudicated_train_only",
+  "ai_annotation_is_human_gold": false,
+  "official1799_filled_gold_allowed": false,
+  "official1799_prediction_allowed": false,
+  "training_allowed": false,
+  "tuning_allowed": false,
+  "future_financial_data_allowed": false,
+  "target_local_direction_definition": "Direction is the actual impact on the specified target, not article sentiment.",
+  "propagation_policy": "Annotators mark visible propagation seed and channel only; no complete KG path may be invented.",
+  "fields": {
+    "event_applicable": {
+      "group": "applicability",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "yes",
+        "no",
+        "review"
+      ],
+      "description": "Whether the structured event-target row is a valid impact annotation item."
+    },
+    "target_effect_exists": {
+      "group": "applicability",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "yes",
+        "no",
+        "uncertain"
+      ],
+      "description": "Whether visible evidence supports a target-local economic or financial effect."
+    },
+    "evidence_sufficient": {
+      "group": "applicability",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "yes",
+        "no"
+      ],
+      "description": "Whether the shown evidence and local context are enough for annotation."
+    },
+    "score_evaluable": {
+      "group": "applicability",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "yes",
+        "no",
+        "partial"
+      ],
+      "description": "Whether the row can be scored fully, not at all, or partially."
+    },
+    "exclusion_reason": {
+      "group": "applicability",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": "free_text_required",
+      "description": "Reason when a row is review, partial, or not evaluable; use none for evaluable rows."
+    },
+    "event_shock_severity": {
+      "group": "impact_decomposition",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "Intrinsic event shock intensity before target exposure adjustment."
+    },
+    "target_exposure": {
+      "group": "impact_decomposition",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "How strongly the specified target is exposed to this event."
+    },
+    "impact_directness": {
+      "group": "impact_decomposition",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "direct",
+        "indirect",
+        "mixed",
+        "uncertain"
+      ],
+      "description": "Whether impact is direct, indirect, mixed, or uncertain for this target."
+    },
+    "impact_channel": {
+      "group": "impact_decomposition",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "revenue",
+        "cost",
+        "cashflow",
+        "financing",
+        "solvency",
+        "operations",
+        "legal",
+        "regulatory",
+        "reputation",
+        "market_expectation",
+        "supply_chain",
+        "equity_relation",
+        "multiple",
+        "uncertain"
+      ],
+      "description": "Dominant visible impact channel."
+    },
+    "target_role": {
+      "group": "impact_decomposition",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "direct_beneficiary",
+        "direct_exposed",
+        "indirect_chain",
+        "industry_level",
+        "unclear"
+      ],
+      "description": "Visible role of the target in the event."
+    },
+    "financial_dependency": {
+      "group": "impact_decomposition",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "high",
+        "medium",
+        "low",
+        "not_evaluable"
+      ],
+      "description": "Approximate dependency of the impact judgment on financial sensitivity."
+    },
+    "direction_short": {
+      "group": "direction",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "positive",
+        "negative",
+        "neutral",
+        "mixed",
+        "uncertain"
+      ],
+      "description": "Short-horizon target-relative impact direction."
+    },
+    "direction_long": {
+      "group": "direction",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "positive",
+        "negative",
+        "neutral",
+        "mixed",
+        "uncertain"
+      ],
+      "description": "Long-horizon target-relative impact direction."
+    },
+    "direction_basis": {
+      "group": "direction",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": "free_text_required",
+      "description": "One-sentence evidence-grounded direction rationale."
+    },
+    "direction_confidence": {
+      "group": "direction",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "description": "Confidence for the direction judgment."
+    },
+    "event_state_transition": {
+      "group": "temporal_propagation",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "new",
+        "rumor",
+        "confirmed",
+        "executing",
+        "worsened",
+        "mitigated",
+        "delayed",
+        "defaulted",
+        "completed",
+        "repeated",
+        "uncertain"
+      ],
+      "description": "Visible current state or transition of the event."
+    },
+    "propagation_seed": {
+      "group": "temporal_propagation",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "target_only",
+        "industry",
+        "upstream",
+        "downstream",
+        "equity_related",
+        "multiple",
+        "uncertain"
+      ],
+      "description": "Visible propagation starting point or channel seed; not a hand-made KG path."
+    },
+    "propagation_evidence": {
+      "group": "temporal_propagation",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": "free_text_required",
+      "description": "Short evidence note for propagation seed."
+    },
+    "impact_horizon": {
+      "group": "temporal_propagation",
+      "required_in": [
+        "direction",
+        "impact"
+      ],
+      "allowed_values": [
+        "short",
+        "medium",
+        "long",
+        "multiple",
+        "not_evaluable"
+      ],
+      "description": "Dominant impact time horizon."
+    },
+    "target_impact_severity": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "Final target-local 1-5 impact severity after shock and exposure."
+    },
+    "scope_axis": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "Breadth of affected parties or industrial propagation scope."
+    },
+    "urgency_axis": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "Time pressure implied by the event and evidence."
+    },
+    "novelty_axis": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "Degree to which the evidence introduces a new fact rather than a repeat."
+    },
+    "evolution_axis": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "not_evaluable"
+      ],
+      "description": "Severity of event-thread state change."
+    },
+    "axis_evaluable_mask": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": "free_text_required",
+      "description": "Semicolon mask for axis evaluability, e.g. severity=1;scope=1;urgency=1;novelty=1;evolution=1."
+    },
+    "annotation_confidence": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "description": "Confidence for the five-axis impact annotation."
+    },
+    "annotation_basis": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": "free_text_required",
+      "description": "One-sentence basis for five-axis scores."
+    },
+    "evidence_ids": {
+      "group": "five_axis_strict_score",
+      "required_in": [
+        "impact"
+      ],
+      "allowed_values": "free_text_required",
+      "description": "Article-local evidence ids used for the annotation."
+    }
+  },
+  "required_field_groups": {
+    "direction_package": [
+      "event_applicable",
+      "target_effect_exists",
+      "evidence_sufficient",
+      "score_evaluable",
+      "exclusion_reason",
+      "event_shock_severity",
+      "target_exposure",
+      "impact_directness",
+      "impact_channel",
+      "target_role",
+      "financial_dependency",
+      "direction_short",
+      "direction_long",
+      "direction_basis",
+      "direction_confidence",
+      "event_state_transition",
+      "propagation_seed",
+      "propagation_evidence",
+      "impact_horizon"
+    ],
+    "impact_package": [
+      "event_applicable",
+      "target_effect_exists",
+      "evidence_sufficient",
+      "score_evaluable",
+      "exclusion_reason",
+      "event_shock_severity",
+      "target_exposure",
+      "impact_directness",
+      "impact_channel",
+      "target_role",
+      "financial_dependency",
+      "direction_short",
+      "direction_long",
+      "direction_basis",
+      "direction_confidence",
+      "target_impact_severity",
+      "scope_axis",
+      "urgency_axis",
+      "novelty_axis",
+      "evolution_axis",
+      "axis_evaluable_mask",
+      "annotation_confidence",
+      "annotation_basis",
+      "evidence_ids",
+      "event_state_transition",
+      "propagation_seed",
+      "propagation_evidence",
+      "impact_horizon"
+    ]
+  },
+  "protected_inputs": {
+    "previous_round1_blank_packs_must_remain_unchanged": true,
+    "official1799_filled_gold_read_count_must_be_zero": true
+  },
+  "label_usage_policy": {
+    "not_human_gold": true,
+    "usable_as": "train_only_ai_double_review_adjudicated_supervision_candidate_after_human_acceptance",
+    "not_usable_as": [
+      "official_test_gold",
+      "human_gold",
+      "threshold_tuning_on_official1799"
+    ]
+  }
+}

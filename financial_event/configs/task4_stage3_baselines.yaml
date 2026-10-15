@@ -1,0 +1,39 @@
+task_name: TRACE-Alert
+stage: task4_stage3_baselines
+project_root: /opt/data/private/JinRong/kechuang/financial_event_project
+inputs:
+  stage2_6_dir: outputs/task4/stage2_6
+  task3_release_dir: outputs/task3_kg_v3_release
+local_models:
+  qwen_embedding: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Embedding-0.6B
+  qwen_reranker: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Reranker-0.6B
+runtime:
+  conda_env: task3-qwen
+  preferred_device: cuda:0
+  batch_size_embedding: 16
+  batch_size_reranker: 8
+protocol:
+  train_split_only: train
+  test_single_run_only: true
+  group_keys:
+    - duplication_id
+    - clean_content_hash
+    - article_id
+  forbidden_inputs:
+    - emotion_label_as_feature
+    - impact_analysis_text
+    - severity_fields
+    - alert_priority_fields
+validity:
+  thresholds_grid:
+    valid: [0.55, 0.6, 0.65, 0.7, 0.75, 0.8]
+    invalid: [0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
+  reranker_margin_band: [0.4, 0.6]
+  reranker_call_rate_target_max: 0.10
+direction:
+  labels:
+    - 正面
+    - 中性
+    - 负面
+outputs:
+  stage3_dir: outputs/task4/stage3

@@ -1,0 +1,47 @@
+task_name: TRACE-Alert
+task4_stage: stage2_supervision_bridge
+project_root: /opt/data/private/JinRong/kechuang/financial_event_project
+frozen_inputs:
+  task3_release_dir: outputs/task3_kg_v3_release
+  task4_stage1_dir: outputs/task4
+  task4_stage1_reports_glob: reports/task4_stage1_*.json
+restrictions:
+  - no_task1_task2_task3_overwrite
+  - no_canonical_event_regeneration
+  - no_emotion_or_impact_analysis_for_graph_linking
+  - no_fake_supply_chain_or_equity_edges
+  - no_hgt_training
+  - no_final_classifier_training
+  - no_32b_generation
+bridge_status_values:
+  - exact_task3_document_match
+  - task1_event_but_not_materialized
+  - official_document_without_task1_event
+  - fulltext_only_auxiliary
+  - id_reconciliation_required
+  - unresolved
+protocols:
+  oracle_event_input:
+    allowed_inputs:
+      - schema_id
+      - target_type
+      - target_code
+      - target_name
+      - event_name
+    forbidden_inputs:
+      - emotion_label
+      - impact_rationale_reference
+  end_to_end_pipeline_input:
+    allowed_inputs:
+      - frozen_task1_predictions
+      - title
+      - content
+      - publish_time
+      - source
+    status_if_missing_full_coverage: pending_task1_inference
+split_requirements:
+  - group_aware
+  - temporal_ordered
+  - no_component_cross_split
+  - no_future_state_visibility
+  - no_test_label_graph_construction

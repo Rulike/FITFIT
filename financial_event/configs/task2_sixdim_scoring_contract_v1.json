@@ -1,0 +1,44 @@
+{
+  "base_url": "http://127.0.0.1:8000/v1",
+  "contract_id": "task2_sixdim_scoring_contract_v1",
+  "dimension_schema": {
+    "available": "boolean",
+    "evidence_ids": "array of visible closed-track evidence ids",
+    "reason": "string",
+    "status": [
+      "support",
+      "contradict",
+      "neutral",
+      "unavailable"
+    ],
+    "strength": "integer 0..4"
+  },
+  "dimensions": {
+    "C": "内容和结构化事件一致性",
+    "F": "财务和市场事实一致性",
+    "H": "历史事实一致性",
+    "M": "多源独立验证",
+    "O": "公告、澄清、辟谣和监管裁决",
+    "S": "来源可信度"
+  },
+  "forbidden_inputs": [
+    "AI labels",
+    "human labels",
+    "private route",
+    "candidate_quality_score",
+    "Round1 predictions"
+  ],
+  "max_concurrency": 4,
+  "model": "DianJin-R1-32B",
+  "service_check": {
+    "base_url": "http://127.0.0.1:8000/v1",
+    "chat_ok": true,
+    "chat_preview": "{ \"status\": \"ok\" }",
+    "model_ids": [
+      "DianJin-R1-32B"
+    ],
+    "models_ok": true,
+    "required_model": "DianJin-R1-32B"
+  },
+  "temperature": 0
+}

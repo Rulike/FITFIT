@@ -1,0 +1,15 @@
+task_name: TRACE-Alert
+stage: task4_stage2_5_e2e_bridge
+task1_inference_model_version: task1_candidate_generator_v2_crossfit_v1
+train_protocol: group_aware_5_fold_oof
+test_protocol: full_train_generator
+forbidden_inputs:
+- emotion_label
+- impact_rationale_reference
+- gold_schema_id
+- gold_target_code
+- gold_event_name
+llm_calls:
+  qwen: 0
+  macbert_pair: 0
+  dianjin_r1_32b: 0

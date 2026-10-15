@@ -1,0 +1,23 @@
+task_name: task3_kg_v3_resolution_revision
+mode: shadow_revision
+random_seed: 42
+thresholds:
+  same_event_accept: 0.75
+  same_event_reject: 0.25
+  minimum_consistency_threshold: 0.55
+  bridge_accept_threshold: 0.85
+  ann_top_k: 30
+  max_time_span_days_default: 90
+  max_time_span_days_capital_market: 365
+limits:
+  reranker_rate_max: 0.05
+  avg_seconds_per_mention_max: 0.02
+  total_seconds_max: 120
+  mention_candidate_reduction_min: 0.97
+status_values:
+  selected: task3_kg_v3_resolution_selected
+  hybrid: task3_kg_v3_hybrid_selected
+  failed: task3_kg_v3_resolution_failed
+selected_canonical_event_version_values:
+  v3: kg_v3_resolution_revision
+  v2: step5_6_repaired_v2

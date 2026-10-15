@@ -1,0 +1,174 @@
+{
+  "status": "structured_event_contract_v1_frozen",
+  "version": "v1",
+  "purpose": "Unified target-local structured event contract for Task1 -> Task3 -> Task4.",
+  "benchmark_source": {
+    "path": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/task4 golddata/task34.xlsx",
+    "sha256": "b63bc6c7e18d353003664480a1d08c1482517cbefea5813484864f3b184c4f29"
+  },
+  "global_prohibitions": {
+    "prohibit_frozen_benchmark_artifact_mutation": true,
+    "prohibit_audit_label_training_or_tuning": true,
+    "prohibit_sample_level_blacklist_by_company_source_or_event_name": true,
+    "prohibit_task4_event_reextraction": true
+  },
+  "structured_event_record": {
+    "required_fields": [
+      "schema_version",
+      "article_id",
+      "source",
+      "publish_time",
+      "target",
+      "event",
+      "evidence",
+      "provenance",
+      "quality"
+    ],
+    "target": {
+      "required_fields": [
+        "target_key",
+        "target_name",
+        "target_type",
+        "target_code",
+        "mention_text",
+        "mention_span",
+        "role"
+      ],
+      "rule": "The target must be locally mentioned or unambiguously resolved inside the evidence window."
+    },
+    "event": {
+      "required_fields": [
+        "event_type",
+        "event_name",
+        "event_fact",
+        "event_fact_signature",
+        "trigger_text",
+        "trigger_span",
+        "event_time",
+        "polarity_or_state"
+      ],
+      "rule": "The event fact must be target-local and evidence-grounded; article-level labels alone are invalid."
+    },
+    "evidence": {
+      "required_fields": [
+        "evidence_sentence",
+        "local_context",
+        "evidence_span",
+        "support_type",
+        "certainty"
+      ],
+      "allowed_support_type": [
+        "direct_fact",
+        "confirmed_announcement",
+        "regulatory_document",
+        "financial_statement",
+        "quoted_claim"
+      ],
+      "reject_support_type": [
+        "rumor",
+        "forecast_only",
+        "boilerplate",
+        "market_price_only",
+        "background_only"
+      ]
+    },
+    "provenance": {
+      "required_fields": [
+        "document_hash",
+        "sentence_id",
+        "extraction_method",
+        "extraction_time",
+        "upstream_model_or_rule_version"
+      ],
+      "rule": "Every event consumed by Task3 or Task4 must be traceable to a document and sentence-level evidence."
+    },
+    "quality": {
+      "required_fields": [
+        "target_grounded",
+        "event_grounded",
+        "evidence_grounded",
+        "provenance_valid",
+        "contract_status",
+        "reject_reasons"
+      ],
+      "contract_status_allowed": [
+        "pass",
+        "reject",
+        "review"
+      ]
+    }
+  },
+  "task1_contract": {
+    "input_contract": "Raw article text plus source, publish_time and article_id.",
+    "output_contract": "One or more target-local structured_event_record objects; no record is emitted when the article cannot support a target-local event fact.",
+    "reject_conditions": [
+      "target_not_locally_grounded",
+      "event_trigger_missing",
+      "event_fact_not_target_local",
+      "evidence_is_market_price_only",
+      "evidence_is_rumor_or_forecast_only",
+      "provenance_missing"
+    ],
+    "acceptance_gate": {
+      "target_grounding_rate_min": 0.9,
+      "event_grounding_rate_min": 0.65,
+      "evidence_grounding_rate_min": 0.7,
+      "article_global_noise_rate_max": 0.15
+    }
+  },
+  "task3_contract": {
+    "input_contract": "Only Task1 structured_event_record objects with contract_status=pass or review are accepted; reject rows are not used for canonical identity.",
+    "output_contract": "Canonical event identity, members, cannot-link edges, same-event edges, confidence, and reject/review queues.",
+    "identity_keys": [
+      "target_key",
+      "event_fact_signature",
+      "event_type",
+      "event_time",
+      "polarity_or_state"
+    ],
+    "cannot_link_conditions": [
+      "different_target_key",
+      "conflicting_event_fact_signature",
+      "incompatible_event_time",
+      "mutually_exclusive_state",
+      "evidence_contradiction"
+    ],
+    "reject_conditions": [
+      "target_missing_or_unstable",
+      "event_fact_signature_missing",
+      "evidence_missing",
+      "identity_conflict",
+      "low_confidence_unresolved"
+    ],
+    "acceptance_gate": {
+      "false_merge_rate_max": 0.1,
+      "split_error_rate_max": 0.15,
+      "coverage_gap_rate_max": 0.1,
+      "cannot_link_violation_max": 0
+    }
+  },
+  "task4_contract": {
+    "input_contract": "Consumes Task3 canonical events and Task1 evidence; Task4 must not re-extract event identity.",
+    "output_contract": "Target/event/evidence validity, direction, severity score, red/orange/yellow/blue mapping, alert decision, and abstention reason.",
+    "reject_conditions": [
+      "input_event_contract_status_not_pass",
+      "target_grounding_failure",
+      "event_resolution_unreliable",
+      "evidence_failure",
+      "provenance_failure",
+      "severity_evidence_insufficient"
+    ],
+    "acceptance_gate": {
+      "grounding_failure_rate_max": 0.1,
+      "e2e_false_positive_rate_max": 0.2,
+      "severity_failure_share_of_fp_max": 0.1,
+      "red_orange_gold_allowed_only_after_upstream_pass": true
+    }
+  },
+  "severity_training_policy": {
+    "audit_labels_for_training": false,
+    "severity_gold_extension_condition": "Add Severity Gold only after upstream target/event/evidence/provenance gates pass.",
+    "allowed_training_signal": "Severity Gold labels collected after upstream event quality gates pass.",
+    "forbidden_training_signal": "task34.xlsx human_* audit labels and diagnostic_bucket_hint."
+  }
+}

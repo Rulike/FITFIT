@@ -1,0 +1,29 @@
+version: task3_kg_v2_step4_same_event_v0
+rule_version: task3_kg_v2_step4_same_event_v0
+inputs:
+  observation_graph_v1: outputs/task3_kg_v2/observation_graph_v1
+  normalized_event_mentions: outputs/task3_fulltext_v2/normalized_event_mentions.jsonl
+  evidence_sentences: outputs/task3_fulltext_v2/event_mention_evidence_sentences.jsonl
+  pilot_labels: outputs/task3/step2/same_event_labels_for_step3.csv
+models:
+  embedding: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Embedding-0.6B
+  reranker: /opt/data/private/JinRong/kechuang/downloads/Qwen/Qwen3-Reranker-0.6B
+candidate_recall:
+  semantic_top_k: 24
+  max_group_pairs_per_bucket: 30000
+reranker:
+  max_pairs: 2500
+  middle_low: 0.62
+  middle_high: 0.86
+thresholds:
+  same_event: 0.86
+  related_update: 0.70
+  cannot_link: 1.0
+policies:
+  instantiate_event_relations: true
+  canonical_event_instances_allowed: false
+  event_thread_instances_allowed: false
+  event_state_instances_allowed: false
+  instance_of_event_edges_allowed: false
+  task2_cluster_not_must_link: true
+  uncertain_not_graph_edge: true

@@ -1,0 +1,34 @@
+task_name: task3_kg_v3_core
+mode: shadow
+status_values:
+  ready: task3_kg_v3_core_ready_for_materialization
+  failed: task3_kg_v3_core_gate_failed
+inputs:
+  observation_graph_dir: outputs/task3_kg_v2/observation_graph_v1
+  step4_revision3_dir: outputs/task3_kg_v2/step4_revision3
+  step5_4_revision2_dir: outputs/task3_kg_v2/step5_4_revision2
+  step5_6_dir: outputs/task3_kg_v2/step5_6
+  embedding_cache: outputs/task3/step3/cache/qwen3_embedding_title_vectors.npz
+  reranker_cache: outputs/task3/step3/cache/qwen3_reranker_pair_scores.jsonl
+outputs:
+  root_dir: outputs/task3_kg_v3_core
+  event_resolution_dir: outputs/task3_kg_v3_core/event_resolution
+  trust_propagation_dir: outputs/task3_kg_v3_core/trust_propagation
+  event_evolution_dir: outputs/task3_kg_v3_core/event_evolution
+thresholds:
+  event_resolution_same_event_score: 0.78
+  event_resolution_uncertain_low: 0.58
+  event_resolution_uncertain_high: 0.78
+  reranker_same_event_threshold: 0.88
+  reranker_different_event_threshold: 0.12
+  evolution_high_confidence_threshold: 0.72
+  evolution_uncertain_low: 0.45
+constraints:
+  max_reranker_rate: 0.05
+  target_candidate_reduction_gt: 0.99
+  require_evidence_traceability: 1.0
+  require_no_cannot_link_violation: true
+  require_no_time_reverse_violation: true
+evaluation:
+  development_label_scope: agent_assisted_development_proxy
+  formal_human_gold: false

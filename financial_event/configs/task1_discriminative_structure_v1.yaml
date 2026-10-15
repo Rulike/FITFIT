@@ -1,0 +1,37 @@
+step: task1_step5_7x_discriminative_structure
+data:
+  train: outputs/task1_step5_7n_chatgpt500_confirmation/merged_structure_train_850.jsonl
+  dev: outputs/task1_step5_7n_chatgpt500_confirmation/merged_structure_dev_90.jsonl
+  independent_frozen60: outputs/task1_step5_7j_structure_confirmation/independent_frozen_test_confirmed.jsonl
+  independent_frozen60_expected_sha256: 76efd5a27057dd177ee8688f4769bfb6e57e8539795cad1727ea29418f7c3579
+model:
+  local_macbert: outputs/task1_step5_4_dev_baseline_v1/pretrained/hfl_chinese_macbert_base
+  ppuie_baseline_predictions: outputs/task1_step5_7w_structure_850/dev_predictions.jsonl
+training:
+  seed: 2026
+  max_length: 256
+  candidate_max_length: 256
+  ranker_epochs: 3
+  span_epochs: 6
+  direction_epochs: 8
+  batch_size: 32
+  learning_rate: 0.00002
+  field_balanced: true
+  hard_negative_enabled: true
+  use_all_available_gpus: true
+inference:
+  forbidden_fields:
+    - ai_*
+    - human_*
+    - reference_raw_text
+    - reviewer_*
+    - quality_grade
+    - gold_labels
+  generated_text_fields: false
+  offsets_from_content_only: true
+protection:
+  read_independent_frozen60_labels: false
+  read_1029_gold_labels: false
+  modify_formal_task1_task2: false
+  local_32b_calls: 0
+  external_llm_calls: 0

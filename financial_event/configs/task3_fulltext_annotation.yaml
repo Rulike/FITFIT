@@ -1,0 +1,31 @@
+version: task3_fulltext_annotation_round1
+random_seed: 2026
+inputs:
+  documents: outputs/task3_fulltext_v2/normalized_documents.jsonl
+  event_mentions: outputs/task3_fulltext_v2/normalized_event_mentions.jsonl
+  evidence_sentences: outputs/task3_fulltext_v2/event_mention_evidence_sentences.jsonl
+  pilot_v2_annotated: outputs/task3/task3_pilot_v2_annotated.xlsx
+  step2_dir: outputs/task3/step2
+  step3_dir: outputs/task3/step3
+  splits_dir: outputs/task3/splits
+outputs:
+  annotation_dir: outputs/task3_fulltext_v2/annotation_round1
+  workbook: outputs/task3_fulltext_v2/annotation_round1/task3_fulltext_round1.xlsx
+  multi_event_audit: outputs/task3_fulltext_v2/annotation_round1/multi_event_document_audit.xlsx
+  field_dictionary: outputs/task3_fulltext_v2/annotation_round1/field_dictionary.md
+  annotation_report: reports/task3_fulltext_annotation_round1.json
+  quality_report: reports/task3_fulltext_quality_report.json
+  guide: docs/task3_fulltext_annotation_guide.md
+sampling:
+  seed: 2026
+  near_duplicate_reaudit: 50
+  same_event_reaudit: 50
+  near_duplicate_new: 100
+  same_event_new: 100
+leakage_policy:
+  allowed_splits:
+    - development
+    - validation
+  exclude_test_from_annotation_workbook: true
+  no_model_prediction_as_human_label: true
+  preserve_agent_assisted_labels_as_audit_fields_only: true
