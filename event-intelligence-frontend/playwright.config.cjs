@@ -1,0 +1,1 @@
+module.exports = { testDir: './tests', testMatch: '**/*.spec.cjs', timeout: 20000, expect: { timeout: 6000 }, workers: 2, use: { headless: true, viewport: { width: 1440, height: 1000 }, screenshot: 'only-on-failure' }, reporter: 'list' };

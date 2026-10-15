@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="金融事件平台登录与注册">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 56 18v28L32 60 8 46V18z' fill='%232f75f6'/%3E%3Cpath d='m32 4v56M8 18l48 28M56 18 8 46' stroke='white' stroke-width='2' opacity='.8'/%3E%3C/svg%3E">
+  <title>登录 · 金融事件智能分析平台</title>
+  <link rel="stylesheet" href="auth.css?v=2">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-visual" aria-label="平台能力介绍">
+      <div class="visual-grid"></div>
+      <header class="auth-brand">
+        <span class="brand-cube" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>金融事件智能分析平台</strong><small>Financial Event Intelligence</small></span>
+      </header>
+
+      <div class="visual-copy">
+        <span class="visual-kicker"><i></i> EVENT INTELLIGENCE PLATFORM</span>
+        <h1>看见事件脉络<br>追踪重点提醒</h1>
+        <p>汇聚公开金融信息，展示最新事件、重点提醒、事件脉络与知识图谱。</p>
+      </div>
+
+        <div class="visual-scene" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="core-node"><span>AI</span><small>事件引擎</small></div>
+        <div class="scene-card scene-card-a"><i class="scene-icon blue">数</i><span><small>公开样本</small><b>已同步</b></span><em>在线</em></div>
+        <div class="scene-card scene-card-b"><i class="scene-icon green">提</i><span><small>重点提醒</small><b>可读</b></span></div>
+        <div class="scene-card scene-card-c"><i class="scene-icon orange">图</i><span><small>知识图谱</small><b>清晰</b></span></div>
+        <span class="node node-a"></span><span class="node node-b"></span><span class="node node-c"></span>
+      </div>
+
+      <footer class="visual-footer"><span>公开样本</span><i></i><span>重点提醒</span><i></i><span>事件脉络</span><i></i><span>知识图谱</span></footer>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="mobile-brand">
+          <span class="brand-cube" aria-hidden="true"><i></i><i></i><i></i></span>
+          <strong>金融事件智能分析平台</strong>
+        </div>
+
+        <div class="auth-heading">
+          <h2 id="formTitle">欢迎登录</h2>
+          <p id="formSubtitle">登录后进入金融事件公开平台</p>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="登录注册切换">
+          <button class="auth-tab active" type="button" data-tab="login" role="tab" aria-selected="true">账号登录</button>
+          <button class="auth-tab" type="button" data-tab="register" role="tab" aria-selected="false">注册账号</button>
+        </div>
+
+        <form class="auth-form active" id="loginForm" novalidate>
+          <label class="form-field">
+            <span>账号</span>
+            <div class="field-control"><i>◎</i><input name="account" type="text" autocomplete="username" placeholder="请输入邮箱账号"></div>
+            <small class="field-error"></small>
+          </label>
+          <label class="form-field">
+            <span>密码</span>
+            <div class="field-control"><i>◇</i><input name="password" type="password" autocomplete="current-password" placeholder="请输入登录密码"><button class="password-toggle" type="button" aria-label="显示密码">◉</button></div>
+            <small class="field-error"></small>
+          </label>
+          <div class="form-options">
+            <label class="check-label"><input name="remember" type="checkbox" checked><span></span>记住登录状态</label>
+            <button class="text-button" type="button" data-action="fill-demo">使用演示账号</button>
+          </div>
+          <button class="submit-button" type="submit"><span>登录平台</span><i>→</i></button>
+          <div class="demo-account"><span>演示账号</span><code>demo@finsight.cn</code><b>/</b><code>123456</code></div>
+        </form>
+
+        <form class="auth-form" id="registerForm" novalidate>
+          <div class="form-row">
+            <label class="form-field"><span>姓名</span><div class="field-control"><i>人</i><input name="name" type="text" autocomplete="name" placeholder="请输入姓名"></div><small class="field-error"></small></label>
+            <label class="form-field"><span>账号</span><div class="field-control"><i>＠</i><input name="account" type="email" autocomplete="email" placeholder="请输入邮箱"></div><small class="field-error"></small></label>
+          </div>
+          <label class="form-field"><span>设置密码</span><div class="field-control"><i>◇</i><input name="password" type="password" autocomplete="new-password" placeholder="至少 6 位，包含字母和数字"><button class="password-toggle" type="button" aria-label="显示密码">◉</button></div><small class="field-error"></small></label>
+          <label class="form-field"><span>确认密码</span><div class="field-control"><i>◇</i><input name="confirmPassword" type="password" autocomplete="new-password" placeholder="请再次输入密码"><button class="password-toggle" type="button" aria-label="显示密码">◉</button></div><small class="field-error"></small></label>
+          <label class="check-label agreement"><input name="agreement" type="checkbox"><span></span>我已阅读并同意《用户服务协议》和《隐私政策》</label>
+          <small class="agreement-error"></small>
+          <button class="submit-button" type="submit"><span>创建账号</span><i>→</i></button>
+        </form>
+
+        <div class="auth-divider"><span>或者</span></div>
+        <a class="demo-entry" href="index.html">暂不登录，进入公开平台 <span>→</span></a>
+        <p class="security-note"><i>✓</i> 登录信息仅用于本地体验，正式部署时由服务端统一校验</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="auth-toast" id="authToast" role="status" aria-live="polite"></div>
+  <div class="auth-loading" id="authLoading" aria-hidden="true"><span></span><p>正在进入分析平台…</p></div>
+
+  <script src="js/api.js?v=5"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

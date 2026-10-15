@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="面向公开金融事件的看板、重点提醒与知识图谱">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 56 18v28L32 60 8 46V18z' fill='%232f75f6'/%3E%3Cpath d='m32 4v56M8 18l48 28M56 18 8 46' stroke='white' stroke-width='2' opacity='.8'/%3E%3C/svg%3E">
+  <title>金融事件智能分析平台</title>
+  <link rel="stylesheet" href="styles.css?v=13">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="brand-copy">
+          <strong>金融事件智能分析平台</strong>
+        </div>
+      </div>
+
+      <div class="workspace-card">
+        <div class="workspace-logo">研</div>
+        <div>
+          <strong>量化投研中心</strong>
+          <span><i></i> 项目结果分析</span>
+        </div>
+        <button class="icon-button compact" aria-label="切换工作空间">⌄</button>
+      </div>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="主要导航"></nav>
+
+      <div class="sidebar-footer">
+        <div class="pipeline-mini">
+          <div class="pipeline-mini-head">
+            <span>事件处理链路</span><b>结果回放</b>
+          </div>
+          <small>选择事件查看各任务输出</small>
+        </div>
+        <button class="user-card" id="userMenuButton">
+          <span class="avatar">林</span>
+          <span><strong>NJUST</strong><small>高级投研分析师</small></span>
+          <span class="more">···</span>
+        </button>
+      </div>
+    </aside>
+
+    <section class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button menu-button" id="menuButton" aria-label="打开菜单">☰</button>
+          <div class="breadcrumb" id="breadcrumb"><strong>概览看板</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <button class="global-search" id="globalSearch" aria-label="全局搜索">
+            <span class="search-glyph">⌕</span>
+            <span>搜索公司、事件或证券代码</span>
+            <kbd>Ctrl K</kbd>
+          </button>
+          <div class="stream-indicator"><i></i><span>正在连接数据</span></div>
+          <button class="icon-button theme-switch" id="themeToggle" aria-label="切换主题">☼</button>
+          <button class="icon-button has-badge" id="notificationButton" aria-label="通知">♧<i hidden>0</i></button>
+          <button class="header-user" id="headerUser" aria-label="当前用户">
+            <span class="avatar">林</span><span><strong>NJUST</strong><small>投研分析师</small></span><b>⌄</b>
+          </button>
+        </div>
+      </header>
+
+      <main class="page-container" id="pageContainer" tabindex="-1">
+        <div class="page-loading">
+        <div class="loading-ring"></div>
+        <span>正在加载事件数据…</span>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="detail-drawer" id="detailDrawer" aria-hidden="true" aria-label="事件详情">
+    <div class="drawer-head">
+      <div><span class="eyebrow">EVENT INTELLIGENCE</span><h2>事件详情</h2></div>
+      <button class="icon-button" data-action="close-drawer" aria-label="关闭">×</button>
+    </div>
+    <div class="drawer-content" id="drawerContent"></div>
+  </aside>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="modal-card" id="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="icon-button modal-close" data-action="close-modal" aria-label="关闭">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+
+  <div class="command-backdrop" id="commandBackdrop">
+    <section class="command-palette" role="dialog" aria-modal="true" aria-label="全局搜索">
+      <div class="command-input-wrap">
+        <span>⌕</span>
+        <input id="commandInput" type="search" placeholder="输入公司、证券代码或事件关键词…" autocomplete="off">
+        <kbd>ESC</kbd>
+      </div>
+      <div class="command-body" id="commandResults"></div>
+      <div class="command-footer"><span>↑↓ 选择</span><span>Enter 打开</span><span>ESC 关闭</span></div>
+    </section>
+  </div>
+
+  <div class="notification-panel" id="notificationPanel" aria-hidden="true">
+    <div class="notification-head"><strong>消息中心</strong><span class="mini-tag">待处置预警</span></div>
+    <div id="notificationList"></div>
+    <button class="notification-more" data-nav="alerts">查看全部预警 →</button>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+  <script src="js/mock-data.js?v=4"></script>
+  <script src="js/api.js?v=10"></script>
+  <script src="js/charts.js?v=7"></script>
+  <script src="js/app.js?v=25"></script>
+</body>
+</html>
