@@ -1,0 +1,54 @@
+[
+  {
+    "case_id": "e2e_case_1",
+    "theme": "formal_validity_and_direction",
+    "task3_event_interface": {
+      "canonical_event_id": "CE3_000154bad02264b0f0d6607d",
+      "event_thread_id": "ETF_2aa124858ccef90a",
+      "current_state_type": "completion",
+      "trust_score": 0.71568
+    },
+    "task4_formal_chain": {
+      "validity_model": "V4",
+      "direction_model": "D2-hierarchical"
+    },
+    "note": "Formal evaluation only covers Validity and Impact Direction."
+  },
+  {
+    "case_id": "e2e_case_2",
+    "theme": "prototype_alert_card",
+    "prototype_card": {
+      "card_id": "IAC_P01",
+      "task4_sample_id": "T4S_6499b361cded112f93732bd0",
+      "title": "财政部重磅报告发布，2026年不再提“ 大规模置换、一揽子化债 ”",
+      "event_name": "化债政策",
+      "direct_text_evidence": "正文：‘2万亿元置换债券发行完毕，一揽子化债政策落地，坚决遏制新增隐性债务。’",
+      "severity": "S3",
+      "alert_priority": "A2",
+      "impact_scope": "跨行业或宏观",
+      "urgency": "U3",
+      "duration": "D4",
+      "evidence_quote": "2万亿元置换债券发行完毕，一揽子化债政策落地，坚决遏制新增隐性债务。",
+      "reason": "化债政策规模大且影响长期财政风险，但证据显示政策已经落地，并非即时经营危机，因此严重度高于预警紧迫度。",
+      "prototype_confidence": "high",
+      "label_source": "agent_assisted_prototype",
+      "verification_status": "not_human_gold",
+      "display_tier": "product_demo_only"
+    },
+    "note": "Severity/Alert Priority are demo-only agent-assisted prototype labels, not human gold."
+  },
+  {
+    "case_id": "e2e_case_3",
+    "theme": "uncertain_review_routing",
+    "uncertain_queue_item": {
+      "queue_id": "UQ_0001",
+      "canonical_event_id": "CE3_000154bad02264b0f0d6607d",
+      "event_thread_id": "ETF_2aa124858ccef90a",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 1
+    },
+    "note": "Stage 4.1 is read-only audit and review ranking, not a predictive gain layer."
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "fallback_count": 0,
+  "future_evidence_used_count": 0,
+  "high_strength_no_evidence_count": 0,
+  "high_strength_no_evidence_examples": [],
+  "illegal_evidence_id_count": 0,
+  "illegal_evidence_id_examples": [],
+  "invalid_status_count": 0,
+  "invalid_status_examples": [],
+  "invalid_strength_count": 0,
+  "invalid_strength_examples": [],
+  "json_final_parse_rate": 1.0,
+  "quality_gate": {
+    "high_strength_no_evidence_zero": true,
+    "illegal_evidence_id_zero": true,
+    "invalid_status_zero": true,
+    "invalid_strength_zero": true,
+    "json_final_parse_rate_gte_0_995": true,
+    "sixdim_complete_rate_100": true
+  },
+  "sample_count": 1500,
+  "sixdim_complete": true,
+  "sixdim_complete_rate": 1.0,
+  "sixdim_row_count": 1500
+}

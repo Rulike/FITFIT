@@ -1,0 +1,202 @@
+{
+  "step": "4.5-B",
+  "status": "completed",
+  "canary": false,
+  "config_path": "/opt/data/private/JinRong/kechuang/financial_event_project/configs/task2_final_cached_dea_v1.yaml",
+  "config_sha256": "e0835a110547deac0a68603b139079069aa691a3bfe87d0de999b8d3f493f704",
+  "input_path": "/opt/data/private/JinRong/kechuang/financial_event_project/data/processed/event_credibility/llm_review_queue.jsonl",
+  "output_dir": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/event_credibility/final_cached_dea_v1_260",
+  "workers": 4,
+  "model_info": {
+    "status": 200,
+    "model_names": [
+      "DianJin-R1-32B"
+    ],
+    "raw": {
+      "object": "list",
+      "data": [
+        {
+          "id": "DianJin-R1-32B",
+          "object": "model",
+          "created": 1786214373,
+          "owned_by": "vllm",
+          "root": "/opt/data/private/JinRong/models/DianJin-R1-32B",
+          "parent": null,
+          "max_model_len": 8192,
+          "permission": [
+            {
+              "id": "modelperm-97a77f1f6badb333",
+              "object": "model_permission",
+              "created": 1786214373,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "gpu_snapshot": {
+    "ok": true,
+    "output": "Sun Aug  9 02:47:20 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 570.172.08             Driver Version: 570.172.08     CUDA Version: 12.8     |\n|-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3090        On  |   00000000:3E:00.0 Off |                  N/A |\n| 38%   64C    P2            289W /  350W |   22319MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   1  NVIDIA GeForce RTX 3090        On  |   00000000:88:00.0 Off |                  N/A |\n| 45%   77C    P2            253W /  350W |   22319MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   2  NVIDIA GeForce RTX 3090        Off |   00000000:89:00.0 Off |                  N/A |\n| 41%   68C    P2            309W /  350W |   22319MiB /  24576MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   3  NVIDIA GeForce RTX 3090        Off |   00000000:B1:00.0 Off |                  N/A |\n| 46%   86C    P2            235W /  350W |   22319MiB /  24576MiB |     98%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n                                                                                         \n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A          423423      C   VLLM::Worker_TP0                      22310MiB |\n|    1   N/A  N/A          423424      C   VLLM::Worker_TP1                      22310MiB |\n|    2   N/A  N/A          423425      C   VLLM::Worker_TP2                      22310MiB |\n|    3   N/A  N/A          423426      C   VLLM::Worker_TP3                      22310MiB |\n+-----------------------------------------------------------------------------------------+\n"
+  },
+  "retrieval_info": {
+    "source_path": "/opt/data/private/JinRong/kechuang/financial_event_project/data/processed/event_credibility/fulltext_article_index.parquet",
+    "sqlite_path": "/opt/data/private/JinRong/kechuang/financial_event_project/cache/event_credibility/dea_retrieval_index/retrieval_index.sqlite",
+    "metadata_source_rows": 310088,
+    "docs_count": 310088,
+    "index_version": "task2_retrieval_index_v1",
+    "query_only": true,
+    "fts5_probe_hits": 3
+  },
+  "dea_summary": {
+    "status": "completed",
+    "total": 260,
+    "completed": 260,
+    "processed": 260,
+    "succeeded": 260,
+    "failed": 0,
+    "skipped": 0,
+    "elapsed": 464.435,
+    "throughput_items_per_second": 0.55982,
+    "safety_stop_reason": "",
+    "output_path": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/event_credibility/final_cached_dea_v1_260/dea_results.jsonl",
+    "checkpoint_path": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/event_credibility/final_cached_dea_v1_260/dea_results.jsonl.checkpoint.json",
+    "mode": "dea",
+    "workers": 4
+  },
+  "summary": {
+    "completed_count": 260,
+    "round1_verdict_distribution": {
+      "insufficient": 155,
+      "support": 102,
+      "contradict": 3
+    },
+    "final_verdict_distribution": {
+      "insufficient": 102,
+      "support": 155,
+      "contradict": 3
+    },
+    "dea_trigger_count": 155,
+    "dea_trigger_ratio": 0.596154,
+    "dea_trigger_reason_counts": {
+      "verdict_insufficient": 155
+    },
+    "round1_direct_output_count": 105,
+    "dea_result_count": 155,
+    "round1_final_verdict_change_count": 53,
+    "insufficient_to_support_count": 53,
+    "insufficient_to_contradict_count": 0,
+    "insufficient_kept_count": 102,
+    "support_or_contradict_to_insufficient_count": 0,
+    "new_evidence_total_count": 620,
+    "samples_with_new_evidence_count": 155,
+    "new_independent_source_count_sum": 359,
+    "latency": {
+      "retrieval_avg": 0.239342,
+      "retrieval_p50": 0.200234,
+      "retrieval_p95": 0.757409,
+      "model_avg": 6.835573,
+      "model_p50": 7.3355,
+      "model_p95": 11.76265,
+      "total_avg": 7.082188,
+      "total_p50": 7.6885,
+      "total_p95": 12.64665
+    },
+    "request_cost": {
+      "logical_request_avg": 1.596154,
+      "http_attempt_avg": 1.596154,
+      "prompt_tokens_total": 404968,
+      "completion_tokens_total": 40492,
+      "total_tokens_total": 445460,
+      "prompt_tokens_avg": 1557.569231,
+      "completion_tokens_avg": 155.738462,
+      "total_tokens_avg": 1713.307692,
+      "format_correction_count": 0
+    },
+    "errors": {
+      "timeout_count": 0,
+      "http_5xx_count": 0,
+      "parse_failure_count": 0,
+      "input_count": 260,
+      "final_result_count": 260,
+      "cluster_id_order_match": true,
+      "missing_cluster_ids": [],
+      "extra_cluster_ids": [],
+      "duplicate_success_record_count": 0,
+      "input_index_continuous": true,
+      "invalid_verdict_count": 0,
+      "invalid_confidence_count": 0,
+      "illegal_evidence_id_count": 0,
+      "cross_cluster_reference_count": 0,
+      "untraceable_evidence_count": 0,
+      "final_failed_count": 0,
+      "cuda_oom_count": 0
+    },
+    "checkpoint_resume": {
+      "resume_used": false
+    },
+    "wall_clock_seconds": 465.797
+  },
+  "comparison_summary": {
+    "old_path": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/event_credibility/llm_review_results.jsonl",
+    "matched_count": 260,
+    "missing_in_new_count": 0,
+    "new_not_in_old_count": 0,
+    "verdict_consistency_rate": 0.765385,
+    "verdict_change_count": 61,
+    "confidence_mean_abs_diff": 0.225423,
+    "evidence_ids_change_count": 260,
+    "new_evidence_total_count": 620,
+    "old_success_new_failure_count": 0,
+    "verdict_transition_matrix": {
+      "insufficient": {
+        "insufficient": 86,
+        "support": 42,
+        "contradict": 3
+      },
+      "support": {
+        "support": 113,
+        "insufficient": 16
+      }
+    },
+    "changes_count": 260
+  },
+  "formal_sha256_before": {
+    "outputs/event_credibility/llm_review_results.jsonl": "3a9f856a5e3e70f688e8ce0726dcd7ba02f62639e6263c9c67dd02394a2624df",
+    "outputs/event_credibility/event_credibility_scores_fulltext.jsonl": "72b6ab349097b951c86de8b750f6ef5e888e8a575a18fda806fe47d7a4692655",
+    "outputs/event_credibility/event_credibility_scores_fulltext.parquet": "39d75f1dcb68ee6a063804d98bd49de9902c98df762df3f36f4050813a79ffd9",
+    "outputs/event_credibility/event_credibility_scores_fulltext.xlsx": "4a41dbdb14bd9ccc25f505172b907240bfc9e004948409364e379f5e091498aa"
+  },
+  "formal_sha256_after": {
+    "outputs/event_credibility/llm_review_results.jsonl": "3a9f856a5e3e70f688e8ce0726dcd7ba02f62639e6263c9c67dd02394a2624df",
+    "outputs/event_credibility/event_credibility_scores_fulltext.jsonl": "72b6ab349097b951c86de8b750f6ef5e888e8a575a18fda806fe47d7a4692655",
+    "outputs/event_credibility/event_credibility_scores_fulltext.parquet": "39d75f1dcb68ee6a063804d98bd49de9902c98df762df3f36f4050813a79ffd9",
+    "outputs/event_credibility/event_credibility_scores_fulltext.xlsx": "4a41dbdb14bd9ccc25f505172b907240bfc9e004948409364e379f5e091498aa"
+  },
+  "formal_outputs_unchanged": true,
+  "output_sha256": {
+    "input_manifest.json": "71d07ec5dc93107006b444f027e4968368cfb86f6bd36edfd5a7a681ec4fe551",
+    "round1_results.jsonl": "0e40a8e7dabaad78d4f0d97571708f161edfd40c256a3bc9ec90c1c6fd61b41d",
+    "dea_results.jsonl": "b60f5cac5ff2ee2ec714b0ab1f9adfe95ed17e6d1a2efabbc8d6d02f541cd6d2",
+    "final_results.jsonl": "83db3d8045fdf8678a83518081b81414a7c64674209495767b92960ce3345474",
+    "retrieval_traces.jsonl": "9bf07e6468f6213dd83bbbd3aca8e5a7f2b8c987e2489da182f7f173bc38bd8c",
+    "request_metrics.jsonl": "6a91a38b3a2a7f8dc05e582367dd4f97d6756b1230d5a11383ba0a3122a66511",
+    "failed_records.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "checkpoint.json": "655ed2899482af1ff5c2261bf53cf7798616c0455dc0e67aae8c72d3b6d931ee"
+  },
+  "model_call_count": 415,
+  "http_attempt_count": 415,
+  "score_fusion_enabled": false,
+  "safety_gate_enabled": false,
+  "isr_enabled": false,
+  "claim_contract_enabled": false,
+  "completed_at": "2026-08-09T02:47:20"
+}

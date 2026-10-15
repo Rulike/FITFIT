@@ -1,0 +1,652 @@
+[
+  {
+    "canonical_event_id": "CE3_000154bad02264b0f0d6607d",
+    "event_thread_id": "ETF_2aa124858ccef90a",
+    "current_state_type": "completion",
+    "trust_score": 0.71568,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0032fba69cce6f3001993d8d",
+    "event_thread_id": "ETF_ece9899ee96545b1",
+    "current_state_type": "announcement",
+    "trust_score": 0.630187,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_004c3cc18ded25e9cb411c4d",
+    "event_thread_id": "ETF_02086054566d30f0",
+    "current_state_type": "unknown",
+    "trust_score": 0.46688,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_005236d5640b12086d0cfcda",
+    "event_thread_id": "ETF_acf270654add279c",
+    "current_state_type": "confirmation_proposal",
+    "trust_score": 0.705693,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_005a259089eb4b6ab31cfe6b",
+    "event_thread_id": "ETF_02086054566d30f0",
+    "current_state_type": "unknown",
+    "trust_score": 0.46688,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_005eb2da3adc27e4f05543ed",
+    "event_thread_id": "ETF_9282fb4c489e0d2c",
+    "current_state_type": "completion",
+    "trust_score": 0.76428,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_005fe530ba0b079986507d33",
+    "event_thread_id": "ETF_5f59af30ebcc6988",
+    "current_state_type": "unknown",
+    "trust_score": 0.46828,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00783345b11a057bb24e36f3",
+    "event_thread_id": "ETF_cc8c831e730a991d",
+    "current_state_type": "unknown",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_008075eac0d425dbbc1ec545",
+    "event_thread_id": "ETF_4845ed38491ef6a7",
+    "current_state_type": "plan",
+    "trust_score": 0.626587,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00841e56ef22c89b4926b5f8",
+    "event_thread_id": "ETF_839e40030fedc50e",
+    "current_state_type": "progress",
+    "trust_score": 0.697618,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_008bb10b6551585c338e0e35",
+    "event_thread_id": "ETF_ece9899ee96545b1",
+    "current_state_type": "completion",
+    "trust_score": 0.4658,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_008da49fb04bc5479fc2a31a",
+    "event_thread_id": "ETF_43c7ac200f8bedec",
+    "current_state_type": "announcement",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00a256b695c9e71a8baff2c9",
+    "event_thread_id": "ETF_e3f566a0a10f32fe",
+    "current_state_type": "announcement",
+    "trust_score": 0.710053,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00a62fb09c09cb07e897ffc7",
+    "event_thread_id": "ETF_02086054566d30f0",
+    "current_state_type": "plan",
+    "trust_score": 0.574911,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00a7e16c7bab5219af6ca2c4",
+    "event_thread_id": "ETF_90d3d437607d539e",
+    "current_state_type": "progress",
+    "trust_score": 0.74084,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00c48299cf6b4d0f01b8bd9d",
+    "event_thread_id": "ETF_e17d79481f31f828",
+    "current_state_type": "unknown",
+    "trust_score": 0.4658,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00c7ab721c5cfc9de325f16f",
+    "event_thread_id": "ETF_44ed8af0f25097bf",
+    "current_state_type": "plan",
+    "trust_score": 0.77404,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00d51ef6cc26325343f8832a",
+    "event_thread_id": "ETF_bea8545939ead064",
+    "current_state_type": "unknown",
+    "trust_score": 0.46668,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00d67570374ace622fa0f2a2",
+    "event_thread_id": "ETF_02086054566d30f0",
+    "current_state_type": "announcement",
+    "trust_score": 0.46668,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_00ef640cff7c0faa0f64a7ff",
+    "event_thread_id": "ETF_e17d79481f31f828",
+    "current_state_type": "completion",
+    "trust_score": 0.674413,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0101e96d85d7dc6936661251",
+    "event_thread_id": "ETF_42c849ca4a55e4ca",
+    "current_state_type": "plan",
+    "trust_score": 0.709613,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_011a6d8ebbb17698996d7dcc",
+    "event_thread_id": "ETF_8b57c93c2f9b072e",
+    "current_state_type": "plan",
+    "trust_score": 0.74456,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_013a132042ff18ec7e910aa6",
+    "event_thread_id": "ETF_382423fd4fa0d4a2",
+    "current_state_type": "unknown",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_014f0b440669e0a656b60c32",
+    "event_thread_id": "ETF_d039d50c54734058",
+    "current_state_type": "progress",
+    "trust_score": 0.653173,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0155cdc5b381749015eb4b4d",
+    "event_thread_id": "ETF_cc8c831e730a991d",
+    "current_state_type": "unknown",
+    "trust_score": 0.661013,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0156afb5e86cf68bfbd27c4f",
+    "event_thread_id": "ETF_65a166f595cac98a",
+    "current_state_type": "unknown",
+    "trust_score": 0.73124,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_015b129aca8e2f77db0ac002",
+    "event_thread_id": "ETF_5f59af30ebcc6988",
+    "current_state_type": "announcement",
+    "trust_score": 0.75992,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_01ad561c0facf227b0b72923",
+    "event_thread_id": "ETF_cf65c0b2b9f1d479",
+    "current_state_type": "unknown",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_01e9a23d4dbaf8bb8b5b5238",
+    "event_thread_id": "ETF_3de892f944319017",
+    "current_state_type": "unknown",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_01fac5abc34a886cde16a361",
+    "event_thread_id": "ETF_dfdfcbd4babcd699",
+    "current_state_type": "announcement",
+    "trust_score": 0.46668,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0218333ec78793181dd36988",
+    "event_thread_id": "ETF_ece9899ee96545b1",
+    "current_state_type": "unknown",
+    "trust_score": 0.4658,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_021c0793954224a56752e476",
+    "event_thread_id": "ETF_759974f8608b89c7",
+    "current_state_type": "unknown",
+    "trust_score": 0.401613,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_022be51be9b8c76ae40cce9a",
+    "event_thread_id": "ETF_03fd23e8751af41c",
+    "current_state_type": "unknown",
+    "trust_score": 0.71984,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_024d719c101a63f0eadc4034",
+    "event_thread_id": "ETF_cf056bf23121bd29",
+    "current_state_type": "progress",
+    "trust_score": 0.634187,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0258a0c08dda5e5cbd2fc1c8",
+    "event_thread_id": "ETF_4ff60fab51728af7",
+    "current_state_type": "unknown",
+    "trust_score": 0.46668,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02596a60367599bbeaf67358",
+    "event_thread_id": "ETF_2be46cef7b625e4c",
+    "current_state_type": "investigation",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_025a9b36fae26406fbbe79f5",
+    "event_thread_id": "ETF_ece9899ee96545b1",
+    "current_state_type": "plan",
+    "trust_score": 0.694653,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_026be9d44402e4aa67e51aba",
+    "event_thread_id": "ETF_cc3930e3bac8b8d0",
+    "current_state_type": "unknown",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02713dcbff9fcc225fc0c31e",
+    "event_thread_id": "ETF_22975f5720413259",
+    "current_state_type": "completion",
+    "trust_score": 0.404893,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02766607fb8c3b06512536fc",
+    "event_thread_id": "ETF_d039d50c54734058",
+    "current_state_type": "unknown",
+    "trust_score": 0.7286,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_0299cefc3f5633eeeb9fec97",
+    "event_thread_id": "ETF_5d005bec13790d09",
+    "current_state_type": "unknown",
+    "trust_score": 0.4658,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02c6b07c7ed85f393e956ece",
+    "event_thread_id": "ETF_a5c238f989ba8085",
+    "current_state_type": "plan",
+    "trust_score": 0.693253,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02cde5cea563741f4f661e2c",
+    "event_thread_id": "ETF_a4f1a7200363b690",
+    "current_state_type": "progress",
+    "trust_score": 0.71612,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02ddfdc288933b2ba0d13f7b",
+    "event_thread_id": "ETF_4ff60fab51728af7",
+    "current_state_type": "announcement",
+    "trust_score": 0.698373,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02e6584d451c2b11876743d9",
+    "event_thread_id": "ETF_02086054566d30f0",
+    "current_state_type": "refutation",
+    "trust_score": 0.47348,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02e661744aee15f956f5a6a9",
+    "event_thread_id": "ETF_5d005bec13790d09",
+    "current_state_type": "unknown",
+    "trust_score": 0.7258,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02ee179b06bbfed4c9218303",
+    "event_thread_id": "ETF_c4a1728181ad1cd1",
+    "current_state_type": "progress",
+    "trust_score": 0.47156,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02ee9951647b1cbc76f81fcc",
+    "event_thread_id": "ETF_525d5c2ea7eed50b",
+    "current_state_type": "unknown",
+    "trust_score": 0.766,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_02ff130f50bb1c720cce5277",
+    "event_thread_id": "ETF_e2d89bb0df87f2a5",
+    "current_state_type": "plan",
+    "trust_score": 0.74456,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  },
+  {
+    "canonical_event_id": "CE3_031a00253b42c676371a2f78",
+    "event_thread_id": "ETF_88b2e85c60cfdd03",
+    "current_state_type": "announcement",
+    "trust_score": 0.46956,
+    "evidence_path": [
+      "Task3.KGRelease.task4_event_interface",
+      "Stage3.2.Validity(V4)",
+      "Stage3.2.Direction(D2-hierarchical)",
+      "Stage4.1.ReadOnlyAudit(optional)",
+      "Task4.FinalRelease.output"
+    ]
+  }
+]

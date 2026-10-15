@@ -1,0 +1,30 @@
+{
+  "task1_status": "complete",
+  "task1_name": "事件驱动智能识别",
+  "completed_at": "2026-07-21",
+  "model": "MacBERT baseline (step 6) + Qwen2.5-7B-Instruct joint adjudication",
+  "threshold": 0.38,
+  "pipeline_summary": {
+    "total_unlabeled_articles": 307888,
+    "routed_articles": 9453,
+    "macbert_positive_predictions": 12841,
+    "auto_accept_events": 4049,
+    "joint_adjudication_groups": 2359,
+    "joint_adjudication_success_rate": "99.0%",
+    "joint_adjudication_accepted_events": 924,
+    "total_final_accepted_events": 4973,
+    "company_events": 4801,
+    "industry_events": 172,
+    "high_confidence_count": 4049,
+    "medium_confidence_count": 924,
+    "manual_review_queue_count": 3226,
+    "rejected_event_count": 5192
+  },
+  "verification": {
+    "joint_adjudication_completed_groups": 2359,
+    "running_shells": 0,
+    "final_events_includes_auto_accept_and_adjudication": true,
+    "evidence_validation": "completed_by_llm",
+    "official_test_sealed": true
+  }
+}

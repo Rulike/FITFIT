@@ -1,0 +1,906 @@
+{
+  "queue_size_reference": 1278,
+  "generated_preview_size": 100,
+  "items": [
+    {
+      "queue_id": "UQ_0001",
+      "canonical_event_id": "CE3_000154bad02264b0f0d6607d",
+      "event_thread_id": "ETF_2aa124858ccef90a",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 1
+    },
+    {
+      "queue_id": "UQ_0002",
+      "canonical_event_id": "CE3_0032fba69cce6f3001993d8d",
+      "event_thread_id": "ETF_ece9899ee96545b1",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 2
+    },
+    {
+      "queue_id": "UQ_0003",
+      "canonical_event_id": "CE3_004c3cc18ded25e9cb411c4d",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 3
+    },
+    {
+      "queue_id": "UQ_0004",
+      "canonical_event_id": "CE3_005236d5640b12086d0cfcda",
+      "event_thread_id": "ETF_acf270654add279c",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 4
+    },
+    {
+      "queue_id": "UQ_0005",
+      "canonical_event_id": "CE3_005a259089eb4b6ab31cfe6b",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 5
+    },
+    {
+      "queue_id": "UQ_0006",
+      "canonical_event_id": "CE3_005eb2da3adc27e4f05543ed",
+      "event_thread_id": "ETF_9282fb4c489e0d2c",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 6
+    },
+    {
+      "queue_id": "UQ_0007",
+      "canonical_event_id": "CE3_005fe530ba0b079986507d33",
+      "event_thread_id": "ETF_5f59af30ebcc6988",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 7
+    },
+    {
+      "queue_id": "UQ_0008",
+      "canonical_event_id": "CE3_00783345b11a057bb24e36f3",
+      "event_thread_id": "ETF_cc8c831e730a991d",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 8
+    },
+    {
+      "queue_id": "UQ_0009",
+      "canonical_event_id": "CE3_008075eac0d425dbbc1ec545",
+      "event_thread_id": "ETF_4845ed38491ef6a7",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 9
+    },
+    {
+      "queue_id": "UQ_0010",
+      "canonical_event_id": "CE3_00841e56ef22c89b4926b5f8",
+      "event_thread_id": "ETF_839e40030fedc50e",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 10
+    },
+    {
+      "queue_id": "UQ_0011",
+      "canonical_event_id": "CE3_008bb10b6551585c338e0e35",
+      "event_thread_id": "ETF_ece9899ee96545b1",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 11
+    },
+    {
+      "queue_id": "UQ_0012",
+      "canonical_event_id": "CE3_008da49fb04bc5479fc2a31a",
+      "event_thread_id": "ETF_43c7ac200f8bedec",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 12
+    },
+    {
+      "queue_id": "UQ_0013",
+      "canonical_event_id": "CE3_00a256b695c9e71a8baff2c9",
+      "event_thread_id": "ETF_e3f566a0a10f32fe",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 13
+    },
+    {
+      "queue_id": "UQ_0014",
+      "canonical_event_id": "CE3_00a62fb09c09cb07e897ffc7",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 14
+    },
+    {
+      "queue_id": "UQ_0015",
+      "canonical_event_id": "CE3_00a7e16c7bab5219af6ca2c4",
+      "event_thread_id": "ETF_90d3d437607d539e",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 15
+    },
+    {
+      "queue_id": "UQ_0016",
+      "canonical_event_id": "CE3_00c48299cf6b4d0f01b8bd9d",
+      "event_thread_id": "ETF_e17d79481f31f828",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 16
+    },
+    {
+      "queue_id": "UQ_0017",
+      "canonical_event_id": "CE3_00c7ab721c5cfc9de325f16f",
+      "event_thread_id": "ETF_44ed8af0f25097bf",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 17
+    },
+    {
+      "queue_id": "UQ_0018",
+      "canonical_event_id": "CE3_00d51ef6cc26325343f8832a",
+      "event_thread_id": "ETF_bea8545939ead064",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 18
+    },
+    {
+      "queue_id": "UQ_0019",
+      "canonical_event_id": "CE3_00d67570374ace622fa0f2a2",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 19
+    },
+    {
+      "queue_id": "UQ_0020",
+      "canonical_event_id": "CE3_00ef640cff7c0faa0f64a7ff",
+      "event_thread_id": "ETF_e17d79481f31f828",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 20
+    },
+    {
+      "queue_id": "UQ_0021",
+      "canonical_event_id": "CE3_0101e96d85d7dc6936661251",
+      "event_thread_id": "ETF_42c849ca4a55e4ca",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 21
+    },
+    {
+      "queue_id": "UQ_0022",
+      "canonical_event_id": "CE3_011a6d8ebbb17698996d7dcc",
+      "event_thread_id": "ETF_8b57c93c2f9b072e",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 22
+    },
+    {
+      "queue_id": "UQ_0023",
+      "canonical_event_id": "CE3_013a132042ff18ec7e910aa6",
+      "event_thread_id": "ETF_382423fd4fa0d4a2",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 23
+    },
+    {
+      "queue_id": "UQ_0024",
+      "canonical_event_id": "CE3_014f0b440669e0a656b60c32",
+      "event_thread_id": "ETF_d039d50c54734058",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 24
+    },
+    {
+      "queue_id": "UQ_0025",
+      "canonical_event_id": "CE3_0155cdc5b381749015eb4b4d",
+      "event_thread_id": "ETF_cc8c831e730a991d",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 25
+    },
+    {
+      "queue_id": "UQ_0026",
+      "canonical_event_id": "CE3_0156afb5e86cf68bfbd27c4f",
+      "event_thread_id": "ETF_65a166f595cac98a",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 26
+    },
+    {
+      "queue_id": "UQ_0027",
+      "canonical_event_id": "CE3_015b129aca8e2f77db0ac002",
+      "event_thread_id": "ETF_5f59af30ebcc6988",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 27
+    },
+    {
+      "queue_id": "UQ_0028",
+      "canonical_event_id": "CE3_01ad561c0facf227b0b72923",
+      "event_thread_id": "ETF_cf65c0b2b9f1d479",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 28
+    },
+    {
+      "queue_id": "UQ_0029",
+      "canonical_event_id": "CE3_01e9a23d4dbaf8bb8b5b5238",
+      "event_thread_id": "ETF_3de892f944319017",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 29
+    },
+    {
+      "queue_id": "UQ_0030",
+      "canonical_event_id": "CE3_01fac5abc34a886cde16a361",
+      "event_thread_id": "ETF_dfdfcbd4babcd699",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 30
+    },
+    {
+      "queue_id": "UQ_0031",
+      "canonical_event_id": "CE3_0218333ec78793181dd36988",
+      "event_thread_id": "ETF_ece9899ee96545b1",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 31
+    },
+    {
+      "queue_id": "UQ_0032",
+      "canonical_event_id": "CE3_021c0793954224a56752e476",
+      "event_thread_id": "ETF_759974f8608b89c7",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 32
+    },
+    {
+      "queue_id": "UQ_0033",
+      "canonical_event_id": "CE3_022be51be9b8c76ae40cce9a",
+      "event_thread_id": "ETF_03fd23e8751af41c",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 33
+    },
+    {
+      "queue_id": "UQ_0034",
+      "canonical_event_id": "CE3_024d719c101a63f0eadc4034",
+      "event_thread_id": "ETF_cf056bf23121bd29",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 34
+    },
+    {
+      "queue_id": "UQ_0035",
+      "canonical_event_id": "CE3_0258a0c08dda5e5cbd2fc1c8",
+      "event_thread_id": "ETF_4ff60fab51728af7",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 35
+    },
+    {
+      "queue_id": "UQ_0036",
+      "canonical_event_id": "CE3_02596a60367599bbeaf67358",
+      "event_thread_id": "ETF_2be46cef7b625e4c",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 36
+    },
+    {
+      "queue_id": "UQ_0037",
+      "canonical_event_id": "CE3_025a9b36fae26406fbbe79f5",
+      "event_thread_id": "ETF_ece9899ee96545b1",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 37
+    },
+    {
+      "queue_id": "UQ_0038",
+      "canonical_event_id": "CE3_026be9d44402e4aa67e51aba",
+      "event_thread_id": "ETF_cc3930e3bac8b8d0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 38
+    },
+    {
+      "queue_id": "UQ_0039",
+      "canonical_event_id": "CE3_02713dcbff9fcc225fc0c31e",
+      "event_thread_id": "ETF_22975f5720413259",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 39
+    },
+    {
+      "queue_id": "UQ_0040",
+      "canonical_event_id": "CE3_02766607fb8c3b06512536fc",
+      "event_thread_id": "ETF_d039d50c54734058",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 40
+    },
+    {
+      "queue_id": "UQ_0041",
+      "canonical_event_id": "CE3_0299cefc3f5633eeeb9fec97",
+      "event_thread_id": "ETF_5d005bec13790d09",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 41
+    },
+    {
+      "queue_id": "UQ_0042",
+      "canonical_event_id": "CE3_02c6b07c7ed85f393e956ece",
+      "event_thread_id": "ETF_a5c238f989ba8085",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 42
+    },
+    {
+      "queue_id": "UQ_0043",
+      "canonical_event_id": "CE3_02cde5cea563741f4f661e2c",
+      "event_thread_id": "ETF_a4f1a7200363b690",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 43
+    },
+    {
+      "queue_id": "UQ_0044",
+      "canonical_event_id": "CE3_02ddfdc288933b2ba0d13f7b",
+      "event_thread_id": "ETF_4ff60fab51728af7",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 44
+    },
+    {
+      "queue_id": "UQ_0045",
+      "canonical_event_id": "CE3_02e6584d451c2b11876743d9",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 45
+    },
+    {
+      "queue_id": "UQ_0046",
+      "canonical_event_id": "CE3_02e661744aee15f956f5a6a9",
+      "event_thread_id": "ETF_5d005bec13790d09",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 46
+    },
+    {
+      "queue_id": "UQ_0047",
+      "canonical_event_id": "CE3_02ee179b06bbfed4c9218303",
+      "event_thread_id": "ETF_c4a1728181ad1cd1",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 47
+    },
+    {
+      "queue_id": "UQ_0048",
+      "canonical_event_id": "CE3_02ee9951647b1cbc76f81fcc",
+      "event_thread_id": "ETF_525d5c2ea7eed50b",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 48
+    },
+    {
+      "queue_id": "UQ_0049",
+      "canonical_event_id": "CE3_02ff130f50bb1c720cce5277",
+      "event_thread_id": "ETF_e2d89bb0df87f2a5",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 49
+    },
+    {
+      "queue_id": "UQ_0050",
+      "canonical_event_id": "CE3_031a00253b42c676371a2f78",
+      "event_thread_id": "ETF_88b2e85c60cfdd03",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 50
+    },
+    {
+      "queue_id": "UQ_0051",
+      "canonical_event_id": "CE3_0333acd934d93d7db20259a4",
+      "event_thread_id": "ETF_fd9bb71872291a78",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 51
+    },
+    {
+      "queue_id": "UQ_0052",
+      "canonical_event_id": "CE3_03573af1ab6b45dff9c10538",
+      "event_thread_id": "ETF_88b2e85c60cfdd03",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 52
+    },
+    {
+      "queue_id": "UQ_0053",
+      "canonical_event_id": "CE3_03672c79390b027e52e3e6fe",
+      "event_thread_id": "ETF_9a72a43b106367c4",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 53
+    },
+    {
+      "queue_id": "UQ_0054",
+      "canonical_event_id": "CE3_0386cbed9cbadb47c9f4388a",
+      "event_thread_id": "ETF_9c30633c8c3b9398",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 54
+    },
+    {
+      "queue_id": "UQ_0055",
+      "canonical_event_id": "CE3_03968eb2286f1e05ab37595b",
+      "event_thread_id": "ETF_0344b1c7dc42eff0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 55
+    },
+    {
+      "queue_id": "UQ_0056",
+      "canonical_event_id": "CE3_039b5e1359f3cb558b03d5b8",
+      "event_thread_id": "ETF_7a2e8383600c38a9",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 56
+    },
+    {
+      "queue_id": "UQ_0057",
+      "canonical_event_id": "CE3_03a0505b4a503be73de17d5a",
+      "event_thread_id": "ETF_80629201183a1a76",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 57
+    },
+    {
+      "queue_id": "UQ_0058",
+      "canonical_event_id": "CE3_03a6ebc32f4aabdcb3bdc1d7",
+      "event_thread_id": "ETF_e4c6ee372b01308f",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 58
+    },
+    {
+      "queue_id": "UQ_0059",
+      "canonical_event_id": "CE3_03aa11bbb02b3dcc73771d0e",
+      "event_thread_id": "ETF_d383b63ffebd0268",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 59
+    },
+    {
+      "queue_id": "UQ_0060",
+      "canonical_event_id": "CE3_03cd6ea78bcde0b176a9baa9",
+      "event_thread_id": "ETF_ece9899ee96545b1",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 60
+    },
+    {
+      "queue_id": "UQ_0061",
+      "canonical_event_id": "CE3_03de494e3fbbfce5f7e9986f",
+      "event_thread_id": "ETF_9714c310dbc5a388",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 61
+    },
+    {
+      "queue_id": "UQ_0062",
+      "canonical_event_id": "CE3_03f28a54ba7c433bf695578c",
+      "event_thread_id": "ETF_13c48517004cd905",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 62
+    },
+    {
+      "queue_id": "UQ_0063",
+      "canonical_event_id": "CE3_03ffd01100bcfa39127ccadf",
+      "event_thread_id": "ETF_9a72a43b106367c4",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 63
+    },
+    {
+      "queue_id": "UQ_0064",
+      "canonical_event_id": "CE3_0400a1884f19916a23c319c0",
+      "event_thread_id": "ETF_cf6f488cfd5d7307",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 64
+    },
+    {
+      "queue_id": "UQ_0065",
+      "canonical_event_id": "CE3_0405b559db196945bf15c696",
+      "event_thread_id": "ETF_3e219c52f134356f",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 65
+    },
+    {
+      "queue_id": "UQ_0066",
+      "canonical_event_id": "CE3_041b7ed0984edd2451861c2f",
+      "event_thread_id": "ETF_429a70a5c77b7990",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 66
+    },
+    {
+      "queue_id": "UQ_0067",
+      "canonical_event_id": "CE3_041d8e48025297e1791c9211",
+      "event_thread_id": "ETF_525d5c2ea7eed50b",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 67
+    },
+    {
+      "queue_id": "UQ_0068",
+      "canonical_event_id": "CE3_04320fde7111ea69c7f486f1",
+      "event_thread_id": "ETF_2e7b42ca7cee2cff",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 68
+    },
+    {
+      "queue_id": "UQ_0069",
+      "canonical_event_id": "CE3_0454c7b57a499a20473e7926",
+      "event_thread_id": "ETF_1daee7aae5807639",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 69
+    },
+    {
+      "queue_id": "UQ_0070",
+      "canonical_event_id": "CE3_045f540f63e803e0b912e8f2",
+      "event_thread_id": "ETF_3c80f3d2738aa360",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 70
+    },
+    {
+      "queue_id": "UQ_0071",
+      "canonical_event_id": "CE3_0460b96859b97da4cc07ae87",
+      "event_thread_id": "ETF_e6f71d1c6f4a6411",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 71
+    },
+    {
+      "queue_id": "UQ_0072",
+      "canonical_event_id": "CE3_0480bdc2ffb5fd5351e4af64",
+      "event_thread_id": "ETF_3c92ccf341909721",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 72
+    },
+    {
+      "queue_id": "UQ_0073",
+      "canonical_event_id": "CE3_0481ac58ca6d2285162ad070",
+      "event_thread_id": "ETF_525d5c2ea7eed50b",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 73
+    },
+    {
+      "queue_id": "UQ_0074",
+      "canonical_event_id": "CE3_0490a87a5e911e031fbde67e",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 74
+    },
+    {
+      "queue_id": "UQ_0075",
+      "canonical_event_id": "CE3_04ad4c58a2a063205ca29e8b",
+      "event_thread_id": "ETF_50790ce65862b74b",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 75
+    },
+    {
+      "queue_id": "UQ_0076",
+      "canonical_event_id": "CE3_04b0a72c426dceb2fa6a9b7b",
+      "event_thread_id": "ETF_9c30633c8c3b9398",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 76
+    },
+    {
+      "queue_id": "UQ_0077",
+      "canonical_event_id": "CE3_04bb2071c09c387239dcffff",
+      "event_thread_id": "ETF_e44cfab8a6539d7e",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 77
+    },
+    {
+      "queue_id": "UQ_0078",
+      "canonical_event_id": "CE3_0501e4f8fa476be055d1f962",
+      "event_thread_id": "ETF_dd046b8e44bebd17",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 78
+    },
+    {
+      "queue_id": "UQ_0079",
+      "canonical_event_id": "CE3_050e55c17e601a34c687fd76",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 79
+    },
+    {
+      "queue_id": "UQ_0080",
+      "canonical_event_id": "CE3_0515cdf493d29e28d2231795",
+      "event_thread_id": "ETF_90d3d437607d539e",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 80
+    },
+    {
+      "queue_id": "UQ_0081",
+      "canonical_event_id": "CE3_0534546113e7b9ab42c7634a",
+      "event_thread_id": "ETF_e17d79481f31f828",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 81
+    },
+    {
+      "queue_id": "UQ_0082",
+      "canonical_event_id": "CE3_053c2eba5e1f18017709fd14",
+      "event_thread_id": "ETF_02086054566d30f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 82
+    },
+    {
+      "queue_id": "UQ_0083",
+      "canonical_event_id": "CE3_0551aec1ed59b6a6f165eb2b",
+      "event_thread_id": "ETF_0eb40991ad0e82f0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 83
+    },
+    {
+      "queue_id": "UQ_0084",
+      "canonical_event_id": "CE3_055b3d6024f2b57349df32d4",
+      "event_thread_id": "ETF_167e9fff83d2a137",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 84
+    },
+    {
+      "queue_id": "UQ_0085",
+      "canonical_event_id": "CE3_057235341c865360c7e19d4d",
+      "event_thread_id": "ETF_0344b1c7dc42eff0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 85
+    },
+    {
+      "queue_id": "UQ_0086",
+      "canonical_event_id": "CE3_0593a7413329b8df89b77979",
+      "event_thread_id": "ETF_4ff60fab51728af7",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 86
+    },
+    {
+      "queue_id": "UQ_0087",
+      "canonical_event_id": "CE3_05ae8213c460db42bbfa62c0",
+      "event_thread_id": "ETF_941e64f96f591076",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 87
+    },
+    {
+      "queue_id": "UQ_0088",
+      "canonical_event_id": "CE3_05cd3da1d5a1b0bff35d0715",
+      "event_thread_id": "ETF_dded362745e379a3",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 88
+    },
+    {
+      "queue_id": "UQ_0089",
+      "canonical_event_id": "CE3_05d115f703173e60ff5f2201",
+      "event_thread_id": "ETF_3320e46febd0ac4b",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 89
+    },
+    {
+      "queue_id": "UQ_0090",
+      "canonical_event_id": "CE3_05ed6fadd96517e9511f0c1b",
+      "event_thread_id": "ETF_e9d31ae26f9fa80d",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 90
+    },
+    {
+      "queue_id": "UQ_0091",
+      "canonical_event_id": "CE3_05fd5bba04085397b6ba0797",
+      "event_thread_id": "ETF_58f2690660c099d0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 91
+    },
+    {
+      "queue_id": "UQ_0092",
+      "canonical_event_id": "CE3_06008ffad6d267b1b8155995",
+      "event_thread_id": "ETF_6ad2382fa615129a",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 92
+    },
+    {
+      "queue_id": "UQ_0093",
+      "canonical_event_id": "CE3_060f534b0e75202e359dfa54",
+      "event_thread_id": "ETF_c691c27cd6eacf2a",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 93
+    },
+    {
+      "queue_id": "UQ_0094",
+      "canonical_event_id": "CE3_060f98101bd0d973dcc9618f",
+      "event_thread_id": "ETF_e6f71d1c6f4a6411",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 94
+    },
+    {
+      "queue_id": "UQ_0095",
+      "canonical_event_id": "CE3_061b06d3329db4e49d62da4d",
+      "event_thread_id": "ETF_2bc2a22d89df295c",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 95
+    },
+    {
+      "queue_id": "UQ_0096",
+      "canonical_event_id": "CE3_061d0e45a3a19c5582ba5ad5",
+      "event_thread_id": "ETF_c511c00c1ad9bcb0",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 96
+    },
+    {
+      "queue_id": "UQ_0097",
+      "canonical_event_id": "CE3_062320a685f3eaaf66b2c872",
+      "event_thread_id": "ETF_e42394a096a05904",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 97
+    },
+    {
+      "queue_id": "UQ_0098",
+      "canonical_event_id": "CE3_063cd23b2a805efea663eba1",
+      "event_thread_id": "ETF_03fd23e8751af41c",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 98
+    },
+    {
+      "queue_id": "UQ_0099",
+      "canonical_event_id": "CE3_0653c3a33445d52f17741fe9",
+      "event_thread_id": "ETF_5d005bec13790d09",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 99
+    },
+    {
+      "queue_id": "UQ_0100",
+      "canonical_event_id": "CE3_0655693e99f0cbd32f680226",
+      "event_thread_id": "ETF_c6772d1d2979de16",
+      "review_reason": "read_only_stage4_audit_or_low_confidence_boundary_case",
+      "queue_source": "stage4_1_read_only_audit_layer",
+      "verification_status": "not_human_gold",
+      "priority_rank": 100
+    }
+  ]
+}

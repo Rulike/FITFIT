@@ -1,0 +1,62 @@
+{
+  "interface_name": "task3_to_task4_joint_query",
+  "mode": "read_only_json_contract",
+  "inputs": {
+    "article_id": "optional",
+    "canonical_event_id": "optional",
+    "event_thread_id": "optional"
+  },
+  "outputs": {
+    "task3_evidence": [
+      "canonical_event_id",
+      "event_thread_id",
+      "current_state_type",
+      "trust_score"
+    ],
+    "task4_formal_prediction": [
+      "validity_model",
+      "direction_model",
+      "formal_metric_scope"
+    ],
+    "task4_prototype_alert": [
+      "severity",
+      "alert_priority",
+      "label_source",
+      "verification_status"
+    ]
+  },
+  "examples": [
+    {
+      "canonical_event_id": "CE3_000154bad02264b0f0d6607d",
+      "event_thread_id": "ETF_2aa124858ccef90a",
+      "task3": {
+        "canonical_event_id": "CE3_000154bad02264b0f0d6607d",
+        "event_thread_id": "ETF_2aa124858ccef90a",
+        "current_state_type": "completion",
+        "trust_score": 0.71568
+      },
+      "task4_formal_prediction_contract": {
+        "validity_model": "V4",
+        "direction_model": "D2-hierarchical"
+      },
+      "task4_prototype_alert_contract": {
+        "card_id": "IAC_P01",
+        "task4_sample_id": "T4S_6499b361cded112f93732bd0",
+        "title": "财政部重磅报告发布，2026年不再提“ 大规模置换、一揽子化债 ”",
+        "event_name": "化债政策",
+        "direct_text_evidence": "正文：‘2万亿元置换债券发行完毕，一揽子化债政策落地，坚决遏制新增隐性债务。’",
+        "severity": "S3",
+        "alert_priority": "A2",
+        "impact_scope": "跨行业或宏观",
+        "urgency": "U3",
+        "duration": "D4",
+        "evidence_quote": "2万亿元置换债券发行完毕，一揽子化债政策落地，坚决遏制新增隐性债务。",
+        "reason": "化债政策规模大且影响长期财政风险，但证据显示政策已经落地，并非即时经营危机，因此严重度高于预警紧迫度。",
+        "prototype_confidence": "high",
+        "label_source": "agent_assisted_prototype",
+        "verification_status": "not_human_gold",
+        "display_tier": "product_demo_only"
+      }
+    }
+  ]
+}

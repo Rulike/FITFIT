@@ -1,0 +1,30 @@
+{
+  "status": "task4_core_complete_alert_prototype_only",
+  "formal_prediction_chain": {
+    "validity_model": "V4",
+    "direction_model": "D2-hierarchical",
+    "stage3_2_role": "formal_supervised_prediction_main_chain",
+    "stage4_1_role": "read_only_evidence_audit_and_manual_review_ranking",
+    "stage4_1_claim_predictive_gain": false
+  },
+  "formal_evaluation_scope": [
+    "Validity",
+    "Impact Direction"
+  ],
+  "product_demo_scope": [
+    "Severity",
+    "Alert Priority"
+  ],
+  "prediction_pool": {
+    "predicted_observation_count": 3639,
+    "event_interface_count": 3637
+  },
+  "frozen_metrics_snapshot": {
+    "validity_test_precision": 0.400562851782364,
+    "validity_test_recall": 0.8732106339468303,
+    "validity_test_f1": 0.5491961414790997,
+    "direction_macro_f1": 0.5561049432140054,
+    "direction_balanced_accuracy": 0.6081763860524924
+  },
+  "prototype_alert_cards_count": 22
+}

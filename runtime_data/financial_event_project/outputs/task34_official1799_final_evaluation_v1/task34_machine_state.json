@@ -1,0 +1,18 @@
+{
+  "prediction_frozen": true,
+  "training": false,
+  "tuning": false,
+  "test_evaluation_count": 1,
+  "label_used_before_prediction": false,
+  "official_test_sha256": "054fc9ca1c9da9a81f9382978d040d56be3f3b5d71ee62002119f9913fb87a22",
+  "task3_A_sha256": "3a44539011e575e655b83e91d3f927dbe13cd56f35633fa7ca2843864f5383b3",
+  "task3_B_sha256": "9105b82b67c5c18e339c557e81baf1f974684960ed7043da7692ba236b66f2a9",
+  "task4_A_sha256": "ecb2af9c6dacf925de6afb70784a2b2b52d895328c96d92a99159968eb838ff6",
+  "task4_B_sha256": "3d9a07be79765879ded4580a53a0ba5db7d8267e158264609454989facae6d8c",
+  "task3_final_gold_rows": 1799,
+  "task4_final_gold_rows": 1799,
+  "severity_eval_eligible_rows": 741,
+  "task3_adjudication_records": 375,
+  "task4_adjudication_records": 0,
+  "output_dir": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/task34_official1799_final_evaluation_v1"
+}

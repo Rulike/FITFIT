@@ -1,0 +1,176 @@
+{
+  "task3": {
+    "structured_event_valid_accuracy": 0.9549749861033908,
+    "target_grounding_accuracy": 0.8971650917176209,
+    "event_grounding_accuracy": 0.802668148971651,
+    "evidence_grounding_accuracy": 1.0,
+    "pairwise": {
+      "n": 3377,
+      "precision": 0.9817073170731707,
+      "recall": 0.5897435897435898,
+      "f1": 0.736842105263158,
+      "tp": 161,
+      "fp_false_merge": 3,
+      "fn_split_error": 112
+    },
+    "b3": {
+      "n": 1799,
+      "precision": 0.9992588475078747,
+      "recall": 0.7284787845099129,
+      "f1": 0.8426497833391159
+    },
+    "false_merge": 3,
+    "split_error": 112,
+    "coverage_gap_gold_same_pairs_not_in_candidate_set": 980,
+    "gold_same_pairs_all_universe": 1253,
+    "gold_same_pairs_in_candidate_set": 273,
+    "singleton_accuracy": 0.6064480266814897,
+    "candidate_recall": 0.21787709497206703,
+    "candidate_reduction": 0.0020880466901337475,
+    "uncertain_rate": 0.014213799230085875,
+    "pair_predictions_path": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/task34_official1799_final_evaluation_v1/locked_predictions/resolver_v2_pair_decisions.jsonl"
+  },
+  "task4": {
+    "independent": {
+      "severity": {
+        "n": 741,
+        "qwk": 0.31107151158286206,
+        "mae": 0.6234817813765182,
+        "spearman": 0.2552806221106354,
+        "plus_minus_1_accuracy": 0.9730094466936572,
+        "high_severity_precision": 0.48148148148148145,
+        "high_severity_recall": 0.7222222222222222,
+        "high_severity_f1": 0.5777777777777777,
+        "high_severity_support": 18,
+        "confusion_matrix_1_to_5": [
+          [
+            302,
+            0,
+            1,
+            1,
+            2
+          ],
+          [
+            391,
+            4,
+            9,
+            8,
+            3
+          ],
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            3,
+            1,
+            0,
+            6,
+            0
+          ]
+        ]
+      },
+      "direction": {
+        "n": 741,
+        "macro_f1": 0.20348014513300786,
+        "label_order": [
+          "positive",
+          "negative",
+          "neutral",
+          "mixed",
+          "uncertain"
+        ]
+      },
+      "eligible_rows": 741
+    },
+    "end_to_end": {
+      "full_1799_route_distribution": {
+        "review": 949,
+        "covered": 613,
+        "suppress": 141,
+        "abstain": 81,
+        "alert": 15
+      },
+      "coverage_rate": 0.349082823790995,
+      "abstain_rate": 0.04502501389660923,
+      "suppress_rate": 0.07837687604224569,
+      "review_rate": 0.5275152862701501,
+      "alert_rate": 0.008337965536409116,
+      "eligible_rows": 741,
+      "eligible_covered_rows": 483,
+      "eligible_coverage_recall": 0.6518218623481782,
+      "covered_eligible_severity": {
+        "n": 483,
+        "qwk": 0.1904800010669654,
+        "mae": 0.6149068322981367,
+        "spearman": 0.22886411183720162,
+        "plus_minus_1_accuracy": 0.968944099378882,
+        "high_severity_precision": 0.23076923076923078,
+        "high_severity_recall": 0.375,
+        "high_severity_f1": 0.2857142857142857,
+        "high_severity_support": 8,
+        "confusion_matrix_1_to_5": [
+          [
+            208,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            248,
+            1,
+            8,
+            7,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            3,
+            0
+          ],
+          [
+            3,
+            1,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "covered_eligible_direction": {
+        "n": 483,
+        "macro_f1": 0.18737931034482758,
+        "label_order": [
+          "positive",
+          "negative",
+          "neutral",
+          "mixed",
+          "uncertain"
+        ]
+      },
+      "eligible_high_severity_e2e_precision": 0.23076923076923078,
+      "eligible_high_severity_e2e_recall": 0.16666666666666666,
+      "eligible_high_severity_e2e_f1": 0.1935483870967742
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "ai_label_version_frozen": "247ec6f086634a7b2b1e553695d2a3f30c6f1c04abedc5ed1f363ea1fd714cd9",
+  "calibrator_frozen": true,
+  "code_sha256": "7228c42a3d930047d93d42a74657e62eba569d4220d950cb5828e4d113d01828",
+  "data_split_frozen": true,
+  "dataset_id": "task2_sixdim_ai_fusion_v2",
+  "feature_definition_frozen": true,
+  "frozen_at": "2026-08-29T00:48:14+08:00",
+  "locked_holdout_read_count_planned": 1,
+  "model_parameters_frozen": true,
+  "selected_model": "all_six_meta",
+  "sixdim_prompt_frozen": "b683fddc70f37cbbb85ac77fc3004bd1c6bbff9e650bc1a390dd09a5d295fc18",
+  "sixdim_scores_frozen": "8615465cc0afcf769a6e8a536b135aae8d7237792b1183bc1c836962634139d4",
+  "weights_frozen": "0f44b5d6a2a4da0b2e667c929646d16f835bcb1f3c4618933eef9f31ad35b3d3"
+}

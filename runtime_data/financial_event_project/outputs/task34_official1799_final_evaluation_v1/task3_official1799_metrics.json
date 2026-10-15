@@ -1,0 +1,106 @@
+{
+  "structured_event_valid_accuracy": 0.9549749861033908,
+  "target_grounding_accuracy": 0.8971650917176209,
+  "event_grounding_accuracy": 0.802668148971651,
+  "evidence_grounding_accuracy": 1.0,
+  "pairwise": {
+    "n": 3377,
+    "precision": 0.9817073170731707,
+    "recall": 0.5897435897435898,
+    "f1": 0.736842105263158,
+    "tp": 161,
+    "fp_false_merge": 3,
+    "fn_split_error": 112
+  },
+  "b3": {
+    "n": 1799,
+    "precision": 0.9992588475078747,
+    "recall": 0.7284787845099129,
+    "f1": 0.8426497833391159
+  },
+  "false_merge": 3,
+  "split_error": 112,
+  "coverage_gap_gold_same_pairs_not_in_candidate_set": 980,
+  "gold_same_pairs_all_universe": 1253,
+  "gold_same_pairs_in_candidate_set": 273,
+  "singleton_accuracy": 0.6064480266814897,
+  "candidate_recall": 0.21787709497206703,
+  "candidate_reduction": 0.0020880466901337475,
+  "uncertain_rate": 0.014213799230085875,
+  "pair_predictions_path": "/opt/data/private/JinRong/kechuang/financial_event_project/outputs/task34_official1799_final_evaluation_v1/locked_predictions/resolver_v2_pair_decisions.jsonl",
+  "input_rows": 1799,
+  "unique_content_rows": 1643,
+  "duplicate_rows_reused": 156,
+  "missing_content_rows": 0,
+  "contract_pass_rows_unique": 1562,
+  "contract_quarantine_rows_unique": 81,
+  "grounding_pass_rows_unique": 703,
+  "grounding_pass_rate_unique": 0.427876,
+  "accepted_rows": 628,
+  "rejected_rows": 81,
+  "review_rows": 75,
+  "uncovered_rows": 859,
+  "accepted_to_main_graph": 628,
+  "review_event_mentions": 75,
+  "trusted_event_mentions": 628,
+  "trusted_canonical_events": 522,
+  "review_canonical_events": 54,
+  "official_canonical_events_total": 576,
+  "official1799_processing_status_counts": {
+    "grounding_failed": 859,
+    "accepted_to_main_graph": 628,
+    "quarantine": 81,
+    "review": 75,
+    "duplicate_of": 156
+  },
+  "contract_status_counts_unique": {
+    "pass": 1562,
+    "quarantine": 81
+  },
+  "pair_decision_counts": {
+    "different_event": 3165,
+    "same_event": 164,
+    "uncertain": 48
+  },
+  "main_failure_reasons": {
+    "grounding_failed": 859,
+    "quarantine": 81,
+    "review": 75,
+    "duplicate_of": 156
+  },
+  "pair_classification": {
+    "accuracy": 0.9517323067811667,
+    "macro_f1": 0.5702803827242376,
+    "label_order": [
+      "same_event",
+      "different_event",
+      "uncertain"
+    ],
+    "confusion_matrix": [
+      [
+        161,
+        112,
+        0
+      ],
+      [
+        3,
+        3053,
+        48
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "gold_distribution": {
+      "different_event": 3104,
+      "same_event": 273
+    },
+    "pred_distribution": {
+      "different_event": 3165,
+      "same_event": 164,
+      "uncertain": 48
+    }
+  }
+}
